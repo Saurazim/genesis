@@ -1,4 +1,4 @@
-package com.cocorette.genesis.essai.model;
+package com.cocorette.genesis.z_essai.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

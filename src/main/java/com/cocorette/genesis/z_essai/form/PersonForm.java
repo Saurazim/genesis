@@ -1,4 +1,4 @@
-package com.cocorette.genesis.essai.form;
+package com.cocorette.genesis.z_essai.form;
 
 public class PersonForm {
     private String firstName;

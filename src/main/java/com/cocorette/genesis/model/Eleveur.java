@@ -2,7 +2,7 @@ package com.cocorette.genesis.model;
 
 import java.util.List;
 
-public class Proprietaire {
+public class Eleveur {
     private int id;
     private String prenom;
     private String nom;
@@ -13,7 +13,7 @@ public class Proprietaire {
     //FIXME transient?
     private List<Entreprise> entreprises;
 
-    public Proprietaire(){}
+    public Eleveur(){}
 
     public int getId() {
         return id;

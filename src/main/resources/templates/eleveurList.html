@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Eleveurs</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <h1>Liste des éleveurs</h1>
+    <a href="#">Ajouter un Eleveur</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Téléphone fixe</th>
+                <th>Téléphone Portable</th>
+                <th>Fax</th>
+            </tr>
+            <tr th:each="eleveur : ${eleveur}">
+                <td th:utext="${eleveur.nom}">...</td>
+                <td th:utext="${eleveur.prenom}">...</td>
+                <td th:utext="${eleveur.email}">...</td>
+                <td th:utext="${eleveur.telFixe}">...</td>
+                <td th:utext="${eleveur.telPort}">...</td>
+                <td th:utext="${eleveur.fax}">...</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
-package com.cocorette.genesis.essai.controller;
+package com.cocorette.genesis.z_essai.controller;
 
-import com.cocorette.genesis.essai.model.Person;
-import com.cocorette.genesis.essai.form.PersonForm;
+import com.cocorette.genesis.z_essai.model.Person;
+import com.cocorette.genesis.z_essai.form.PersonForm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,14 +33,14 @@ public class MainController {
     public String index(Model model){
         model.addAttribute("message",message);
 
-        return "index";
+        return "essai/index";
     }
 
     @GetMapping("/personList")
     public String personList(Model model){
         model.addAttribute("people", people);
 
-        return "personList";
+        return "essai/personList";
     }
 
     @GetMapping("/addPerson")
@@ -48,7 +48,7 @@ public class MainController {
         PersonForm form = new PersonForm();
         model.addAttribute("personForm",form);
 
-        return "addPerson";
+        return "essai/addPerson";
     }
 
     @PostMapping("/addPerson")
@@ -60,10 +60,10 @@ public class MainController {
             Person newPerson = new Person(firstName,lastName);
             people.add(newPerson);
 
-            return "redirect:/personList";
+            return "redirect:/essai/personList";
         }
 
         model.addAttribute("errorMessage", errorMessage);
-        return "addPerson";
+        return "essai/addPerson";
     }
 }

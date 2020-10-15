@@ -18,7 +18,7 @@ public class Entreprise {
     private String telPort;
     private String fax;
     //FIXME transient ?
-    private Proprietaire proprietaire;
+    private Eleveur eleveur;
     private List<Batiment> batiments;
 
     public Entreprise(){}
@@ -103,12 +103,12 @@ public class Entreprise {
         this.fax = fax;
     }
 
-    public Proprietaire getProprietaire() {
-        return proprietaire;
+    public Eleveur getProprietaire() {
+        return eleveur;
     }
 
-    public void setProprietaire(Proprietaire proprietaire) {
-        this.proprietaire = proprietaire;
+    public void setProprietaire(Eleveur eleveur) {
+        this.eleveur = eleveur;
     }
 
     public List<Batiment> getBatiments() {
