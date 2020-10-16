@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Eleveur</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/eleveur_view.css}">
+</head>
+
+<body>
+<nav></nav>
+<section class="row fondblanc">
+  <h3 th:utext="${eleveur.prenom+' '+eleveur.nom}">..!..</h3>
+  <h6>Groupe technique</h6>
+  <div class="section-container tabs">
+    <section>
+      <h5 class="title">
+        <a href="#">Informations</a>
+      </h5>
+      <div class="content">
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Prenom</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.prenom}">..!..</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Nom</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.nom}">..!..</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Email</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.mail}">..!..</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Téléphone fixe</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.telFixe}">..!..</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Téléphone Portable</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.telPort}">..!..</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Fax</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.fax}">..!..</label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+</body>
+
+</html>

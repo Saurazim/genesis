@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
 <head>
     <meta charset="UTF-8">
     <title>Liste des Eleveurs</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
 </head>
+
 <body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Eleveurs</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
     <h1>Liste des éleveurs</h1>
-    <a href="#">Ajouter un Eleveur</a>
+    <a th:href="@{/addEleveur}">Ajouter un Eleveur</a>
     <div>
         <table border="1">
             <tr>
@@ -19,15 +33,17 @@
                 <th>Téléphone Portable</th>
                 <th>Fax</th>
             </tr>
-            <tr th:each="eleveur : ${eleveur}">
+            <tr th:each="eleveur : ${eleveurs}">
                 <td th:utext="${eleveur.nom}">...</td>
                 <td th:utext="${eleveur.prenom}">...</td>
-                <td th:utext="${eleveur.email}">...</td>
+                <td th:utext="${eleveur.mail}">...</td>
                 <td th:utext="${eleveur.telFixe}">...</td>
                 <td th:utext="${eleveur.telPort}">...</td>
                 <td th:utext="${eleveur.fax}">...</td>
             </tr>
         </table>
     </div>
+</section>
 </body>
+
 </html>

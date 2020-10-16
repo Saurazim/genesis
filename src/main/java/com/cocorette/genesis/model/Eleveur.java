@@ -1,8 +1,12 @@
 package com.cocorette.genesis.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Eleveur {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String prenom;
     private String nom;
@@ -10,10 +14,15 @@ public class Eleveur {
     private String telFixe;
     private String telPort;
     private String fax;
-    //FIXME transient?
+    @Transient
     private List<Entreprise> entreprises;
 
     public Eleveur(){}
+
+    public Eleveur(String prenom, String nom) {
+        this.prenom = prenom;
+        this.nom = nom;
+    }
 
     public int getId() {
         return id;

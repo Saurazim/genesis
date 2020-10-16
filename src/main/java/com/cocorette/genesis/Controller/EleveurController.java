@@ -1,12 +1,15 @@
-package com.cocorette.genesis.Controller;
+package com.cocorette.genesis.controller;
 
+import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.form.EleveurForm;
 import com.cocorette.genesis.model.Eleveur;
 import com.cocorette.genesis.service.EleveurService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -14,6 +17,9 @@ import java.util.List;
 
 @Controller
 public class EleveurController {
+    @Autowired
+    EleveurService eleveurService;
+
     private static List<Eleveur> eleveurs = new ArrayList<>();
 
     static {
@@ -22,6 +28,8 @@ public class EleveurController {
         e1.setPrenom("Pascal");
         e1.setMail("plemaire@cocorette.fr");
         e1.setTelFixe("###########");
+        e1.setTelPort("###########");
+        e1.setFax("###########");
 
         Eleveur e2 = new Eleveur();
         e2.setNom("Le Gall");
@@ -35,6 +43,8 @@ public class EleveurController {
 
     @GetMapping("/eleveurList")
     public String eleveurList(Model model){
+        model.addAttribute("eleveurs",eleveurs);
+
         return "eleveurList";
     }
 
@@ -52,12 +62,20 @@ public class EleveurController {
         String prenom = form.getPrenom();
 
         if(!nom.isBlank() && !prenom.isBlank()){
-            Eleveur e = EleveurService.eleveurFormToEntity(form);
+            Eleveur e = EleveurConvert.eleveurFormToEntity(form);
             eleveurs.add(e);
             return "redirect:/eleveurList";
         }
 
         model.addAttribute("erreur", erreur);
         return "addEleveur";
+    }
+
+    @GetMapping("/eleveur/{id}")
+    public String viewEleveur(Model model, @PathVariable int id){
+        EleveurForm form = eleveurService.findEleveurForm(id);
+
+        model.addAttribute("eleveur",form);
+        return "eleveurView";
     }
 }

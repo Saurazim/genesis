@@ -1,0 +1,35 @@
+body {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 62.5rem;
+}
+
+.large-6 {
+    width: 50%;
+}
+
+.large-9 {
+    position: relative;
+    width: 100%;
+}
+
+section {
+    display: block;
+}
+
+.columns {
+    position: relative;
+    float: left;
+}
+
+.fondblanc {
+    border-radius: 20px;
+    background-color: red;
+}
