@@ -12,19 +12,34 @@
 <a th:href="@{/eleveurList}">Retour à la liste des éleveurs</a>
 <h1>Créer un nouvel éleveur</h1>
 <form th:action="@{/addEleveur}" th:object="${form}" method="POST">
-    <label>Nom*</label>
-    <input type="text" th:field="*{nom}">
-    <label>Prénom*</label>
-    <input type="text" th:field="*{prenom}">
-    <label>Email</label>
-    <input type="text" th:field="*{mail}">
-    <label>Téléphone fixe</label>
-    <input type="text" th:field="*{telFixe}">
-    <label>Téléphone Portable</label>
-    <input type="text" th:field="*{telPort}">
-    <label>Fax</label>
-    <input type="text" th:field="*{fax}">
-    <input type="submit" value="Créer">
+    <div>
+        <h2>Informations</h2>
+        <label>Nom*</label>
+        <input type="text" th:field="*{nom}">
+        <label>Prénom*</label>
+        <input type="text" th:field="*{prenom}">
+        <label>Email</label>
+        <input type="text" th:field="*{mail}">
+        <label>Téléphone fixe</label>
+        <input type="text" th:field="*{telFixe}">
+        <label>Téléphone Portable</label>
+        <input type="text" th:field="*{telPort}">
+        <label>Fax</label>
+        <input type="text" th:field="*{fax}">
+        <input type="submit" value="Créer">
+    </div>
+    <div>
+        <h2>Adresse</h2>
+        <label>Rue</label>
+        <input type="text" th:field="*{rue}">
+        <label>Code Postal</label>
+        <input type="text" th:field="*{codePostal}">
+        <label>Ville</label>
+        <input type="text" th:field="*{ville}">
+        <label>Pays</label>
+        <input type="text" th:field="*{pays}">
+    </div>
+
 </form>
 <div th:if="${erreur}" th:utext="${erreur}">
     ...

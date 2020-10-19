@@ -7,6 +7,11 @@ public class EleveurForm {
     private String telFixe;
     private String telPort;
     private String fax;
+    private String rue;
+    private int codePostal;
+    private String ville;
+    private String pays;
+    private String adresse;
 
     public String getPrenom() {
         return prenom;
@@ -53,6 +58,68 @@ public class EleveurForm {
     }
 
     public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getRue() {
+        return rue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public int getCodePostal() {
+        return codePostal;
+    }
+
+    public void setCodePostal(int codePostal) {
+        this.codePostal = codePostal;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setAdresse(){
+        this.adresse = this.rue
+                +", "+this.codePostal
+                +" "+this.ville
+                +", "+this.pays;
+    }
+
+    public void setAdresse(String rue, int codePostal, String ville, String pays){
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.pays = pays;
+        this.setAdresse();
+    }
+
+    public void setContact(String mail, String telFixe, String telPort, String fax){
+        this.mail = mail;
+        this.telFixe = telFixe;
+        this.telPort = telPort;
         this.fax = fax;
     }
 }

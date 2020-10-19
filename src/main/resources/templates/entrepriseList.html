@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Entreprises</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+</head>
+<body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Eleveurs</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
+    <h1>Liste des Entreprises</h1>
+    <a th:href="@{/addEntreprise}">Ajouter une entreprise</a>
+    <div>
+        <table border="1">
+            <tr></tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>

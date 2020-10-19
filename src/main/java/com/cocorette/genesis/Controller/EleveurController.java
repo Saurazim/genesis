@@ -2,7 +2,8 @@ package com.cocorette.genesis.controller;
 
 import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.form.EleveurForm;
-import com.cocorette.genesis.model.Eleveur;
+import com.cocorette.genesis.model.ContactEntity;
+import com.cocorette.genesis.model.EleveurEntity;
 import com.cocorette.genesis.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,30 +21,32 @@ public class EleveurController {
     @Autowired
     EleveurService eleveurService;
 
-    private static List<Eleveur> eleveurs = new ArrayList<>();
+    private static List<EleveurEntity> eleveurEntities = new ArrayList<>();
 
     static {
-        Eleveur e1 = new Eleveur();
+        EleveurEntity e1 = new EleveurEntity();
+        ContactEntity c = new ContactEntity();
         e1.setNom("Lemaire");
         e1.setPrenom("Pascal");
-        e1.setMail("plemaire@cocorette.fr");
-        e1.setTelFixe("###########");
-        e1.setTelPort("###########");
-        e1.setFax("###########");
+        c.setMail("plemaire@cocorette.fr");
+        c.setTelFixe("###########");
+        c.setTelPort("###########");
+        c.setFax("###########");
+        e1.setContactEntity(c);
 
-        Eleveur e2 = new Eleveur();
+        EleveurEntity e2 = new EleveurEntity();
         e2.setNom("Le Gall");
         e2.setPrenom("Hervé");
 
-        eleveurs.add(e1);
-        eleveurs.add(e2);
+        eleveurEntities.add(e1);
+        eleveurEntities.add(e2);
     }
 
     private String erreur = "Le nom et le prénom doivent être remplis";
 
     @GetMapping("/eleveurList")
     public String eleveurList(Model model){
-        model.addAttribute("eleveurs",eleveurs);
+        model.addAttribute("eleveurs", eleveurEntities);
 
         return "eleveurList";
     }
@@ -62,8 +65,10 @@ public class EleveurController {
         String prenom = form.getPrenom();
 
         if(!nom.isBlank() && !prenom.isBlank()){
-            Eleveur e = EleveurConvert.eleveurFormToEntity(form);
-            eleveurs.add(e);
+            EleveurEntity e = EleveurConvert.eleveurFormToEntity(form);
+            eleveurService.saveEleveur(e);
+
+            eleveurEntities.add(e);
             return "redirect:/eleveurList";
         }
 

@@ -2,7 +2,7 @@ package com.cocorette.genesis.model;
 
 import java.time.LocalDate;
 
-public class Lot {
+public class LotEntity {
     private int id;
     private String codeOeuf;
     private int dureeProdTheorique;

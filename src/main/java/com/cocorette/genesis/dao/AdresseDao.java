@@ -1,9 +1,9 @@
 package com.cocorette.genesis.dao;
 
-import com.cocorette.genesis.model.EleveurEntity;
+import com.cocorette.genesis.model.AdresseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EleveurDao extends JpaRepository<EleveurEntity, Integer> {
+public interface AdresseDao extends JpaRepository<AdresseEntity, Integer> {
 }
