@@ -4,12 +4,11 @@ import java.util.HashMap;
 
 public class EntrepriseBo {
     private String ede;
-    private int veterinaireId;
-    private int centreId;
+    private CentreBo centreBo;
     private AdresseBo adresseBo;
     private ContactBo contactBo;
-    private HashMap<Integer,String> Eleveur;
-    private HashMap<Integer,String> Batiments;
+    private EleveurBo eleveurBo;
+
 
     public String getEde() {
         return ede;
@@ -19,20 +18,12 @@ public class EntrepriseBo {
         this.ede = ede;
     }
 
-    public int getVeterinaireId() {
-        return veterinaireId;
+    public CentreBo getCentreBo() {
+        return centreBo;
     }
 
-    public void setVeterinaireId(int veterinaireId) {
-        this.veterinaireId = veterinaireId;
-    }
-
-    public int getCentreId() {
-        return centreId;
-    }
-
-    public void setCentreId(int centreId) {
-        this.centreId = centreId;
+    public void setCentreBo(CentreBo centreBo) {
+        this.centreBo = centreBo;
     }
 
     public AdresseBo getAdresseBo() {
@@ -51,19 +42,11 @@ public class EntrepriseBo {
         this.contactBo = contactBo;
     }
 
-    public HashMap<Integer, String> getEleveur() {
-        return Eleveur;
+    public EleveurBo getEleveurBo() {
+        return eleveurBo;
     }
 
-    public void setEleveur(HashMap<Integer, String> eleveur) {
-        Eleveur = eleveur;
-    }
-
-    public HashMap<Integer, String> getBatiments() {
-        return Batiments;
-    }
-
-    public void setBatiments(HashMap<Integer, String> batiments) {
-        Batiments = batiments;
+    public void setEleveurBo(EleveurBo eleveurBo) {
+        this.eleveurBo = eleveurBo;
     }
 }

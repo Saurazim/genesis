@@ -26,7 +26,6 @@
         <input type="text" th:field="*{telPort}">
         <label>Fax</label>
         <input type="text" th:field="*{fax}">
-        <input type="submit" value="Créer">
     </div>
     <div>
         <h2>Adresse</h2>
@@ -39,7 +38,7 @@
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
     </div>
-
+    <input type="submit" value="Créer">
 </form>
 <div th:if="${erreur}" th:utext="${erreur}">
     ...

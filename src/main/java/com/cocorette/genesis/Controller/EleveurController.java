@@ -21,32 +21,35 @@ public class EleveurController {
     @Autowired
     EleveurService eleveurService;
 
-    private static List<EleveurEntity> eleveurEntities = new ArrayList<>();
+    private static List<EleveurForm> eleveurForms = new ArrayList<>();
 
     static {
-        EleveurEntity e1 = new EleveurEntity();
-        ContactEntity c = new ContactEntity();
+        EleveurForm e1 = new EleveurForm();
         e1.setNom("Lemaire");
         e1.setPrenom("Pascal");
-        c.setMail("plemaire@cocorette.fr");
-        c.setTelFixe("###########");
-        c.setTelPort("###########");
-        c.setFax("###########");
-        e1.setContactEntity(c);
+        e1.setMail("plemaire@cocorette.fr");
+        e1.setTelFixe("###########");
+        e1.setTelPort("###########");
+        e1.setFax("###########");
+        e1.setRue("XXXX");
+        e1.setCodePostal(99999);
+        e1.setVille("XXXX");
+        e1.setPays("France");
+        e1.setAdresse();
 
-        EleveurEntity e2 = new EleveurEntity();
+        EleveurForm e2 = new EleveurForm();
         e2.setNom("Le Gall");
         e2.setPrenom("Hervé");
 
-        eleveurEntities.add(e1);
-        eleveurEntities.add(e2);
+        eleveurForms.add(e1);
+        eleveurForms.add(e2);
     }
 
     private String erreur = "Le nom et le prénom doivent être remplis";
 
-    @GetMapping("/eleveurList")
+    @GetMapping("/eleveurs")
     public String eleveurList(Model model){
-        model.addAttribute("eleveurs", eleveurEntities);
+        model.addAttribute("eleveurs", eleveurForms);
 
         return "eleveurList";
     }
@@ -65,10 +68,9 @@ public class EleveurController {
         String prenom = form.getPrenom();
 
         if(!nom.isBlank() && !prenom.isBlank()){
-            EleveurEntity e = EleveurConvert.eleveurFormToEntity(form);
-            eleveurService.saveEleveur(e);
+            eleveurService.saveEleveur(form);
 
-            eleveurEntities.add(e);
+            eleveurForms.add(form);
             return "redirect:/eleveurList";
         }
 

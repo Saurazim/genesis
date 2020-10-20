@@ -33,9 +33,19 @@ public class EleveurService {
         return forms;
     }
 
-    public void saveEleveur(EleveurEntity entity){
-        eleveurDao.save(entity);
+    public void saveEleveur(EleveurForm entity){
+        eleveurDao.save(EleveurConvert.eleveurFormToEntity(entity));
     }
 
+    public void saveAllEleveurs(List<EleveurForm> eleveurForms){
+        List<EleveurEntity> eleveurEntities = new ArrayList<>();
+
+        for (EleveurForm form : eleveurForms){
+            EleveurEntity entity = EleveurConvert.eleveurFormToEntity(form);
+            eleveurEntities.add(entity);
+        }
+
+        eleveurDao.saveAll(eleveurEntities);
+    }
 
 }

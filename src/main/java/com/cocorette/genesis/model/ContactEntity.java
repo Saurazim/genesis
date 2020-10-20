@@ -1,6 +1,11 @@
 package com.cocorette.genesis.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ContactEntity {
+    @Id
     private int id;
     private String mail;
     private String telFixe;

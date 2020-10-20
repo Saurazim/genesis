@@ -3,12 +3,18 @@ package com.cocorette.genesis.bo;
 
 
 public class EleveurBo {
+    private int id;
     private String prenom;
     private String nom;
     private AdresseBo adresseBo;
     private ContactBo contactBo;
 
+    public EleveurBo(){}
 
+    public EleveurBo(int id, String prenom, String nom) {
+        this.prenom = prenom;
+        this.nom = nom;
+    }
 
     public String getPrenom() {
         return prenom;

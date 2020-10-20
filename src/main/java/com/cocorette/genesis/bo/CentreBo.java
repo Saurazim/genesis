@@ -1,6 +1,7 @@
 package com.cocorette.genesis.bo;
 
 public class CentreBo {
+    private int id;
     private String name;
     private float longitude;
     private float latitude;
@@ -11,10 +12,23 @@ public class CentreBo {
         this.name = name;
     }
 
+    public CentreBo(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public CentreBo(String name, float longitude, float latitude) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

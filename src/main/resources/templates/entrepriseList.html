@@ -20,11 +20,34 @@
     </ul>
 </nav>
 <section class="main_section">
-    <h1>Liste des Entreprises</h1>
-    <a th:href="@{/addEntreprise}">Ajouter une entreprise</a>
+    <h1>Liste des Raisons Sociales</h1>
+    <a th:href="@{/addEntreprise}">Ajouter une raison sociale</a>
     <div>
         <table border="1">
-            <tr></tr>
+            <tr>
+                <th>Ede</th>
+                <th>Nom</th>
+                <th>Eleveur</th>
+                <th>Mail</th>
+                <th>Téléphone Fixe</th>
+                <th>Téléphone Portable</th>
+                <th>Fax</th>
+                <th>Vétérinaire</th>
+                <th>Adresse</th>
+                <th>Centre</th>
+            </tr>
+            <tr th:each="entreprise : ${entreprises}">
+                <td th:utext="${entreprise.ede}">...</td>
+                <td th:utext="${entreprise.nom}">...</td>
+                <td th:utext="${entreprise.eleveurNom+' '+entreprise.eleveurPrenom}">...</td>
+                <td th:utext="${entreprise.mail}">...</td>
+                <td th:utext="${entreprise.telFixe}">...</td>
+                <td th:utext="${entreprise.telPort}">...</td>
+                <td th:utext="${entreprise.fax}">...</td>
+                <td th:utext="${entreprise.veterinaire}">...</td>
+                <td th:utext="${entreprise.adresse}">...</td>
+                <td th:utext="${entreprise.centre}">...</td>
+            </tr>
         </table>
     </div>
 </section>

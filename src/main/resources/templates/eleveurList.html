@@ -34,7 +34,7 @@
                 <th>Téléphone Portable</th>
                 <th>Fax</th>
             </tr>
-            <tr th:each="eleveurEntity : ${eleveurs}">
+            <tr th:each="eleveur : ${eleveurs}">
                 <td th:utext="${eleveur.nom}">...</td>
                 <td th:utext="${eleveur.prenom}">...</td>
                 <td th:utext="${eleveur.adresse}">...</td>

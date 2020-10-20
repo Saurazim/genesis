@@ -10,11 +10,20 @@ public class EntrepriseEntity {
     @Id
     private int id;
     private String ede;
+    private String nom;
+    @ManyToOne
+    @JoinColumn(name = "veterinaireEntityId")
     private VeterinaireEntity veterinaireEntity;
+    @ManyToOne
+    @JoinColumn(name = "centreEntityId")
     private CentreEntity centreEntity;
     //localisation
+    @ManyToOne
+    @JoinColumn(name = "adresseEntityId")
     private AdresseEntity adresseEntity;
     //Contacts
+    @ManyToOne
+    @JoinColumn(name = "contactEntityId")
     private ContactEntity contactEntity;
     @Nullable
     @ManyToOne

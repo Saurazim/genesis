@@ -16,6 +16,8 @@ public class EleveurEntity {
     @ManyToOne
     @JoinColumn(name="adresseEntityId")
     private AdresseEntity adresseEntity;
+    @ManyToOne
+    @JoinColumn(name = "contactEntityId")
     private ContactEntity contactEntity;
     @Transient
     private List<EntrepriseEntity> entreprises;
