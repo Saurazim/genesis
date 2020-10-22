@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -37,7 +36,6 @@
             <tr th:each="eleveur : ${eleveurs}">
                 <td th:utext="${eleveur.nom}">...</td>
                 <td th:utext="${eleveur.prenom}">...</td>
-                <td th:utext="${eleveur.adresse}">...</td>
                 <td th:utext="${eleveur.mail}">...</td>
                 <td th:utext="${eleveur.telFixe}">...</td>
                 <td th:utext="${eleveur.telPort}">...</td>

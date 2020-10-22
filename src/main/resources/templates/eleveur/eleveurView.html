@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org ">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -35,6 +34,12 @@
             <label class="inline" th:utext="${eleveur.nom}">..!..</label>
           </div>
         </div>
+        <div class="row collapse"></div>
+      </div>
+      <h5 class="title">
+        <a href="#">Contacts</a>
+      </h5>
+      <div class="content">
         <div class="row collapse">
           <div class="large-6 columns">
             <label class="inline bold">Email</label>
@@ -68,38 +73,10 @@
           </div>
         </div>
       </div>
-      <h5 class="title"><a href="#">Adresse</a></h5>
-      <div class="content">
-        <div class="row collapse">
-          <div class="large-6 columns">
-            <label class="inline bold">Rue</label>
-          </div>
-          <div>
-            <label class="inline" th:utext="${eleveur.rue}">..!..</label>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="large-6 columns">
-            <label class="inline bold">Code Postal</label>
-          </div>
-          <div>
-            <label class="inline" th:utext="${eleveur.codePostal}">..!..</label>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="large-6 columns">
-            <label class="inline bold">Ville</label>
-          </div>
-          <div>
-            <label class="inline" th:utext="${eleveur.pays}">..!..</label>
-          </div>
-        </div>
-      </div>
       <div class="content">
         <table border="1">
 
         </table>
-
       </div>
     </section>
   </div>

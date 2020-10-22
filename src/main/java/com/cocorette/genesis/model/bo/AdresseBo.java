@@ -1,28 +1,24 @@
-package com.cocorette.genesis.model;
+package com.cocorette.genesis.model.bo;
 
-import org.springframework.web.bind.annotation.GetMapping;
+public class AdresseBo {
+    private String rue="XXXX";
+    private int codePostal=99999;
+    private String ville="XXXX";
+    private String pays="France";
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+    public AdresseBo(){}
 
-@Entity
-public class AdresseEntity {
-    @Id
-    @GeneratedValue
-    private int id;
-    private String rue;
-    private int codePostal;
-    private String ville;
-    private String pays;
-
-    public AdresseEntity(){}
-
-    public AdresseEntity(String rue, int codePostal, String ville, String pays) {
+    public AdresseBo(String rue, int codePostal, String ville, String pays) {
         this.rue = rue;
         this.codePostal = codePostal;
         this.ville = ville;
         this.pays = pays;
+    }
+
+    public AdresseBo(String rue, int codePostal, String ville) {
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
     }
 
     public String getRue() {
@@ -55,5 +51,12 @@ public class AdresseEntity {
 
     public void setPays(String pays) {
         this.pays = pays;
+    }
+
+    @Override
+    public String toString() {
+        return rue + ", " +codePostal +
+                " " + ville +
+                ", " + pays ;
     }
 }

@@ -1,7 +1,7 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.bo.AdresseBo;
-import com.cocorette.genesis.model.AdresseEntity;
+import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.entity.AdresseEntity;
 
 public class AdresseConvert {
     public static AdresseEntity adresseBoToEntity(AdresseBo bo){

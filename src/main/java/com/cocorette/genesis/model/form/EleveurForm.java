@@ -1,25 +1,31 @@
-package com.cocorette.genesis.model;
+package com.cocorette.genesis.model.form;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
-public class ContactEntity {
-    @Id
-    private int id;
+public class EleveurForm {
+    private String prenom;
+    private String nom;
     private String mail;
     private String telFixe;
     private String telPort;
     private String fax;
+    private String rue;
+    private int codePostal;
+    private String ville;
+    private String pays;
 
-    public ContactEntity(){}
-
-    public int getId() {
-        return id;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getMail() {

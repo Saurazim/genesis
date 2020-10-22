@@ -1,6 +1,7 @@
-package com.cocorette.genesis.form;
+package com.cocorette.genesis.model.view;
 
-public class EleveurForm {
+public class EleveurView {
+    private int id;
     private String prenom;
     private String nom;
     private String mail;
@@ -11,7 +12,14 @@ public class EleveurForm {
     private int codePostal;
     private String ville;
     private String pays;
-    private String adresse;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getPrenom() {
         return prenom;
@@ -91,35 +99,5 @@ public class EleveurForm {
 
     public void setPays(String pays) {
         this.pays = pays;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public void setAdresse(){
-        this.adresse = this.rue
-                +", "+this.codePostal
-                +" "+this.ville
-                +", "+this.pays;
-    }
-
-    public void setAdresse(String rue, int codePostal, String ville, String pays){
-        this.rue = rue;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.pays = pays;
-        this.setAdresse();
-    }
-
-    public void setContact(String mail, String telFixe, String telPort, String fax){
-        this.mail = mail;
-        this.telFixe = telFixe;
-        this.telPort = telPort;
-        this.fax = fax;
     }
 }

@@ -2,8 +2,10 @@ package com.cocorette.genesis.service;
 
 import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.dao.EleveurDao;
-import com.cocorette.genesis.form.EleveurForm;
-import com.cocorette.genesis.model.EleveurEntity;
+import com.cocorette.genesis.model.form.EleveurForm;
+import com.cocorette.genesis.model.entity.EleveurEntity;
+import com.cocorette.genesis.model.table.EleveurTable;
+import com.cocorette.genesis.model.view.EleveurView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,21 +18,21 @@ public class EleveurService {
     @Autowired
     EleveurDao eleveurDao;
 
-    public EleveurForm findEleveurForm(int id){
+    public EleveurView findEleveurView(int id){
         Optional<EleveurEntity> eleveur = eleveurDao.findById(id);
 
-        return EleveurConvert.eleveurEntityToForm(eleveur.orElse(new EleveurEntity("Erreur","erreur")));
+        return EleveurConvert.eleveurEntityToView(eleveur.orElse(new EleveurEntity("Erreur","erreur")));
     }
-    
-    public List<EleveurForm> findAll(){
+
+    public List<EleveurTable> findAll(){
         List<EleveurEntity> entities = eleveurDao.findAll();
-        List<EleveurForm> forms = new ArrayList<>();
+        List<EleveurTable> tables = new ArrayList<>();
         for (EleveurEntity entity: entities) {
-            EleveurForm form = EleveurConvert.eleveurEntityToForm(entity);
-            forms.add(form);
+            EleveurTable table = EleveurConvert.eleveurEntityToTable(entity);
+            tables.add(table);
         }
 
-        return forms;
+        return tables;
     }
 
     public void saveEleveur(EleveurForm entity){

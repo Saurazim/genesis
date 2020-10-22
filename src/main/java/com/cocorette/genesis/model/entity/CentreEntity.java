@@ -1,14 +1,28 @@
-package com.cocorette.genesis.bo;
+package com.cocorette.genesis.model.entity;
 
-public class VeterinaireBo {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class CentreEntity {
+    @Id
+    private int id;
     private String name;
     private float longitude;
     private float latitude;
 
-    public VeterinaireBo(){}
+    public CentreEntity(){}
 
-    public VeterinaireBo(String name) {
+    public CentreEntity(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,4 +49,3 @@ public class VeterinaireBo {
         this.latitude = latitude;
     }
 }
-

@@ -1,14 +1,30 @@
-package com.cocorette.genesis.bo;
-
-import java.util.HashMap;
+package com.cocorette.genesis.model.bo;
 
 public class EntrepriseBo {
+    private int id;
+    private String name;
     private String ede;
     private CentreBo centreBo;
     private AdresseBo adresseBo;
     private ContactBo contactBo;
     private EleveurBo eleveurBo;
+    private VeterinaireBo veterinaireBo;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEde() {
         return ede;
@@ -48,5 +64,13 @@ public class EntrepriseBo {
 
     public void setEleveurBo(EleveurBo eleveurBo) {
         this.eleveurBo = eleveurBo;
+    }
+
+    public VeterinaireBo getVeterinaireBo() {
+        return veterinaireBo;
+    }
+
+    public void setVeterinaireBo(VeterinaireBo veterinaireBo) {
+        this.veterinaireBo = veterinaireBo;
     }
 }

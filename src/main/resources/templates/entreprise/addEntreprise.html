@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org ">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter Eleveur</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{css/form.css}"/>
+    <title>Ajouter Raison Sociale</title>
+    <link rel="stylesheet" type="text/css" th:href="">
 </head>
 <body>
-<a th:href="@{/eleveurList}">Retour à la liste des éleveurs</a>
-<h1>Créer un nouvel éleveur</h1>
-<form th:action="@{/addEleveur}" th:object="${form}" method="POST">
+<a th:href="@{/entreprises}">Retour à la liste</a>
+<h1>Créer une nouvelle raison sociale</h1>
+<form th:action="@{/addEntreprise}" th:object="${form}" method="post">
     <div>
         <h2>Informations</h2>
         <label>Nom*</label>
         <input type="text" th:field="*{nom}">
-        <label>Prénom*</label>
-        <input type="text" th:field="*{prenom}">
+        <label>EDE*</label>
+        <input type="text" th:field="*{ede}">
+    </div>
+    <div>
+        <h2>Contact</h2>
         <label>Email</label>
-        <input type="text" th:field="*{mail}">
-        <label>Téléphone fixe</label>
+        <input type="email" th:field="*{mail}">
+        <label>Téléphone Fixe</label>
         <input type="text" th:field="*{telFixe}">
         <label>Téléphone Portable</label>
         <input type="text" th:field="*{telPort}">
@@ -38,10 +38,7 @@
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
     </div>
-    <input type="submit" value="Créer">
+    <
 </form>
-<div th:if="${erreur}" th:utext="${erreur}">
-    ...
-</div>
 </body>
 </html>

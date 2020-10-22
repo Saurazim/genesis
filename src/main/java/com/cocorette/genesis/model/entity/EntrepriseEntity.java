@@ -1,4 +1,4 @@
-package com.cocorette.genesis.model;
+package com.cocorette.genesis.model.entity;
 
 import org.springframework.lang.Nullable;
 
@@ -48,6 +48,14 @@ public class EntrepriseEntity {
 
     public void setEde(String ede) {
         this.ede = ede;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public VeterinaireEntity getVeterinaireEntity() {

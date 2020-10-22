@@ -1,7 +1,7 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.bo.VeterinaireBo;
-import com.cocorette.genesis.model.VeterinaireEntity;
+import com.cocorette.genesis.model.bo.VeterinaireBo;
+import com.cocorette.genesis.model.entity.VeterinaireEntity;
 
 public class VeterinaireConvert {
     public VeterinaireBo veterinaireEntityToBo(VeterinaireEntity entity){

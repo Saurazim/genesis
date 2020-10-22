@@ -1,7 +1,7 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.bo.CentreBo;
-import com.cocorette.genesis.model.CentreEntity;
+import com.cocorette.genesis.model.bo.CentreBo;
+import com.cocorette.genesis.model.entity.CentreEntity;
 
 public class CentreConvert {
     public static CentreEntity centreBoToEntity(CentreBo bo){

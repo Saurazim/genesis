@@ -1,4 +1,4 @@
-package com.cocorette.genesis.model;
+package com.cocorette.genesis.model.entity;
 
 public class BatimentEntity {
     private int id;

@@ -1,9 +1,8 @@
 package com.cocorette.genesis.controller;
 
-import com.cocorette.genesis.convert.EleveurConvert;
-import com.cocorette.genesis.form.EleveurForm;
-import com.cocorette.genesis.model.ContactEntity;
-import com.cocorette.genesis.model.EleveurEntity;
+import com.cocorette.genesis.model.form.EleveurForm;
+import com.cocorette.genesis.model.table.EleveurTable;
+import com.cocorette.genesis.model.view.EleveurView;
 import com.cocorette.genesis.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,37 +20,14 @@ public class EleveurController {
     @Autowired
     EleveurService eleveurService;
 
-    private static List<EleveurForm> eleveurForms = new ArrayList<>();
-
-    static {
-        EleveurForm e1 = new EleveurForm();
-        e1.setNom("Lemaire");
-        e1.setPrenom("Pascal");
-        e1.setMail("plemaire@cocorette.fr");
-        e1.setTelFixe("###########");
-        e1.setTelPort("###########");
-        e1.setFax("###########");
-        e1.setRue("XXXX");
-        e1.setCodePostal(99999);
-        e1.setVille("XXXX");
-        e1.setPays("France");
-        e1.setAdresse();
-
-        EleveurForm e2 = new EleveurForm();
-        e2.setNom("Le Gall");
-        e2.setPrenom("Hervé");
-
-        eleveurForms.add(e1);
-        eleveurForms.add(e2);
-    }
-
     private String erreur = "Le nom et le prénom doivent être remplis";
 
     @GetMapping("/eleveurs")
     public String eleveurList(Model model){
-        model.addAttribute("eleveurs", eleveurForms);
+        List<EleveurTable> tables = eleveurService.findAll();
+        model.addAttribute("eleveurs", tables);
 
-        return "eleveurList";
+        return "eleveur/eleveurList";
     }
 
     @GetMapping("/addEleveur")
@@ -59,7 +35,7 @@ public class EleveurController {
         EleveurForm form = new EleveurForm();
         model.addAttribute("form",form);
 
-        return "addEleveur";
+        return "eleveur/addEleveur";
     }
 
     @PostMapping("/addEleveur")
@@ -69,20 +45,18 @@ public class EleveurController {
 
         if(!nom.isBlank() && !prenom.isBlank()){
             eleveurService.saveEleveur(form);
-
-            eleveurForms.add(form);
-            return "redirect:/eleveurList";
+            return "redirect:/eleveurs";
         }
 
         model.addAttribute("erreur", erreur);
-        return "addEleveur";
+        return "eleveur/addEleveur";
     }
 
     @GetMapping("/eleveur/{id}")
     public String viewEleveur(Model model, @PathVariable int id){
-        EleveurForm form = eleveurService.findEleveurForm(id);
+        EleveurView view = eleveurService.findEleveurView(id);
 
-        model.addAttribute("eleveur",form);
-        return "eleveurView";
+        model.addAttribute("eleveur",view);
+        return "eleveur/eleveurView";
     }
 }

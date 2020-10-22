@@ -1,7 +1,7 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.bo.ContactBo;
-import com.cocorette.genesis.model.ContactEntity;
+import com.cocorette.genesis.model.bo.ContactBo;
+import com.cocorette.genesis.model.entity.ContactEntity;
 
 public class ContactConvert {
     public static ContactEntity contactBoToEntity(ContactBo bo){

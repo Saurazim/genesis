@@ -1,23 +1,16 @@
-package com.cocorette.genesis.form;
-
-import java.util.List;
+package com.cocorette.genesis.model.form;
 
 public class EntrepriseForm {
     private String ede;
     private String nom;
-    private int centreId;
-    private String centreNom;
     private String rue;
     private int codePostal;
     private String ville;
     private String pays;
-    private String adresse;
     private String mail;
     private String telFixe;
     private String telPort;
     private String fax;
-    private String eleveurNom;
-    private String eleveurPrenom;
     private int eleveurId;
 
     public String getEde() {
@@ -34,22 +27,6 @@ public class EntrepriseForm {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public int getCentreId() {
-        return centreId;
-    }
-
-    public void setCentreId(int centreId) {
-        this.centreId = centreId;
-    }
-
-    public String getCentreNom() {
-        return centreNom;
-    }
-
-    public void setCentreNom(String centreNom) {
-        this.centreNom = centreNom;
     }
 
     public String getRue() {
@@ -84,14 +61,6 @@ public class EntrepriseForm {
         this.pays = pays;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
     public String getMail() {
         return mail;
     }
@@ -122,22 +91,6 @@ public class EntrepriseForm {
 
     public void setFax(String fax) {
         this.fax = fax;
-    }
-
-    public String getEleveurNom() {
-        return eleveurNom;
-    }
-
-    public void setEleveurNom(String eleveurNom) {
-        this.eleveurNom = eleveurNom;
-    }
-
-    public String getEleveurPrenom() {
-        return eleveurPrenom;
-    }
-
-    public void setEleveurPrenom(String eleveurPrenom) {
-        this.eleveurPrenom = eleveurPrenom;
     }
 
     public int getEleveurId() {

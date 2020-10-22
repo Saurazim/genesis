@@ -1,4 +1,4 @@
-package com.cocorette.genesis.model;
+package com.cocorette.genesis.model.entity;
 
 import org.springframework.lang.Nullable;
 
@@ -12,10 +12,6 @@ public class EleveurEntity {
     private int id;
     private String prenom;
     private String nom;
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name="adresseEntityId")
-    private AdresseEntity adresseEntity;
     @ManyToOne
     @JoinColumn(name = "contactEntityId")
     private ContactEntity contactEntity;
@@ -51,14 +47,6 @@ public class EleveurEntity {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public AdresseEntity getAdresseEntity() {
-        return adresseEntity;
-    }
-
-    public void setAdresseEntity(AdresseEntity adresseEntity) {
-        this.adresseEntity = adresseEntity;
     }
 
     public ContactEntity getContactEntity() {

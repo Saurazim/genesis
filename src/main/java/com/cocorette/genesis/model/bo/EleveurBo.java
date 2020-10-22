@@ -1,19 +1,30 @@
-package com.cocorette.genesis.bo;
+package com.cocorette.genesis.model.bo;
 
 
 
 public class EleveurBo {
-    private int id;
+    private Integer id;
     private String prenom;
     private String nom;
-    private AdresseBo adresseBo;
     private ContactBo contactBo;
 
     public EleveurBo(){}
 
+    public EleveurBo(int id){
+        this.id=id;
+    }
+
     public EleveurBo(int id, String prenom, String nom) {
         this.prenom = prenom;
         this.nom = nom;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPrenom() {
@@ -30,18 +41,6 @@ public class EleveurBo {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public AdresseBo getAdresseBo() {
-        return adresseBo;
-    }
-
-    public void setAdresseBo(AdresseBo adresseBo) {
-        this.adresseBo = adresseBo;
-    }
-
-    public void setAdresseBo(String rue, int CP, String ville, String pays){
-        this.adresseBo = new AdresseBo(rue,CP,ville,pays);
     }
 
     public ContactBo getContactBo() {

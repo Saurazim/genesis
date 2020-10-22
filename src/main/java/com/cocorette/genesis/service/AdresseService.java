@@ -1,7 +1,9 @@
 package com.cocorette.genesis.service;
 
+import com.cocorette.genesis.convert.AdresseConvert;
 import com.cocorette.genesis.dao.AdresseDao;
-import com.cocorette.genesis.model.AdresseEntity;
+import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.entity.AdresseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,9 @@ public class AdresseService {
 
     public Optional<AdresseEntity> findOne(int id){
         return adresseDao.findById(id);
+    }
+
+    public void saveAdresse(AdresseBo bo){
+        adresseDao.save(AdresseConvert.adresseBoToEntity(bo));
     }
 }

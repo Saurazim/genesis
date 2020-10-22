@@ -1,4 +1,4 @@
-package com.cocorette.genesis.bo;
+package com.cocorette.genesis.model.bo;
 
 public class ContactBo {
     private String mail;

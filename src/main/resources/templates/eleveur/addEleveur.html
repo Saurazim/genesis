@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter Eleveur</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/form.css}"/>
+</head>
+<body>
+<a th:href="@{/eleveurs}">Retour à la liste des éleveurs</a>
+<h1>Créer un nouvel éleveur</h1>
+<form th:action="@{/addEleveur}" th:object="${form}" method="POST">
+    <div>
+        <h2>Informations</h2>
+        <label>Nom*</label>
+        <input type="text" th:field="*{nom}">
+        <label>Prénom*</label>
+        <input type="text" th:field="*{prenom}">
+    </div>
+    <div>
+        <h2>Contact</h2>
+        <label>Email</label>
+        <input type="email" th:field="*{mail}">
+        <label>Téléphone fixe</label>
+        <input type="text" th:field="*{telFixe}">
+        <label>Téléphone Portable</label>
+        <input type="text" th:field="*{telPort}">
+        <label>Fax</label>
+        <input type="text" th:field="*{fax}">
+    </div>
+    <input type="submit" value="Créer">
+</form>
+<div th:if="${erreur}" th:utext="${erreur}">
+    ...
+</div>
+</body>
+</html>
