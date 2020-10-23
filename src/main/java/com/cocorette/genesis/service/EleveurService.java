@@ -2,6 +2,7 @@ package com.cocorette.genesis.service;
 
 import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.dao.EleveurDao;
+import com.cocorette.genesis.model.bo.EleveurBo;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.table.EleveurTable;
@@ -35,8 +36,8 @@ public class EleveurService {
         return tables;
     }
 
-    public void saveEleveur(EleveurForm entity){
-        eleveurDao.save(EleveurConvert.eleveurFormToEntity(entity));
+    public void saveEleveur(EleveurBo entity){
+        eleveurDao.save(EleveurConvert.eleveurBoToEntity(entity));
     }
 
     public void saveAllEleveurs(List<EleveurForm> eleveurForms){

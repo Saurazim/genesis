@@ -1,20 +1,18 @@
 package com.cocorette.genesis.model.entity;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "eleveur")
 public class EleveurEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
     private String prenom;
     private String nom;
     @ManyToOne
-    @JoinColumn(name = "contactEntityId")
-    private ContactEntity contactEntity;
+    @JoinColumn(name = "contactId")
+    private ContactEntity contact;
     @Transient
     private List<EntrepriseEntity> entreprises;
 
@@ -49,12 +47,12 @@ public class EleveurEntity {
         this.nom = nom;
     }
 
-    public ContactEntity getContactEntity() {
-        return contactEntity;
+    public ContactEntity getContact() {
+        return contact;
     }
 
-    public void setContactEntity(ContactEntity contactEntity) {
-        this.contactEntity = contactEntity;
+    public void setContact(ContactEntity contact) {
+        this.contact = contact;
     }
 
     public List<EntrepriseEntity> getEntreprises() {

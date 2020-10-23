@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter Raison Sociale</title>
-    <link rel="stylesheet" type="text/css" th:href="">
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/form.css}">
 </head>
 <body>
 <a th:href="@{/entreprises}">Retour à la liste</a>
@@ -38,7 +39,7 @@
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
     </div>
-    <
+    <input type="submit" value="Créer">
 </form>
 </body>
 </html>

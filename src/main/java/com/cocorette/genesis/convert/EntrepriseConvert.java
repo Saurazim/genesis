@@ -12,10 +12,10 @@ public class EntrepriseConvert {
         entity.setId(bo.getId());
         entity.setNom(bo.getName());
         entity.setEde(bo.getEde());
-        entity.setAdresseEntity(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
-        entity.setContactEntity(ContactConvert.contactBoToEntity(bo.getContactBo()));
-        entity.setCentreEntity(CentreConvert.centreBoToEntity(bo.getCentreBo()));
-        entity.setEleveurEntity(EleveurConvert.eleveurBoToEntity(bo.getEleveurBo()));
+        entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
+        entity.setContact(ContactConvert.contactBoToEntity(bo.getContactBo()));
+        entity.setCentre(CentreConvert.centreBoToEntity(bo.getCentreBo()));
+        entity.setEleveur(EleveurConvert.eleveurBoToEntity(bo.getEleveurBo()));
 
         return entity;
     }
@@ -25,11 +25,11 @@ public class EntrepriseConvert {
         bo.setId(entity.getId());
         bo.setName(entity.getNom());
         bo.setEde(entity.getEde());
-        bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresseEntity()));
-        bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContactEntity()));
-        bo.setCentreBo(CentreConvert.centreEntityToBo(entity.getCentreEntity()));
-        if(entity.getEleveurEntity() != null)
-            bo.setEleveurBo(EleveurConvert.eleveurEntityToBo(entity.getEleveurEntity()));
+        bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
+        bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContact()));
+        bo.setCentreBo(CentreConvert.centreEntityToBo(entity.getCentre()));
+        if(entity.getEleveur() != null)
+            bo.setEleveurBo(EleveurConvert.eleveurEntityToBo(entity.getEleveur()));
 
         return bo;
     }

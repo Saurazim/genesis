@@ -5,32 +5,32 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "entreprise")
 public class EntrepriseEntity {
     @Id
     private int id;
     private String ede;
     private String nom;
     @ManyToOne
-    @JoinColumn(name = "veterinaireEntityId")
-    private VeterinaireEntity veterinaireEntity;
+    @JoinColumn(name = "veterinaireId")
+    private VeterinaireEntity veterinaire;
     @ManyToOne
-    @JoinColumn(name = "centreEntityId")
-    private CentreEntity centreEntity;
+    @JoinColumn(name = "centreId")
+    private CentreEntity centre;
     //localisation
     @ManyToOne
-    @JoinColumn(name = "adresseEntityId")
-    private AdresseEntity adresseEntity;
+    @JoinColumn(name = "adresseId")
+    private AdresseEntity adresse;
     //Contacts
     @ManyToOne
-    @JoinColumn(name = "contactEntityId")
-    private ContactEntity contactEntity;
+    @JoinColumn(name = "contactId")
+    private ContactEntity contact;
     @Nullable
     @ManyToOne
-    @JoinColumn(name="eleveurEntityId")
-    private EleveurEntity eleveurEntity;
+    @JoinColumn(name="eleveurId")
+    private EleveurEntity eleveur;
     @Transient
-    private List<BatimentEntity> batimentEntities;
+    private List<BatimentEntity> batiments;
 
     public EntrepriseEntity(){}
 
@@ -58,51 +58,51 @@ public class EntrepriseEntity {
         this.nom = nom;
     }
 
-    public VeterinaireEntity getVeterinaireEntity() {
-        return veterinaireEntity;
+    public VeterinaireEntity getVeterinaire() {
+        return veterinaire;
     }
 
-    public void setVeterinaireEntity(VeterinaireEntity veterinaireEntity) {
-        this.veterinaireEntity = veterinaireEntity;
+    public void setVeterinaire(VeterinaireEntity veterinaire) {
+        this.veterinaire = veterinaire;
     }
 
-    public CentreEntity getCentreEntity() {
-        return centreEntity;
+    public CentreEntity getCentre() {
+        return centre;
     }
 
-    public void setCentreEntity(CentreEntity centreEntity) {
-        this.centreEntity = centreEntity;
+    public void setCentre(CentreEntity centre) {
+        this.centre = centre;
     }
 
-    public AdresseEntity getAdresseEntity() {
-        return adresseEntity;
+    public AdresseEntity getAdresse() {
+        return adresse;
     }
 
-    public void setAdresseEntity(AdresseEntity adresseEntity) {
-        this.adresseEntity = adresseEntity;
+    public void setAdresse(AdresseEntity adresse) {
+        this.adresse = adresse;
     }
 
-    public ContactEntity getContactEntity() {
-        return contactEntity;
+    public ContactEntity getContact() {
+        return contact;
     }
 
-    public void setContactEntity(ContactEntity contactEntity) {
-        this.contactEntity = contactEntity;
+    public void setContact(ContactEntity contact) {
+        this.contact = contact;
     }
 
-    public EleveurEntity getEleveurEntity() {
-        return eleveurEntity;
+    public EleveurEntity getEleveur() {
+        return eleveur;
     }
 
-    public void setEleveurEntity(EleveurEntity eleveurEntity) {
-        this.eleveurEntity = eleveurEntity;
+    public void setEleveur(EleveurEntity eleveur) {
+        this.eleveur = eleveur;
     }
 
-    public List<BatimentEntity> getBatimentEntities() {
-        return batimentEntities;
+    public List<BatimentEntity> getBatiments() {
+        return batiments;
     }
 
-    public void setBatimentEntities(List<BatimentEntity> batimentEntities) {
-        this.batimentEntities = batimentEntities;
+    public void setBatiments(List<BatimentEntity> batiments) {
+        this.batiments = batiments;
     }
 }

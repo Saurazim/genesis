@@ -10,10 +10,11 @@ import com.cocorette.genesis.model.view.EleveurView;
 public class EleveurConvert {
     public static EleveurBo eleveurEntityToBo(EleveurEntity entity){
         EleveurBo bo = new EleveurBo();
+        bo.setId(entity.getId());
         bo.setPrenom(entity.getPrenom().isBlank() ? "": entity.getPrenom());
         bo.setNom(entity.getNom().isBlank() ? "": entity.getNom());
-        if(entity.getContactEntity()!=null)
-            bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContactEntity()));
+        if(entity.getContact()!=null)
+            bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContact()));
 
         return bo;
     }
@@ -24,7 +25,7 @@ public class EleveurConvert {
             entity.setId(bo.getId());
         entity.setPrenom(bo.getPrenom().isBlank() ? "" : bo.getPrenom());
         entity.setNom(bo.getNom().isBlank() ? "" : bo.getNom());
-        entity.setContactEntity(ContactConvert.contactBoToEntity(bo.getContactBo()));
+        entity.setContact(ContactConvert.contactBoToEntity(bo.getContactBo()));
 
         return entity;
     }

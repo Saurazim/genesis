@@ -25,18 +25,15 @@
     <div>
         <table border="1">
             <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Adresse</th>
+                <th>Nom Prénom</th>
                 <th>Email</th>
                 <th>Téléphone fixe</th>
                 <th>Téléphone Portable</th>
                 <th>Fax</th>
             </tr>
             <tr th:each="eleveur : ${eleveurs}">
-                <td th:utext="${eleveur.nom}">...</td>
-                <td th:utext="${eleveur.prenom}">...</td>
-                <td th:utext="${eleveur.mail}">...</td>
+                <td><a th:href="@{/eleveur/{id}(id=${eleveur.id})}" th:text="${eleveur.nom}+' '+${eleveur.prenom}"></a></td>
+                <td th:utext="${eleveur.email}">...</td>
                 <td th:utext="${eleveur.telFixe}">...</td>
                 <td th:utext="${eleveur.telPort}">...</td>
                 <td th:utext="${eleveur.fax}">...</td>

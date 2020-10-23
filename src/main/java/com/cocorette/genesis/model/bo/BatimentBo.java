@@ -1,24 +1,17 @@
-package com.cocorette.genesis.model.entity;
+package com.cocorette.genesis.model.bo;
 
+import com.cocorette.genesis.model.entity.GpsEntity;
 
-import javax.persistence.*;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import java.util.List;
 
-@Entity(name = "batiment")
-public class BatimentEntity {
-    @Id
-    @GeneratedValue
+public class BatimentBo {
     private int id;
     private String inuav;
-    @ManyToOne
-    @JoinColumn(name = "adresseId")
-    private AdresseEntity adresse;
-    @ManyToOne
-    @JoinColumn(name = "entrepriseId")
-    private EntrepriseEntity entreprise;
+    private AdresseBo adresseBo;
+    private EntrepriseBo entrepriseBo;
     private String docCharte;
     private int anneeCharte;
     private String eau;
@@ -28,19 +21,24 @@ public class BatimentEntity {
     private LocalDate certifBioDebut;
     private LocalDate certifBioFin;
     private int anneeDebut;
-    @ManyToOne
-    @JoinColumn(name = "gpsId")
-    private GpsEntity gps;
-    @Transient
-    private List<String> documents;
+    private GpsBo gps;
     private String commentaires;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
 
+    public BatimentBo(int id) {
+        this.id = id;
+    }
 
-    public BatimentEntity(){}
+    public BatimentBo(String inuav) {
+        this.inuav = inuav;
+    }
+
+    public BatimentBo() {
+
+    }
 
     public int getId() {
         return id;
@@ -58,20 +56,20 @@ public class BatimentEntity {
         this.inuav = inuav;
     }
 
-    public AdresseEntity getAdresse() {
-        return adresse;
+    public AdresseBo getAdresseBo() {
+        return adresseBo;
     }
 
-    public void setAdresse(AdresseEntity adresse) {
-        this.adresse = adresse;
+    public void setAdresseBo(AdresseBo adresseBo) {
+        this.adresseBo = adresseBo;
     }
 
-    public EntrepriseEntity getEntreprise() {
-        return entreprise;
+    public EntrepriseBo getEntrepriseBo() {
+        return entrepriseBo;
     }
 
-    public void setEntreprise(EntrepriseEntity entreprise) {
-        this.entreprise = entreprise;
+    public void setEntrepriseBo(EntrepriseBo entrepriseBo) {
+        this.entrepriseBo = entrepriseBo;
     }
 
     public String getDocCharte() {
@@ -146,20 +144,12 @@ public class BatimentEntity {
         this.anneeDebut = anneeDebut;
     }
 
-    public GpsEntity getGps() {
+    public GpsBo getGps() {
         return gps;
     }
 
-    public void setGps(GpsEntity gps) {
+    public void setGps(GpsBo gps) {
         this.gps = gps;
-    }
-
-    public List<String> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<String> documents) {
-        this.documents = documents;
     }
 
     public String getCommentaires() {

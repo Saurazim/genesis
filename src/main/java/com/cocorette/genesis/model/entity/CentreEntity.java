@@ -3,7 +3,7 @@ package com.cocorette.genesis.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "centre")
 public class CentreEntity {
     @Id
     private int id;

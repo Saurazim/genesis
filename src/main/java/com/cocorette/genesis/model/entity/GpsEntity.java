@@ -4,19 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "veterinaire")
-public class VeterinaireEntity {
+@Entity(name = "gps")
+public class GpsEntity {
     @Id
     @GeneratedValue
     private int id;
-    private String nom;
-    private float longitude;
     private float latitude;
+    private float longitude;
 
-    public VeterinaireEntity(){}
+    public GpsEntity(){}
 
-    public VeterinaireEntity(String nom) {
-        this.nom = nom;
+    public GpsEntity(int id) {
+        this.id = id;
+    }
+
+    public GpsEntity(float latitude, float longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -27,12 +31,12 @@ public class VeterinaireEntity {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public float getLatitude() {
+        return latitude;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
     }
 
     public float getLongitude() {
@@ -41,13 +45,5 @@ public class VeterinaireEntity {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
-    }
-
-    public float getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
     }
 }

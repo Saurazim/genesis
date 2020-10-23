@@ -6,9 +6,11 @@
     <title>Vue Raison Sociale</title>
     <link rel="stylesheet" type="text/css" th:href=""/>
 </head>
+
 <body>
 <nav></nav>
 <section class="row fondblanc">
+    <a th:href="@{/entreprises}">Retour à la liste des raisons sociales</a>
     <h3 th:utext="${entreprise.nom}">..!..</h3>
     <h6>Groupe technique</h6>
     <div class="section-container tabs">
@@ -107,6 +109,11 @@
                 <div>
                     <label class="inline" th:utext="${entreprise.fax}">..!..</label>
                 </div>
+            </div>
+            <div class="content">
+                <table border="1">
+
+                </table>
             </div>
         </section>
     </div>

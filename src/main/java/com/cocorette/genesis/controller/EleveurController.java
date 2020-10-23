@@ -1,5 +1,6 @@
 package com.cocorette.genesis.controller;
 
+import com.cocorette.genesis.coordination.EleveurCoord;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.table.EleveurTable;
 import com.cocorette.genesis.model.view.EleveurView;
@@ -18,13 +19,13 @@ import java.util.List;
 @Controller
 public class EleveurController {
     @Autowired
-    EleveurService eleveurService;
+    EleveurCoord eleveurCoord;
 
     private String erreur = "Le nom et le prénom doivent être remplis";
 
     @GetMapping("/eleveurs")
     public String eleveurList(Model model){
-        List<EleveurTable> tables = eleveurService.findAll();
+        List<EleveurTable> tables = eleveurCoord.findAll();
         model.addAttribute("eleveurs", tables);
 
         return "eleveur/eleveurList";
@@ -44,7 +45,7 @@ public class EleveurController {
         String prenom = form.getPrenom();
 
         if(!nom.isBlank() && !prenom.isBlank()){
-            eleveurService.saveEleveur(form);
+            eleveurCoord.saveEleveur(form);
             return "redirect:/eleveurs";
         }
 
@@ -54,7 +55,7 @@ public class EleveurController {
 
     @GetMapping("/eleveur/{id}")
     public String viewEleveur(Model model, @PathVariable int id){
-        EleveurView view = eleveurService.findEleveurView(id);
+        EleveurView view = eleveurCoord.findEleveurView(id);
 
         model.addAttribute("eleveur",view);
         return "eleveur/eleveurView";

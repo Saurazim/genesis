@@ -36,7 +36,7 @@
                 <th>Centre</th>
             </tr>
             <tr th:each="entreprise : ${entreprises}">
-                <td th:utext="${entreprise.ede}">...</td>
+                <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
                 <td th:utext="${entreprise.nom}">...</td>
                 <td th:utext="${entreprise.eleveurNom+' '+entreprise.eleveurPrenom}">...</td>
                 <td th:utext="${entreprise.adresse}">...</td>
@@ -51,4 +51,5 @@
     </div>
 </section>
 </body>
+
 </html>

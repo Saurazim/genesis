@@ -43,7 +43,7 @@ public class EntrepriseController {
         return "redirect:/entreprises";
     }
 
-    @GetMapping("/eleveur/{id}")
+    @GetMapping("/entreprise/{id}")
     public String viewEntreprise(Model model, @PathVariable int id){
         EntrepriseView view = entrepriseService.findEntrepriseView(id);
 
