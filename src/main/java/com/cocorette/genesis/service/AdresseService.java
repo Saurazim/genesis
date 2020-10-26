@@ -18,7 +18,7 @@ public class AdresseService {
         return adresseDao.findById(id);
     }
 
-    public void saveAdresse(AdresseBo bo){
-        adresseDao.save(AdresseConvert.adresseBoToEntity(bo));
+    public void saveAdresse(AdresseEntity entity){
+        adresseDao.save(entity);
     }
 }

@@ -12,8 +12,8 @@ public class ContactService {
     @Autowired
     ContactDao contactDao;
 
-    public void saveContact(ContactBo contact){
-        contactDao.save(ContactConvert.contactBoToEntity(contact));
+    public void saveContact(ContactEntity contact){
+        contactDao.save(contact);
     }
 
 

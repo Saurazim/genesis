@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Bâtiments</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+</head>
+<body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Eleveurs</a>
+        </li>
+        <li>
+            <a href="#">Raisons Sociales</a>
+        </li>
+        <li>
+            <a href="#">Bâtiments</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
+    <h1>Liste des Bâtiments</h1>
+    <a th:href="@{/addBatiment}">Ajouter un bâtiment</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>INUAV</th>
+                <th>Adresse</th>
+                <th>Raison Sociale</th>
+                <th>Actif</th>
+                <th>Archive</th>
+                <th>Création</th>
+                <th>Dernière Modification</th>
+            </tr>
+            <tr th:each="batiment : ${batiments}">
+                <td><a th:href="@{/batiment/{id}(id=${batiment.id})}" th:utext="${batiment.inuav}">...</a></td>
+                <td th:utext="${batiment.adresse}">...</td>
+                <td th:utext="${batiment.entrepriseNom}">...</td>
+                <td th:utext="${batiment.actif}">...</td>
+                <td th:utext="${batiment.archive}">...</td>
+                <td th:utext="${batiment.created}">...</td>
+                <td th:utext="${batiment.modified}">...</td>
+            </tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>

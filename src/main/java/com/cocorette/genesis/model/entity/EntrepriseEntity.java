@@ -34,6 +34,10 @@ public class EntrepriseEntity {
 
     public EntrepriseEntity(){}
 
+    public EntrepriseEntity(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

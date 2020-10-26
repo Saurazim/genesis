@@ -1,7 +1,11 @@
 package com.cocorette.genesis.convert;
 
+import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
+import com.cocorette.genesis.model.entity.EntrepriseEntity;
+import com.cocorette.genesis.model.form.BatimentForm;
+import com.cocorette.genesis.model.view.BatimentView;
 
 public class BatimentConvert {
     public static BatimentBo batimentEntityToBo(BatimentEntity entity){
@@ -9,7 +13,7 @@ public class BatimentConvert {
         bo.setId(entity.getId());
         bo.setInuav(entity.getInuav());
         bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
-        bo.setEntrepriseBo(EntrepriseConvert.entrepriseEntityToBo(entity.getEntreprise()));
+        bo.setEntreprisePo(EntrepriseConvert.entrepriseEntityToPo(entity.getEntreprise()));
         bo.setDocCharte(entity.getDocCharte());
         bo.setAnneeCharte(entity.getAnneeCharte());
         bo.setEau(entity.getEau());
@@ -34,7 +38,7 @@ public class BatimentConvert {
         entity.setId(bo.getId());
         entity.setInuav(bo.getInuav());
         entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
-        entity.setEntreprise(EntrepriseConvert.entrepriseBoToEntity(bo.getEntrepriseBo()));
+        entity.setEntreprise(EntrepriseConvert.entreprisePoToEntity(bo.getEntreprisePo()));
         entity.setDocCharte(bo.getDocCharte());
         entity.setAnneeCharte(bo.getAnneeCharte());
         entity.setEau(bo.getEau());
@@ -52,5 +56,63 @@ public class BatimentConvert {
         entity.setModified(bo.getModified());
 
         return entity;
+    }
+
+    public static BatimentBo batimentFormToBo(BatimentForm form){
+        BatimentBo bo = new BatimentBo();
+        bo.setInuav(form.getInuav());
+        bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
+        bo.setEntreprisePo(form.getEntrepriseId());
+        bo.setDocCharte(form.getDocCharte());
+        bo.setAnneeCharte(form.getAnneeCharte());
+        bo.setEau(form.getEau());
+        bo.setDistCentre(form.getDistCentre());
+        bo.setContratDebut(form.getContratDebut());
+        bo.setContratFin(form.getContratFin());
+        bo.setCertifBioDebut(form.getCertifBioDebut());
+        bo.setCertifBioFin(form.getCertifBioFin());
+        bo.setAnneeDebut(form.getAnneeDebut());
+        bo.setGps(form.getLatitude(), form.getLongitude());
+        bo.setCommentaires(form.getCommentaires());
+        bo.setCreated(form.getCreated());
+        bo.setModified(form.getModified());
+
+        return bo;
+    }
+
+    public static BatimentView batimentBoToView(BatimentBo bo){
+        BatimentView view = new BatimentView();
+        view.setId(bo.getId());
+        view.setInuav(bo.getInuav());
+        view.setEntreprise(bo.getEntreprisePo().getNom());
+        view.setEntrepriseId(bo.getEntreprisePo().getId());
+        view.setDocCharte(bo.getDocCharte());
+        view.setContratDebut(bo.getContratDebut());
+        view.setContratFin(bo.getContratFin());
+        view.setCertifBioDebut(bo.getCertifBioDebut());
+        view.setCertifBioFin(bo.getCertifBioFin());
+        view.setRue(bo.getAdresseBo().getRue());
+        view.setCodePostal(bo.getAdresseBo().getCodePostal());
+        view.setVille(bo.getAdresseBo().getVille());
+        view.setPays(bo.getAdresseBo().getPays());
+        view.setCommentaire(bo.getCommentaires());
+        view.setCreated(bo.getCreated());
+        view.setModified(bo.getModified());
+        view.setActif(bo.isActif());
+        view.setArchive(bo.isArchive());
+
+        return view;
+    }
+
+    public static BatimentView batimentEntityToView(BatimentEntity entity){
+        BatimentBo bo = batimentEntityToBo(entity);
+
+        return batimentBoToView(bo);
+    }
+
+    public static BatimentEntity batimentFormToEntity(BatimentForm form){
+        BatimentBo bo = batimentFormToBo(form);
+
+        return batimentBoToEntity(bo);
     }
 }

@@ -18,6 +18,10 @@ public class EleveurEntity {
 
     public EleveurEntity(){}
 
+    public EleveurEntity(int id){
+        this.id = id;
+    }
+
     public EleveurEntity(String prenom, String nom) {
         this.prenom = prenom;
         this.nom = nom;

@@ -2,6 +2,7 @@ package com.cocorette.genesis.coordination;
 
 import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.model.bo.EleveurBo;
+import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.table.EleveurTable;
 import com.cocorette.genesis.model.view.EleveurView;
@@ -21,9 +22,9 @@ public class EleveurCoord {
     ContactService contactService;
 
     public void saveEleveur(EleveurForm form){
-        EleveurBo bo = EleveurConvert.eleveurFormToBo(form);
-        contactService.saveContact(bo.getContactBo());
-        eleveurService.saveEleveur(bo);
+        EleveurEntity entity = EleveurConvert.eleveurFormToEntity(form);
+        contactService.saveContact(entity.getContact());
+        eleveurService.saveEleveur(entity);
     }
 
     public EleveurView findEleveurView(int id){

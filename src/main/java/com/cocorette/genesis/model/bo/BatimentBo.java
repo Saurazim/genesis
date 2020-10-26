@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.bo;
 
 import com.cocorette.genesis.model.entity.GpsEntity;
+import com.cocorette.genesis.model.transitionnel.EntreprisePo;
 
 import javax.persistence.Transient;
 import java.time.LocalDate;
@@ -11,7 +12,7 @@ public class BatimentBo {
     private int id;
     private String inuav;
     private AdresseBo adresseBo;
-    private EntrepriseBo entrepriseBo;
+    private EntreprisePo entreprisePo;
     private String docCharte;
     private int anneeCharte;
     private String eau;
@@ -64,12 +65,16 @@ public class BatimentBo {
         this.adresseBo = adresseBo;
     }
 
-    public EntrepriseBo getEntrepriseBo() {
-        return entrepriseBo;
+    public EntreprisePo getEntreprisePo() {
+        return entreprisePo;
     }
 
-    public void setEntrepriseBo(EntrepriseBo entrepriseBo) {
-        this.entrepriseBo = entrepriseBo;
+    public void setEntreprisePo(EntreprisePo entreprisePo) {
+        this.entreprisePo = entreprisePo;
+    }
+
+    public void setEntreprisePo(int id){
+        this.entreprisePo.setId(id);
     }
 
     public String getDocCharte() {
@@ -150,6 +155,11 @@ public class BatimentBo {
 
     public void setGps(GpsBo gps) {
         this.gps = gps;
+    }
+
+    public void setGps(float latitude, float longitude){
+        this.gps.setLatutide(latitude);
+        this.gps.setLongitude(longitude);
     }
 
     public String getCommentaires() {

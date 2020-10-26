@@ -35,7 +35,7 @@ public class EntrepriseService {
         return tables;
     }
 
-    public void saveEntreprise(EntrepriseForm form){
-        entrepriseDao.save(EntrepriseConvert.entrepriseFormToEntity(form));
+    public void saveEntreprise(EntrepriseEntity entity){
+        entrepriseDao.save(entity);
     }
 }

@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Vue Raison Sociale</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Vue Bâtiment</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
-
 <body>
 <nav></nav>
 <section class="row fondblanc">
-    <a th:href="@{/entreprises}">Retour à la liste des raisons sociales</a>
-    <h3 th:utext="${entreprise.nom}">..!..</h3>
-    <h6>Groupe technique</h6>
+    <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
+    <h3 th:utext="${batiment.inuav}">..!..</h3>
     <div class="section-container tabs">
         <section>
             <h5 class="title">
@@ -21,19 +18,35 @@
             <div class="content">
                 <div class="row collapse">
                     <div class="large-6 columns">
-                        <label class="inline bold">Nom</label>
+                        <label class="inline bold">Raison Sociale</label>
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.nom}">..!..</label>
+                    <label class="inline" th:utext="${batiment.entreprise}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
-                        <label class="inline bold">EDE</label>
+                        <label class="inline bold">Charte sanitaire</label>
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.ede}">..!..</label>
+                    <label class="inline" th:utext="${batiment.docCharte}">...</label>
+                </div>
+                <div class="row collapse">
+                    <div class="large-6 columns">
+                        <label class="inline bold">Contrat</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${${batiment.contratDebut}+'/'+${batiment.contratFin}}">...</label>
+                </div>
+                <div class="row collapse">
+                    <div class="large-6 columns">
+                        <label class="inline bold">Certificat Bio</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${${batiment.certifBioDebut}+'/'+${batiment.certifBioFin}}">...</label>
                 </div>
             </div>
             <h5 class="title">
@@ -46,7 +59,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.rue}">..!..</label>
+                    <label class="inline" th:utext="${batiment.rue}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -54,7 +67,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.codePostal}">..!..</label>
+                    <label class="inline" th:utext="${batiment.codePostal}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -62,7 +75,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.ville}">..!..</label>
+                    <label class="inline" th:utext="${batiment.ville}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -70,50 +83,34 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.pays}">..!..</label>
+                    <label class="inline" th:utext="${batiment.pays}">...</label>
                 </div>
             </div>
             <h5 class="title">
-                <a href="#">Contacts</a>
+                <a href="#">Autres</a>
             </h5>
             <div class="content">
                 <div class="row collapse">
                     <div class="large-6 columns">
-                        <label class="inline bold">Email</label>
+                        <label class="inline bold">Commentaires</label>
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.mail}">..!..</label>
+                    <label class="inline" th:utext="${batiment.commentaires}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
-                        <label class="inline bold">Téléphone fixe</label>
+                        <label class="inline bold">Création</label>
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${entreprise.telFixe}">..!..</label>
+                    <label class="inline" th:utext="${batiment.created}">...</label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
-                        <label class="inline bold">Téléphone Portable</label>
+                        <label class="inline bold">Dernière Modification</label>
                     </div>
                 </div>
-                <div>
-                    <label class="inline" th:utext="${entreprise.telPort}">..!..</label>
-                </div>
-                <div class="row collapse">
-                    <div class="large-6 columns">
-                        <label class="inline bold">Fax</label>
-                    </div>
-                </div>
-                <div>
-                    <label class="inline" th:utext="${entreprise.fax}">..!..</label>
-                </div>
-            </div>
-            <div class="content">
-                <table border="1">
-
-                </table>
             </div>
         </section>
     </div>

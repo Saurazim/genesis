@@ -25,6 +25,10 @@ public class EleveurService {
         return EleveurConvert.eleveurEntityToView(eleveur.orElse(new EleveurEntity("Erreur","erreur")));
     }
 
+    public Optional<EleveurEntity> findEleveur(int id){
+        return eleveurDao.findById(id);
+    }
+
     public List<EleveurTable> findAll(){
         List<EleveurEntity> entities = eleveurDao.findAll();
         List<EleveurTable> tables = new ArrayList<>();
@@ -36,8 +40,8 @@ public class EleveurService {
         return tables;
     }
 
-    public void saveEleveur(EleveurBo entity){
-        eleveurDao.save(EleveurConvert.eleveurBoToEntity(entity));
+    public void saveEleveur(EleveurEntity entity){
+        eleveurDao.save(entity);
     }
 
     public void saveAllEleveurs(List<EleveurForm> eleveurForms){

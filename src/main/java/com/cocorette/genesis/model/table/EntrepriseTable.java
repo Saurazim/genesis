@@ -5,6 +5,7 @@ public class EntrepriseTable {
     private String ede;
     private String nom;
     private String eleveur;
+    private int eleveurId;
     private String adresse;
     private String mail;
     private String telFixe;
@@ -49,6 +50,14 @@ public class EntrepriseTable {
 
     public void setEleveur(String eleveur) {
         this.eleveur = eleveur;
+    }
+
+    public int getEleveurId() {
+        return eleveurId;
+    }
+
+    public void setEleveurId(int eleveurId) {
+        this.eleveurId = eleveurId;
     }
 
     public String getAdresse() {

@@ -1,5 +1,7 @@
 package com.cocorette.genesis.model.bo;
 
+import com.cocorette.genesis.model.transitionnel.EleveurPo;
+
 public class EntrepriseBo {
     private int id;
     private String name;
@@ -7,7 +9,8 @@ public class EntrepriseBo {
     private CentreBo centreBo;
     private AdresseBo adresseBo;
     private ContactBo contactBo;
-    private EleveurBo eleveurBo;
+    private EleveurPo eleveurPo;
+
     private VeterinaireBo veterinaireBo;
 
     public int getId() {
@@ -58,12 +61,16 @@ public class EntrepriseBo {
         this.contactBo = contactBo;
     }
 
-    public EleveurBo getEleveurBo() {
-        return eleveurBo;
+    public EleveurPo getEleveurPo() {
+        return eleveurPo;
     }
 
-    public void setEleveurBo(EleveurBo eleveurBo) {
-        this.eleveurBo = eleveurBo;
+    public void setEleveurPo(EleveurPo eleveurPo) {
+        this.eleveurPo = eleveurPo;
+    }
+
+    public void setEleveurPo(int id){
+        this.eleveurPo.setId(id);
     }
 
     public VeterinaireBo getVeterinaireBo() {

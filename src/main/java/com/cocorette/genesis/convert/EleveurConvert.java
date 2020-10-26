@@ -5,6 +5,7 @@ import com.cocorette.genesis.model.bo.EleveurBo;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.table.EleveurTable;
+import com.cocorette.genesis.model.transitionnel.EleveurPo;
 import com.cocorette.genesis.model.view.EleveurView;
 
 public class EleveurConvert {
@@ -84,5 +85,14 @@ public class EleveurConvert {
         EleveurBo bo = eleveurEntityToBo(entity);
 
         return eleveurBoToTable(bo);
+    }
+
+    public static EleveurPo eleveurEntityToPo(EleveurEntity entity){
+        EleveurPo po = new EleveurPo();
+        po.setId(entity.getId());
+        po.setNom(entity.getNom());
+        po.setPrenom(entity.getPrenom());
+
+        return po;
     }
 }
