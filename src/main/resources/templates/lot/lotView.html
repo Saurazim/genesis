@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Lot</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav></nav>
+<section class="row fondblanc">
+  <a th:href="@{/lots}">Retour à la liste des lots</a>
+  <h3 th:utext="${lot.codeOeuf}">..!..</h3>
+  <div class="section-container tabs">
+    <section>
+      <h5 class="title">
+        <a href="#">Informations</a>
+      </h5>
+      <div class="content">
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Batiment</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline"><a th:utext="${lot.batiment}" th:href="@{/batiment/{id}(id=${lot.batimentId})}">...</a></label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Catégorie</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.categorie}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Couvoir</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.couvoir}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Souche</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.souche}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Usine alimentaire</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.aliment}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Durée théorique de production</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.dureeProdTheorique}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Durée Réelle de production</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.dureeProdReelle}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Nombre de poules<br>à la mise en place</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.nbPoulesMEP}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Fin théorique du lot</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.finLotThéorique}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Coefficient d'érosion</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.coefErosion}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Naissance des poules</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.naissancePoules}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Mise en place</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.mep}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Fin du lot</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.finLot}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Dernier Lot ?</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.dernierLot} ? 'OUI' : 'NON'">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Analyse 1</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.analyse1}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Analyse 2</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.analyse2}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Prélèvement 1</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.prelevement1}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Prélèvement 2</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.prelevement2}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Prélèvement 3</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.prelevement3}">...</label>
+        </div>
+        <div class="row collapse">
+          <div class="large-6 columns">
+            <label class="inline bold">Prélèvement 4</label>
+          </div>
+        </div>
+        <div>
+          <label class="inline" th:utext="${lot.prelevement4}">...</label>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+</body>
+</html>

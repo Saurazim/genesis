@@ -1,31 +1,19 @@
-package com.cocorette.genesis.model.entity;
+package com.cocorette.genesis.model.bo;
 
-import javax.persistence.*;
+import com.cocorette.genesis.model.transitionnel.BatimentPo;
+
 import java.time.LocalDate;
 
-@Entity(name = "lot")
-public class LotEntity {
-    @Id
-    @GeneratedValue
+public class LotBo {
     private int id;
     private String codeOeuf;
-    @ManyToOne
-    @JoinColumn(name = "batimentId")
-    private BatimentEntity batimentEntity;
+    private BatimentPo batimentPo;
     private int dureeProdTheorique;
     private int dureeProdReelle;
-    @ManyToOne
-    @JoinColumn(name = "categorieId")
-    private CategorieEntity categorieEntity;
-    @ManyToOne
-    @JoinColumn(name = "couvoirId")
-    private CouvoirEntity couvoirEntity;
-    @ManyToOne
-    @JoinColumn(name = "soucheId")
-    private SoucheEntity soucheEntity;
-    @ManyToOne
-    @JoinColumn(name = "alimentId")
-    private AlimentEntity alimentEntity;
+    private CategorieBo categorieBo;
+    private CouvoirBo couvoirBo;
+    private SoucheBo soucheBo;
+    private AlimentBo alimentBo;
     private int nbPoulesMEP;
     private LocalDate finLotTheorique;
     private int coefErosion;
@@ -40,8 +28,6 @@ public class LotEntity {
     private LocalDate prelevement2;
     private LocalDate prelevement3;
     private LocalDate prelevement4;
-
-    public LotEntity(){}
 
     public int getId() {
         return id;
@@ -59,12 +45,16 @@ public class LotEntity {
         this.codeOeuf = codeOeuf;
     }
 
-    public BatimentEntity getBatimentEntity() {
-        return batimentEntity;
+    public BatimentPo getBatimentPo() {
+        return batimentPo;
     }
 
-    public void setBatimentEntity(BatimentEntity batimentEntity) {
-        this.batimentEntity = batimentEntity;
+    public void setBatimentPo(BatimentPo batimentPo) {
+        this.batimentPo = batimentPo;
+    }
+
+    public void setBatimentPo(int id){
+        this.batimentPo.setId(id);
     }
 
     public int getDureeProdTheorique() {
@@ -83,36 +73,52 @@ public class LotEntity {
         this.dureeProdReelle = dureeProdReelle;
     }
 
-    public CategorieEntity getCategorieEntity() {
-        return categorieEntity;
+    public CategorieBo getCategorieBo() {
+        return categorieBo;
     }
 
-    public void setCategorieEntity(CategorieEntity categorieEntity) {
-        this.categorieEntity = categorieEntity;
+    public void setCategorieBo(CategorieBo categorieBo) {
+        this.categorieBo = categorieBo;
     }
 
-    public CouvoirEntity getCouvoirEntity() {
-        return couvoirEntity;
+    public void setCategorieBo(int id){
+        this.categorieBo.setId(id);
     }
 
-    public void setCouvoirEntity(CouvoirEntity couvoirEntity) {
-        this.couvoirEntity = couvoirEntity;
+    public CouvoirBo getCouvoirBo() {
+        return couvoirBo;
     }
 
-    public SoucheEntity getSoucheEntity() {
-        return soucheEntity;
+    public void setCouvoirBo(CouvoirBo couvoirBo) {
+        this.couvoirBo = couvoirBo;
     }
 
-    public void setSoucheEntity(SoucheEntity soucheEntity) {
-        this.soucheEntity = soucheEntity;
+    public void setCouvoirBo(int id){
+        this.couvoirBo.setId(id);
     }
 
-    public AlimentEntity getAlimentEntity() {
-        return alimentEntity;
+    public SoucheBo getSoucheBo() {
+        return soucheBo;
     }
 
-    public void setAlimentEntity(AlimentEntity alimentEntity) {
-        this.alimentEntity = alimentEntity;
+    public void setSoucheBo(SoucheBo soucheBo) {
+        this.soucheBo = soucheBo;
+    }
+
+    public void setSoucheBo(int id){
+        this.soucheBo.setId(id);
+    }
+
+    public AlimentBo getAlimentBo() {
+        return alimentBo;
+    }
+
+    public void setAlimentBo(AlimentBo alimentBo) {
+        this.alimentBo = alimentBo;
+    }
+
+    public void setAlimentBo(int id){
+        this.alimentBo.setId(id);
     }
 
     public int getNbPoulesMEP() {

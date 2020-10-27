@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Lots</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+</head>
+<body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Eleveurs</a>
+        </li>
+        <li>
+            <a href="#">Raisons Sociales</a>
+        </li>
+        <li>
+            <a href="#">Bâtiments</a>
+        </li>
+        <li>
+            <a href="#">Lots</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
+    <h1>Liste des Lots</h1>
+    <a th:href="@{/addLot}">Ajouter un lot</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Code Oeufs</th>
+                <th>Inuav</th>
+                <th>Catégorie</th>
+                <th>Couvoir</th>
+                <th>Souche</th>
+                <th>Aliment</th>
+                <th>Nombre de poules<br/>à la mise en place</th>
+                <th>Coefficient d'érosion</th>
+                <th>Mise en place</th>
+            </tr>
+            <tr th:each="lot : ${lots}">
+                <td><a th:href="@{/lot/{id}(id=${lot.id})}" th:utext="${lot.id}">...</a></td>
+                <td th:utext="${lot.inuav}">...</td>
+                <td th:utext="${lot.categorie}">...</td>
+                <td th:utext="${lot.couvoir}">...</td>
+                <td th:utext="${lot.souche}">...</td>
+                <td th:utext="${lot.aliment}">...</td>
+                <td th:utext="${lot.nbPoulesMEP}">...</td>
+                <td th:utext="${lot.coefErosion}">...</td>
+                <td th:utext="${lot.mep}">...</td>
+            </tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>

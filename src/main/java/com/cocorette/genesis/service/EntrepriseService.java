@@ -24,6 +24,10 @@ public class EntrepriseService {
         return EntrepriseConvert.entrepriseEntityToView(entreprise.orElse(new EntrepriseEntity()));
     }
 
+    public Optional<EntrepriseEntity> findEntreprise(int id){
+        return entrepriseDao.findById(id);
+    }
+
     public List<EntrepriseTable> findAll(){
         List<EntrepriseEntity> entities = entrepriseDao.findAll();
         List<EntrepriseTable> tables = new ArrayList<>();

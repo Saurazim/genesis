@@ -5,6 +5,8 @@ import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
+import com.cocorette.genesis.model.table.BatimentTable;
+import com.cocorette.genesis.model.transitionnel.BatimentPo;
 import com.cocorette.genesis.model.view.BatimentView;
 
 public class BatimentConvert {
@@ -114,5 +116,38 @@ public class BatimentConvert {
         BatimentBo bo = batimentFormToBo(form);
 
         return batimentBoToEntity(bo);
+    }
+
+    public static BatimentTable batimentBoToTable(BatimentBo bo){
+        BatimentTable table = new BatimentTable();
+        table.setId(bo.getId());
+        table.setInuav(bo.getInuav());
+        table.setAdresse(bo.getAdresseBo().toString());
+        table.setEntrepriseId(bo.getEntreprisePo().getId());
+        table.setEntrepriseNom(bo.getEntreprisePo().getNom());
+        table.setActif(bo.isActif());
+        table.setArchive(bo.isArchive());
+        table.setCreated(bo.getCreated());
+        table.setModified(bo.getModified());
+
+        return table;
+    }
+
+    public static BatimentTable batimentEntityToTable(BatimentEntity entity){
+        BatimentBo bo = batimentEntityToBo(entity);
+
+        return batimentBoToTable(bo);
+    }
+
+    public static BatimentPo batimentEntityToPo(BatimentEntity entity){
+        return new BatimentPo(entity.getId(), entity.getInuav());
+    }
+
+    public static BatimentEntity batimentPoToEntity(BatimentPo po){
+        BatimentEntity entity = new BatimentEntity();
+        entity.setId(po.getId());
+        entity.setInuav(po.getInuav());
+
+        return entity;
     }
 }
