@@ -124,6 +124,12 @@ public class LotConvert {
         return table;
     }
 
+    public static LotEntity lotFormToEntity(LotForm form){
+        LotBo bo = lotFormToBo(form);
+
+        return lotBoToEntity(bo);
+    }
+
     public static LotView lotEntityToView(LotEntity entity){
         LotBo bo = lotEntityToBo(entity);
 

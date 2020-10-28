@@ -22,10 +22,10 @@ public class BatimentController {
 
     @GetMapping("/batiments")
     public String batimentList(Model model){
-        List<BatimentTable> tables = new ArrayList<>();
+        List<BatimentTable> tables = batimentCoord.findAll();
         model.addAttribute("batiments", tables);
 
-        return "batiment/batimentEntreprise";
+        return "batiment/batimentList";
     }
 
     @GetMapping("/addBatiment")
