@@ -42,5 +42,14 @@ public class BatimentService {
         batimentDao.save(entity);
     }
 
+    public List<BatimentTable> findBatimentByEntreprise(int entrepriseId){
+        List<BatimentEntity> entities = batimentDao.findAllByEntrepriseId(entrepriseId);
+        List<BatimentTable> tables = new ArrayList<>();
+        for (BatimentEntity entity : entities){
+            BatimentTable table = BatimentConvert.batimentEntityToTable(entity);
+            tables.add(table);
+        }
 
+        return tables;
+    }
 }

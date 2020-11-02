@@ -13,8 +13,11 @@ public class EntrepriseView {
     private String ville;
     private String pays;
     private String eleveur;
+    private int eleveurId;
     private String veterinaire;
+    private int veterinaireId;
     private String centre;
+    private int centreId;
 
     public int getId() {
         return id;
@@ -126,5 +129,29 @@ public class EntrepriseView {
 
     public void setCentre(String centre) {
         this.centre = centre;
+    }
+
+    public int getEleveurId() {
+        return eleveurId;
+    }
+
+    public void setEleveurId(int eleveurId) {
+        this.eleveurId = eleveurId;
+    }
+
+    public int getVeterinaireId() {
+        return veterinaireId;
+    }
+
+    public void setVeterinaireId(int veterinaireId) {
+        this.veterinaireId = veterinaireId;
+    }
+
+    public int getCentreId() {
+        return centreId;
+    }
+
+    public void setCentreId(int centreId) {
+        this.centreId = centreId;
     }
 }

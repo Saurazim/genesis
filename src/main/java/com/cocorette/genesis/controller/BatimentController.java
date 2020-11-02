@@ -1,8 +1,10 @@
 package com.cocorette.genesis.controller;
 
 import com.cocorette.genesis.coordination.BatimentCoord;
+import com.cocorette.genesis.coordination.LotCoord;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
+import com.cocorette.genesis.model.table.LotTable;
 import com.cocorette.genesis.model.view.BatimentView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ import java.util.List;
 public class BatimentController {
     @Autowired
     BatimentCoord batimentCoord;
+
+    @Autowired
+    LotCoord lotCoord;
 
     @GetMapping("/batiments")
     public String batimentList(Model model){
@@ -46,8 +51,10 @@ public class BatimentController {
     @GetMapping("/batiment/{id}")
     public String viewBatiment(Model model, @PathVariable int id){
         BatimentView view = batimentCoord.findBatimentView(id);
+        List<LotTable> tables = lotCoord.findLotByBatimentId(id);
 
         model.addAttribute("batiment", view);
+        model.addAttribute("lots", tables);
         return "batiment/batimentView";
     }
 }

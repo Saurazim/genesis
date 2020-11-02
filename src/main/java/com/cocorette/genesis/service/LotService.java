@@ -41,4 +41,15 @@ public class LotService {
     public void saveLot(LotEntity entity){
         lotDao.save(entity);
     }
+
+    public List<LotTable> findLotByBatiment(int batimentId){
+        List<LotEntity> entities = lotDao.findAllByBatimentId(batimentId);
+        List<LotTable> tables = new ArrayList<>();
+        for(LotEntity entity : entities){
+            LotTable table = LotConvert.lotEntityToTable(entity);
+            tables.add(table);
+        }
+
+        return tables;
+    }
 }

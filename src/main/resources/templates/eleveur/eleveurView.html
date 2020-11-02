@@ -75,9 +75,35 @@
         </div>
       </div>
       <div class="content">
-        <table border="1">
-
-        </table>
+        <a th:href="@{/addEntreprise}">Ajouter une raison sociale</a>
+        <div>
+          <table border="1">
+            <tr>
+              <th>Ede</th>
+              <th>Nom</th>
+              <th>Eleveur</th>
+              <th>Adresse</th>
+              <th>Mail</th>
+              <th>Téléphone Fixe</th>
+              <th>Téléphone Portable</th>
+              <th>Fax</th>
+              <th>Vétérinaire</th>
+              <th>Centre</th>
+            </tr>
+            <tr th:each="entreprise : ${entreprises}">
+              <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
+              <td th:utext="${entreprise.nom}">...</td>
+              <td th:utext="${entreprise.eleveurNom+' '+entreprise.eleveurPrenom}">...</td>
+              <td th:utext="${entreprise.adresse}">...</td>
+              <td th:utext="${entreprise.mail}">...</td>
+              <td th:utext="${entreprise.telFixe}">...</td>
+              <td th:utext="${entreprise.telPort}">...</td>
+              <td th:utext="${entreprise.fax}">...</td>
+              <td th:utext="${entreprise.veterinaire}">...</td>
+              <td th:utext="${entreprise.centre}">...</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </section>
   </div>

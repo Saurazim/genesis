@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.bo;
 
 public class VeterinaireBo {
+    private int id;
     private String name;
     private float longitude;
     private float latitude;
@@ -9,6 +10,14 @@ public class VeterinaireBo {
 
     public VeterinaireBo(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

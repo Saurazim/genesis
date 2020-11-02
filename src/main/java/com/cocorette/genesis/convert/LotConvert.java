@@ -87,8 +87,11 @@ public class LotConvert {
         view.setBatimentId(bo.getBatimentPo().getId());
         view.setCategorie(bo.getCategorieBo().getNom());
         view.setCouvoir(bo.getCouvoirBo().getNom());
+        view.setCouvoirId(bo.getCouvoirBo().getId());
         view.setSouche(bo.getSoucheBo().getNom());
+        view.setSoucheId(bo.getSoucheBo().getId());
         view.setAliment(bo.getAlimentBo().getNom());
+        view.setSoucheId(bo.getSoucheBo().getId());
         view.setDureeProdTheorique(bo.getDureeProdTheorique());
         view.setDureeProdReelle(bo.getDureeProdReelle());
         view.setNbPoulesMEP(bo.getNbPoulesMEP());

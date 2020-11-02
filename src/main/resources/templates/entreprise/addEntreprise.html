@@ -11,6 +11,7 @@
 <h1>Créer une nouvelle raison sociale</h1>
 <form th:action="@{/addEntreprise}" th:object="${form}" method="post">
     <div>
+        <input type="hidden" th:value="${form.eleveurId}" name="eleveurId">
         <h2>Informations</h2>
         <label>Nom*</label>
         <input type="text" th:field="*{nom}">

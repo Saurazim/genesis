@@ -90,8 +90,11 @@ public class EntrepriseConvert {
         view.setTelPort(bo.getContactBo().getTelPort());
         view.setFax(bo.getContactBo().getFax());
         view.setEleveur(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
+        view.setEleveurId(bo.getEleveurPo().getId());
         view.setCentre(bo.getCentreBo().getName());
+        view.setCentreId(bo.getCentreBo().getId());
         view.setVeterinaire(bo.getVeterinaireBo().getName());
+        view.setVeterinaireId(bo.getVeterinaireBo().getId());
 
         return view;
     }

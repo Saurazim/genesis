@@ -1,7 +1,10 @@
 package com.cocorette.genesis.controller;
 
+import com.cocorette.genesis.convert.BatimentConvert;
+import com.cocorette.genesis.coordination.BatimentCoord;
 import com.cocorette.genesis.coordination.EntrepriseCoord;
 import com.cocorette.genesis.model.form.EntrepriseForm;
+import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EntrepriseView;
 import com.cocorette.genesis.service.EntrepriseService;
@@ -19,6 +22,8 @@ import java.util.List;
 public class EntrepriseController {
     @Autowired
     EntrepriseCoord entrepriseCoord;
+    @Autowired
+    BatimentCoord batimentCoord;
 
     @GetMapping("/entreprises")
     public String entrepriseList(Model model){
@@ -47,8 +52,10 @@ public class EntrepriseController {
     @GetMapping("/entreprise/{id}")
     public String viewEntreprise(Model model, @PathVariable int id){
         EntrepriseView view = entrepriseCoord.findEntrepriseView(id);
+        List<BatimentTable> tables = batimentCoord.findBatimentByEntrepriseId(id);
 
         model.addAttribute("entreprise", view);
+        model.addAttribute("batiments", tables);
         return "entreprise/entrepriseView";
     }
 }

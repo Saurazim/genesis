@@ -6,6 +6,7 @@ import com.cocorette.genesis.model.entity.VeterinaireEntity;
 public class VeterinaireConvert {
     public VeterinaireBo veterinaireEntityToBo(VeterinaireEntity entity){
         VeterinaireBo bo = new VeterinaireBo();
+        bo.setId(entity.getId());
         bo.setName(entity.getNom());
         bo.setLongitude(entity.getLongitude());
         bo.setLatitude(entity.getLatitude());

@@ -1,8 +1,10 @@
 package com.cocorette.genesis.controller;
 
 import com.cocorette.genesis.coordination.EleveurCoord;
+import com.cocorette.genesis.coordination.EntrepriseCoord;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.table.EleveurTable;
+import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EleveurView;
 import com.cocorette.genesis.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ import java.util.List;
 public class EleveurController {
     @Autowired
     EleveurCoord eleveurCoord;
+
+    @Autowired
+    EntrepriseCoord entrepriseCoord;
 
     private String erreur = "Le nom et le prénom doivent être remplis";
 
@@ -56,8 +61,10 @@ public class EleveurController {
     @GetMapping("/eleveur/{id}")
     public String viewEleveur(Model model, @PathVariable int id){
         EleveurView view = eleveurCoord.findEleveurView(id);
+        List<EntrepriseTable> tables = entrepriseCoord.findEntrepriseByEleveurId(id);
 
         model.addAttribute("eleveur",view);
+        model.addAttribute("entreprises", tables);
         return "eleveur/eleveurView";
     }
 }

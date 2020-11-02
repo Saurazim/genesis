@@ -34,4 +34,8 @@ public class LotCoord {
     public LotView findLotView(int id){
         return lotService.findLotView(id);
     }
+
+    public List<LotTable> findLotByBatimentId(int batimentId){
+        return lotService.findLotByBatiment(batimentId);
+    }
 }

@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline" th:utext="${batiment.entreprise}">...</label>
+                    <label class="inline"><a th:href="@{/entreprise/{id}(id=${batiment.entrepriseId})}" th:utext="${batiment.entreprise}">...</a></label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -109,6 +109,34 @@
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Dernière Modification</label>
+                    </div>
+                </div>
+                <div class="content">
+                    <div>
+                        <table border="1">
+                            <tr>
+                                <th>Code Oeufs</th>
+                                <th>Inuav</th>
+                                <th>Catégorie</th>
+                                <th>Couvoir</th>
+                                <th>Souche</th>
+                                <th>Aliment</th>
+                                <th>Nombre de poules<br/>à la mise en place</th>
+                                <th>Coefficient d'érosion</th>
+                                <th>Mise en place</th>
+                            </tr>
+                            <tr th:each="lot : ${lots}">
+                                <td><a th:href="@{/lot/{id}(id=${lot.id})}" th:utext="${lot.id}">...</a></td>
+                                <td th:utext="${lot.inuav}">...</td>
+                                <td th:utext="${lot.categorie}">...</td>
+                                <td th:utext="${lot.couvoir}">...</td>
+                                <td th:utext="${lot.souche}">...</td>
+                                <td th:utext="${lot.aliment}">...</td>
+                                <td th:utext="${lot.nbPoulesMEP}">...</td>
+                                <td th:utext="${lot.coefErosion}">...</td>
+                                <td th:utext="${lot.mep}">...</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

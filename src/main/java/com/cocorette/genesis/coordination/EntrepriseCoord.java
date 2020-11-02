@@ -43,4 +43,8 @@ public class EntrepriseCoord {
     public EntrepriseView findEntrepriseView(int id){
         return entrepriseService.findEntrepriseView(id);
     }
+
+    public List<EntrepriseTable> findEntrepriseByEleveurId(int eleveurId){
+        return entrepriseService.findEntrepriseByEleveur(eleveurId);
+    }
 }

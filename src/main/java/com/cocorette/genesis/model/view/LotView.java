@@ -9,8 +9,11 @@ public class LotView {
     private int batimentId;
     private String categorie;
     private String couvoir;
+    private int couvoirId;
     private String souche;
+    private int soucheId;
     private String aliment;
+    private int alimentId;
     private int dureeProdTheorique;
     private int dureeProdReelle;
     private int nbPoulesMEP;
@@ -212,5 +215,29 @@ public class LotView {
 
     public void setPrelevement4(LocalDate prelevement4) {
         this.prelevement4 = prelevement4;
+    }
+
+    public int getCouvoirId() {
+        return couvoirId;
+    }
+
+    public void setCouvoirId(int couvoirId) {
+        this.couvoirId = couvoirId;
+    }
+
+    public int getSoucheId() {
+        return soucheId;
+    }
+
+    public void setSoucheId(int soucheId) {
+        this.soucheId = soucheId;
+    }
+
+    public int getAlimentId() {
+        return alimentId;
+    }
+
+    public void setAlimentId(int alimentId) {
+        this.alimentId = alimentId;
     }
 }

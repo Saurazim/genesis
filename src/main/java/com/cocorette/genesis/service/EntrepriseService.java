@@ -2,6 +2,7 @@ package com.cocorette.genesis.service;
 
 import com.cocorette.genesis.convert.EntrepriseConvert;
 import com.cocorette.genesis.dao.EntrepriseDao;
+import com.cocorette.genesis.model.bo.EntrepriseBo;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.EntrepriseForm;
 import com.cocorette.genesis.model.table.EntrepriseTable;
@@ -41,5 +42,16 @@ public class EntrepriseService {
 
     public void saveEntreprise(EntrepriseEntity entity){
         entrepriseDao.save(entity);
+    }
+
+    public List<EntrepriseTable> findEntrepriseByEleveur(int eleveurId){
+        List<EntrepriseEntity> entities = entrepriseDao.findAllByEleveurId(eleveurId);
+        List<EntrepriseTable> tables = new ArrayList<>();
+        for (EntrepriseEntity entity : entities) {
+            EntrepriseTable table = EntrepriseConvert.entrepriseEntityToTable(entity);
+            tables.add(table);
+        }
+
+        return tables;
     }
 }
