@@ -36,6 +36,7 @@ public class LotCoord {
     }
 
     public List<LotTable> findLotByBatimentId(int batimentId){
-        return lotService.findLotByBatiment(batimentId);
+        BatimentEntity batiment = batimentService.findBatiment(batimentId).orElseThrow();
+        return lotService.findLotByBatiment(batiment);
     }
 }

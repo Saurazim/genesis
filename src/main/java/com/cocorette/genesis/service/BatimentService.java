@@ -3,6 +3,7 @@ package com.cocorette.genesis.service;
 import com.cocorette.genesis.convert.BatimentConvert;
 import com.cocorette.genesis.dao.BatimentDao;
 import com.cocorette.genesis.model.entity.BatimentEntity;
+import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.view.BatimentView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,8 @@ public class BatimentService {
         batimentDao.save(entity);
     }
 
-    public List<BatimentTable> findBatimentByEntreprise(int entrepriseId){
-        List<BatimentEntity> entities = batimentDao.findAllByEntrepriseId(entrepriseId);
+    public List<BatimentTable> findBatimentByEntreprise(EntrepriseEntity entreprise){
+        List<BatimentEntity> entities = batimentDao.findAllByEntreprise(entreprise);
         List<BatimentTable> tables = new ArrayList<>();
         for (BatimentEntity entity : entities){
             BatimentTable table = BatimentConvert.batimentEntityToTable(entity);

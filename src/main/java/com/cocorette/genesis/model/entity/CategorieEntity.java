@@ -1,9 +1,13 @@
 package com.cocorette.genesis.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity(name = "categorie")
 public class CategorieEntity {
+    @Id
+    @GeneratedValue
     private int id;
     private String nom;
 

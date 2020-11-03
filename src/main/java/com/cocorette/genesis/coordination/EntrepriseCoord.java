@@ -45,6 +45,7 @@ public class EntrepriseCoord {
     }
 
     public List<EntrepriseTable> findEntrepriseByEleveurId(int eleveurId){
-        return entrepriseService.findEntrepriseByEleveur(eleveurId);
+        EleveurEntity eleveur = eleveurService.findEleveur(eleveurId).orElseThrow();
+        return entrepriseService.findEntrepriseByEleveur(eleveur);
     }
 }

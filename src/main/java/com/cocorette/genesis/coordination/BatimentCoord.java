@@ -44,6 +44,7 @@ public class BatimentCoord {
     }
 
     public List<BatimentTable> findBatimentByEntrepriseId(int entrepriseId){
-        return batimentService.findBatimentByEntreprise(entrepriseId);
+        EntrepriseEntity entreprise = entrepriseService.findEntreprise(entrepriseId).orElseThrow();
+        return batimentService.findBatimentByEntreprise(entreprise);
     }
 }

@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface EntrepriseDao extends JpaRepository<EntrepriseEntity,Integer> {
-    List<EntrepriseEntity> findAllByEleveurId(int eleveurId);
+    List<EntrepriseEntity> findAllByEleveur(EleveurEntity eleveur);
 }

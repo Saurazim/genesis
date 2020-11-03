@@ -2,6 +2,7 @@ package com.cocorette.genesis.service;
 
 import com.cocorette.genesis.convert.LotConvert;
 import com.cocorette.genesis.dao.LotDao;
+import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.LotEntity;
 import com.cocorette.genesis.model.table.LotTable;
 import com.cocorette.genesis.model.view.LotView;
@@ -42,8 +43,8 @@ public class LotService {
         lotDao.save(entity);
     }
 
-    public List<LotTable> findLotByBatiment(int batimentId){
-        List<LotEntity> entities = lotDao.findAllByBatimentId(batimentId);
+    public List<LotTable> findLotByBatiment(BatimentEntity batiment){
+        List<LotEntity> entities = lotDao.findAllByBatimentEntity(batiment);
         List<LotTable> tables = new ArrayList<>();
         for(LotEntity entity : entities){
             LotTable table = LotConvert.lotEntityToTable(entity);
