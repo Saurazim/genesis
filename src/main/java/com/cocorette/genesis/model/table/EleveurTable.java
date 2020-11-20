@@ -1,5 +1,7 @@
 package com.cocorette.genesis.model.table;
 
+import java.time.LocalDateTime;
+
 public class EleveurTable {
     private int id;
     private String prenom;
@@ -8,6 +10,10 @@ public class EleveurTable {
     private String telFixe;
     private String telPort;
     private String fax;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public int getId() {
         return id;
@@ -63,5 +69,37 @@ public class EleveurTable {
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

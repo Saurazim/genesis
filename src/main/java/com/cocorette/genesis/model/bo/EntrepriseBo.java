@@ -2,6 +2,8 @@ package com.cocorette.genesis.model.bo;
 
 import com.cocorette.genesis.model.transitionnel.EleveurPo;
 
+import java.time.LocalDateTime;
+
 public class EntrepriseBo {
     private int id;
     private String name;
@@ -10,8 +12,12 @@ public class EntrepriseBo {
     private AdresseBo adresseBo;
     private ContactBo contactBo;
     private EleveurPo eleveurPo;
-
     private VeterinaireBo veterinaireBo;
+    private String commentaires;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public int getId() {
         return id;
@@ -69,15 +75,51 @@ public class EntrepriseBo {
         this.eleveurPo = eleveurPo;
     }
 
-    public void setEleveurPo(int id){
-        this.eleveurPo.setId(id);
-    }
-
     public VeterinaireBo getVeterinaireBo() {
         return veterinaireBo;
     }
 
     public void setVeterinaireBo(VeterinaireBo veterinaireBo) {
         this.veterinaireBo = veterinaireBo;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

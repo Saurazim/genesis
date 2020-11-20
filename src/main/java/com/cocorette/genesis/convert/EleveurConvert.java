@@ -16,6 +16,11 @@ public class EleveurConvert {
         bo.setNom(entity.getNom().isBlank() ? "": entity.getNom());
         if(entity.getContact()!=null)
             bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContact()));
+        bo.setCommentaires(entity.getCommentaires());
+        bo.setActif(entity.isActif());
+        bo.setArchive(entity.isArchive());
+        bo.setCreated(entity.getCreated());
+        bo.setModified(entity.getModified());
 
         return bo;
     }
@@ -27,6 +32,11 @@ public class EleveurConvert {
         entity.setPrenom(bo.getPrenom().isBlank() ? "" : bo.getPrenom());
         entity.setNom(bo.getNom().isBlank() ? "" : bo.getNom());
         entity.setContact(ContactConvert.contactBoToEntity(bo.getContactBo()));
+        entity.setCommentaires(bo.getCommentaires());
+        entity.setActif(bo.isActif());
+        entity.setArchive(bo.isArchive());
+        entity.setCreated(bo.getCreated());
+        entity.setModified(bo.getModified());
 
         return entity;
     }
@@ -39,6 +49,9 @@ public class EleveurConvert {
                 form.getTelFixe(),
                 form.getTelPort(),
                 form.getFax()));
+        bo.setCommentaires(form.getCommentaires());
+        bo.setCreated(form.getCreated());
+        bo.setModified(form.getModified());
 
         return bo;
     }
@@ -58,6 +71,11 @@ public class EleveurConvert {
         view.setTelFixe(bo.getContactBo().getTelFixe());
         view.setTelPort(bo.getContactBo().getTelPort());
         view.setFax(bo.getContactBo().getFax());
+        view.setCommentaire(bo.getCommentaires());
+        view.setCreated(bo.getCreated());
+        view.setModified(bo.getModified());
+        view.setActif(bo.isActif());
+        view.setArchive(bo.isArchive());
 
         return view;
     }
@@ -77,6 +95,10 @@ public class EleveurConvert {
         table.setTelFixe(bo.getContactBo().getTelFixe());
         table.setTelPort(bo.getContactBo().getTelPort());
         table.setFax(bo.getContactBo().getFax());
+        table.setActif(bo.isActif());
+        table.setArchive(bo.isArchive());
+        table.setCreated(bo.getCreated());
+        table.setModified(bo.getModified());
 
         return table;
     }

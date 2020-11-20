@@ -38,6 +38,8 @@ public class BatimentEntity {
     private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
+    @Transient
+    private List<LotEntity> lots;
 
 
     public BatimentEntity(){}
@@ -200,5 +202,13 @@ public class BatimentEntity {
 
     public void setModified(LocalDateTime modified) {
         this.modified = modified;
+    }
+
+    public List<LotEntity> getLots() {
+        return lots;
+    }
+
+    public void setLots(List<LotEntity> lots) {
+        this.lots = lots;
     }
 }

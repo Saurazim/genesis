@@ -3,6 +3,7 @@ package com.cocorette.genesis.model.bo;
 import com.cocorette.genesis.model.transitionnel.BatimentPo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LotBo {
     private int id;
@@ -28,6 +29,11 @@ public class LotBo {
     private LocalDate prelevement2;
     private LocalDate prelevement3;
     private LocalDate prelevement4;
+    private String commentaires;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public int getId() {
         return id;
@@ -81,20 +87,12 @@ public class LotBo {
         this.categorieBo = categorieBo;
     }
 
-    public void setCategorieBo(int id){
-        this.categorieBo.setId(id);
-    }
-
     public CouvoirBo getCouvoirBo() {
         return couvoirBo;
     }
 
     public void setCouvoirBo(CouvoirBo couvoirBo) {
         this.couvoirBo = couvoirBo;
-    }
-
-    public void setCouvoirBo(int id){
-        this.couvoirBo.setId(id);
     }
 
     public SoucheBo getSoucheBo() {
@@ -105,20 +103,12 @@ public class LotBo {
         this.soucheBo = soucheBo;
     }
 
-    public void setSoucheBo(int id){
-        this.soucheBo.setId(id);
-    }
-
     public AlimentBo getAlimentBo() {
         return alimentBo;
     }
 
     public void setAlimentBo(AlimentBo alimentBo) {
         this.alimentBo = alimentBo;
-    }
-
-    public void setAlimentBo(int id){
-        this.alimentBo.setId(id);
     }
 
     public int getNbPoulesMEP() {
@@ -223,5 +213,45 @@ public class LotBo {
 
     public void setPrelevement4(LocalDate prelevement4) {
         this.prelevement4 = prelevement4;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

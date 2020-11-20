@@ -2,6 +2,7 @@ package com.cocorette.genesis.model.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name = "lot")
 public class LotEntity {
@@ -40,6 +41,11 @@ public class LotEntity {
     private LocalDate prelevement2;
     private LocalDate prelevement3;
     private LocalDate prelevement4;
+    private String commentaires;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public LotEntity(){}
 
@@ -217,5 +223,45 @@ public class LotEntity {
 
     public void setPrelevement4(LocalDate prelevement4) {
         this.prelevement4 = prelevement4;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

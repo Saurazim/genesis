@@ -1,5 +1,8 @@
 package com.cocorette.genesis.model.form;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -10,13 +13,17 @@ public class BatimentForm {
     private String ville;
     private String pays;
     private int entrepriseId;
-    private String docCharte;//chemin to doc charte
+    //private String docCharte;//document, get chemin to doc charte
     private int anneeCharte;
     private String eau;
     private int distCentre;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate contratDebut;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate contratFin;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate certifBioDebut;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate certifBioFin;
     private int anneeDebut;
     private float latitude;
@@ -26,6 +33,10 @@ public class BatimentForm {
     private LocalDateTime modified;
 
     public BatimentForm(){}
+
+    public BatimentForm(int entrepriseId) {
+        this.entrepriseId = entrepriseId;
+    }
 
     public String getInuav() {
         return inuav;
@@ -75,13 +86,13 @@ public class BatimentForm {
         this.entrepriseId = entrepriseId;
     }
 
-    public String getDocCharte() {
-        return docCharte;
-    }
-
-    public void setDocCharte(String docCharte) {
-        this.docCharte = docCharte;
-    }
+//    public String getDocCharte() {
+//        return docCharte;
+//    }
+//
+//    public void setDocCharte(String docCharte) {
+//        this.docCharte = docCharte;
+//    }
 
     public int getAnneeCharte() {
         return anneeCharte;

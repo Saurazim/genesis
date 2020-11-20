@@ -2,11 +2,13 @@ package com.cocorette.genesis.convert;
 
 import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
+import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.transitionnel.BatimentPo;
+import com.cocorette.genesis.model.transitionnel.EntreprisePo;
 import com.cocorette.genesis.model.view.BatimentView;
 
 public class BatimentConvert {
@@ -64,8 +66,7 @@ public class BatimentConvert {
         BatimentBo bo = new BatimentBo();
         bo.setInuav(form.getInuav());
         bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
-        bo.setEntreprisePo(form.getEntrepriseId());
-        bo.setDocCharte(form.getDocCharte());
+        bo.setEntreprisePo(new EntreprisePo(form.getEntrepriseId()));
         bo.setAnneeCharte(form.getAnneeCharte());
         bo.setEau(form.getEau());
         bo.setDistCentre(form.getDistCentre());
@@ -74,7 +75,7 @@ public class BatimentConvert {
         bo.setCertifBioDebut(form.getCertifBioDebut());
         bo.setCertifBioFin(form.getCertifBioFin());
         bo.setAnneeDebut(form.getAnneeDebut());
-        bo.setGps(form.getLatitude(), form.getLongitude());
+        bo.setGps(new GpsBo(form.getLatitude(), form.getLongitude()));
         bo.setCommentaires(form.getCommentaires());
         bo.setCreated(form.getCreated());
         bo.setModified(form.getModified());

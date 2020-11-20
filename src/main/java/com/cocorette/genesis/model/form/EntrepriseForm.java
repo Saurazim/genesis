@@ -1,6 +1,9 @@
 package com.cocorette.genesis.model.form;
 
+import java.time.LocalDateTime;
+
 public class EntrepriseForm {
+    private int id;
     private String ede;
     private String nom;
     private String rue;
@@ -12,6 +15,25 @@ public class EntrepriseForm {
     private String telPort;
     private String fax;
     private int eleveurId;
+    private String commentaires;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+
+    public EntrepriseForm() {}
+
+    public EntrepriseForm(int id) {
+        this.eleveurId = id;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEde() {
         return ede;
@@ -99,5 +121,29 @@ public class EntrepriseForm {
 
     public void setEleveurId(int eleveurId) {
         this.eleveurId = eleveurId;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

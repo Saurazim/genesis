@@ -6,6 +6,10 @@ public class CouvoirBo {
 
     public CouvoirBo(){}
 
+    public CouvoirBo(int id){
+        this.id = id;
+    }
+
     public CouvoirBo(int id, String nom) {
         this.id = id;
         this.nom = nom;

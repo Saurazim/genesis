@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Vue Eleveur</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/eleveur_view.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 
 <body>
@@ -75,8 +76,8 @@
         </div>
       </div>
       <div class="content">
-        <a th:href="@{/addEntreprise}">Ajouter une raison sociale</a>
-        <div>
+        <a th:href="@{/addEntreprise/{id}(id=${eleveur.id})}">Ajouter une raison sociale</a>
+        <div th:unless="${#lists.isEmpty(entreprises)}">
           <table border="1">
             <tr>
               <th>Ede</th>
@@ -93,7 +94,7 @@
             <tr th:each="entreprise : ${entreprises}">
               <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
               <td th:utext="${entreprise.nom}">...</td>
-              <td th:utext="${entreprise.eleveurNom+' '+entreprise.eleveurPrenom}">...</td>
+              <td th:utext="${entreprise.eleveurNom}">...</td>
               <td th:utext="${entreprise.adresse}">...</td>
               <td th:utext="${entreprise.mail}">...</td>
               <td th:utext="${entreprise.telFixe}">...</td>

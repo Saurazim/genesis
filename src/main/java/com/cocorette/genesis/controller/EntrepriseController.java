@@ -33,9 +33,9 @@ public class EntrepriseController {
         return "entreprise/entrepriseList";
     }
 
-    @GetMapping("/addEntreprise")
-    public String showAddEntreprise(Model model){
-        EntrepriseForm form = new EntrepriseForm();
+    @GetMapping("/addEntreprise/{eleveurId}")
+    public String showAddEntreprise(Model model, @PathVariable int eleveurId){
+        EntrepriseForm form = new EntrepriseForm(eleveurId);
         model.addAttribute("form", form);
 
         //model.addAttribute("erreur",erreur);

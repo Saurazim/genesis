@@ -9,11 +9,10 @@ import com.cocorette.genesis.model.view.BatimentView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,17 +32,17 @@ public class BatimentController {
         return "batiment/batimentList";
     }
 
-    @GetMapping("/addBatiment")
-    public String showAddBatiment(Model model){
-        BatimentForm form = new BatimentForm();
+    @GetMapping("/addBatiment/{entrepriseId}")
+    public String showAddBatiment(Model model, @PathVariable int entrepriseId){
+        BatimentForm form = new BatimentForm(entrepriseId);
         model.addAttribute("form", form);
 
         return "batiment/addBatiment";
     }
 
     @PostMapping("/addBatiment")
-    public String saveBatiment(Model model, @ModelAttribute("form") BatimentForm form){
-        batimentCoord.saveBatiment(form);
+    public String saveBatiment(Model model, @ModelAttribute("form") BatimentForm form, @RequestParam("docCharte") MultipartFile file) throws IOException {
+        batimentCoord.saveBatiment(form, file);
 
         return "redirect:/batiments";
     }

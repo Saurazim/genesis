@@ -13,6 +13,10 @@ public class AlimentEntity {
 
     public AlimentEntity(){}
 
+    public AlimentEntity(int id){
+        this.id = id;
+    }
+
     public AlimentEntity(int id, String nom) {
         this.id = id;
         this.nom = nom;

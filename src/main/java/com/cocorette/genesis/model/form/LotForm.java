@@ -1,6 +1,9 @@
 package com.cocorette.genesis.model.form;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LotForm {
     private String codeOeuf;
@@ -16,12 +19,22 @@ public class LotForm {
     private int alimentId;
     private String alimentNom;
     private int nbPoulesMEP;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate finLotTheorique;
     private boolean dernierLot;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate naissancePoules;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate mep;
+    private String commentaires;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public LotForm(){}
+
+    public LotForm(int batimentId) {
+        this.batimentId = batimentId;
+    }
 
     public String getCodeOeuf() {
         return codeOeuf;
@@ -157,5 +170,29 @@ public class LotForm {
 
     public void setMep(LocalDate mep) {
         this.mep = mep;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

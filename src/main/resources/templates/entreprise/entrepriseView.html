@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue Raison Sociale</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 
@@ -41,7 +42,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="inline"><a th:href="@{/batiment/{id}(id=${entreprise.eleveurId}" th:utext="${entreprise.eleveur}">..!..</a></label>
+                    <label class="inline"><a th:href="@{/eleveur/{id}(id=${entreprise.eleveurId})}" th:utext="${entreprise.eleveur}">..!..</a></label>
                 </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -135,26 +136,29 @@
                 </div>
             </div>
             <div class="content">
-                <table border="1">
-                    <tr>
-                        <th>INUAV</th>
-                        <th>Adresse</th>
-                        <th>Raison Sociale</th>
-                        <th>Actif</th>
-                        <th>Archive</th>
-                        <th>Création</th>
-                        <th>Dernière Modification</th>
-                    </tr>
-                    <tr th:each="batiment : ${batiments}">
-                        <td><a th:href="@{/batiment/{id}(id=${batiment.id})}" th:utext="${batiment.inuav}">...</a></td>
-                        <td th:utext="${batiment.adresse}">...</td>
-                        <td th:utext="${batiment.entrepriseNom}">...</td>
-                        <td th:utext="${batiment.actif}">...</td>
-                        <td th:utext="${batiment.archive}">...</td>
-                        <td th:utext="${batiment.created}">...</td>
-                        <td th:utext="${batiment.modified}">...</td>
-                    </tr>
-                </table>
+                <a th:href="@{/addBatiment/{id}(id=${entreprise.id})}">Ajouter un batiment</a>
+                <div th:unless="${#lists.isEmpty(batiments)}">
+                    <table border="1">
+                        <tr>
+                            <th>INUAV</th>
+                            <th>Adresse</th>
+                            <th>Raison Sociale</th>
+                            <th>Actif</th>
+                            <th>Archive</th>
+                            <th>Création</th>
+                            <th>Dernière Modification</th>
+                        </tr>
+                        <tr th:each="batiment : ${batiments}">
+                            <td><a th:href="@{/batiment/{id}(id=${batiment.id})}" th:utext="${batiment.inuav}">...</a></td>
+                            <td th:utext="${batiment.adresse}">...</td>
+                            <td th:utext="${batiment.entrepriseNom}">...</td>
+                            <td th:utext="${batiment.actif}">...</td>
+                            <td th:utext="${batiment.archive}">...</td>
+                            <td th:utext="${batiment.created}">...</td>
+                            <td th:utext="${batiment.modified}">...</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
     </div>

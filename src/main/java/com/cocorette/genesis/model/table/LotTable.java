@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.table;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LotTable {
     private int id;
@@ -13,6 +14,10 @@ public class LotTable {
     private int nbPoulesMEP;
     private int coefErosion;
     private LocalDate mep;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public LotTable(){}
 
@@ -94,5 +99,37 @@ public class LotTable {
 
     public void setMep(LocalDate mep) {
         this.mep = mep;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

@@ -1,10 +1,12 @@
 package com.cocorette.genesis.model.table;
 
+import java.time.LocalDateTime;
+
 public class EntrepriseTable {
     private int id;
     private String ede;
     private String nom;
-    private String eleveur;
+    private String eleveurNom;
     private int eleveurId;
     private String adresse;
     private String mail;
@@ -13,6 +15,10 @@ public class EntrepriseTable {
     private String fax;
     private String veterinaire;
     private String centre;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public EntrepriseTable(){}
 
@@ -44,12 +50,12 @@ public class EntrepriseTable {
         this.nom = nom;
     }
 
-    public String getEleveur() {
-        return eleveur;
+    public String getEleveurNom() {
+        return eleveurNom;
     }
 
-    public void setEleveur(String eleveur) {
-        this.eleveur = eleveur;
+    public void setEleveurNom(String eleveurNom) {
+        this.eleveurNom = eleveurNom;
     }
 
     public int getEleveurId() {
@@ -114,5 +120,37 @@ public class EntrepriseTable {
 
     public void setCentre(String centre) {
         this.centre = centre;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

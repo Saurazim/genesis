@@ -11,16 +11,19 @@
 <nav class="topbar">
     <ul>
         <li>
-            <a href="#">Home</a>
+            <a th:href="@{/}">Home</a>
         </li>
         <li>
-            <a href="#">Eleveurs</a>
+            <a th:href="@{/eleveurs}">Eleveurs</a>
         </li>
         <li>
-            <a href="#">Raisons Sociales</a>
+            <a th:href="@{/entreprises}">Raisons Sociales</a>
         </li>
         <li>
-            <a href="#">Bâtiments</a>
+            <a th:href="@{/batiments}">Bâtiments</a>
+        </li>
+        <li>
+            <a th:href="@{/lots}">Lots</a>
         </li>
     </ul>
 </nav>
@@ -44,7 +47,7 @@
             <tr th:each="entreprise : ${entreprises}">
                 <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
                 <td th:utext="${entreprise.nom}">...</td>
-                <td th:utext="${entreprise.eleveurNom+' '+entreprise.eleveurPrenom}">...</td>
+                <td th:utext="${entreprise.eleveurNom}">...</td>
                 <td th:utext="${entreprise.adresse}">...</td>
                 <td th:utext="${entreprise.mail}">...</td>
                 <td th:utext="${entreprise.telFixe}">...</td>

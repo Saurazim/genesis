@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.view;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LotView {
     private int id;
@@ -30,6 +31,11 @@ public class LotView {
     private LocalDate prelevement2;
     private LocalDate prelevement3;
     private LocalDate prelevement4;
+    private String commentaire;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+    private boolean actif;
+    private boolean archive;
 
     public LotView() {}
 
@@ -239,5 +245,45 @@ public class LotView {
 
     public void setAlimentId(int alimentId) {
         this.alimentId = alimentId;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
     }
 }

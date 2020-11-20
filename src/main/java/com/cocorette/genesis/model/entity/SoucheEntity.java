@@ -13,6 +13,10 @@ public class SoucheEntity {
 
     public SoucheEntity(){}
 
+    public SoucheEntity(int id) {
+        this.id = id;
+    }
+
     public SoucheEntity(int id, String nom) {
         this.id = id;
         this.nom = nom;

@@ -4,6 +4,10 @@ public class BatimentPo {
     private int id;
     private String inuav;
 
+    public BatimentPo(int id){
+        this.id = id;
+    }
+
     public BatimentPo(int id, String inuav) {
         this.id = id;
         this.inuav = inuav;

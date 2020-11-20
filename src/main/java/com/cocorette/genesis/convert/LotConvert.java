@@ -1,9 +1,10 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.model.bo.LotBo;
+import com.cocorette.genesis.model.bo.*;
 import com.cocorette.genesis.model.entity.LotEntity;
 import com.cocorette.genesis.model.form.LotForm;
 import com.cocorette.genesis.model.table.LotTable;
+import com.cocorette.genesis.model.transitionnel.BatimentPo;
 import com.cocorette.genesis.model.view.LotView;
 
 public class LotConvert {
@@ -31,6 +32,11 @@ public class LotConvert {
         bo.setPrelevement2(entity.getPrelevement2());
         bo.setPrelevement3(entity.getPrelevement3());
         bo.setPrelevement4(entity.getPrelevement4());
+        bo.setCommentaires(entity.getCommentaires());
+        bo.setActif(entity.isActif());
+        bo.setArchive(entity.isArchive());
+        bo.setCreated(entity.getCreated());
+        bo.setModified(entity.getModified());
 
         return bo;
     }
@@ -41,10 +47,10 @@ public class LotConvert {
         entity.setCodeOeuf(bo.getCodeOeuf());
         entity.setDureeProdTheorique(bo.getDureeProdTheorique());
         entity.setDureeProdReelle(bo.getDureeProdReelle());
-        entity.setCategorieEntity(CategorieConvert.categorieBoToEntity(bo.getCategorieBo()));
-        entity.setCouvoirEntity(CouvoirConvert.couvoirBoToEntity(bo.getCouvoirBo()));
-        entity.setSoucheEntity(SoucheConvert.soucheBoToEntity(bo.getSoucheBo()));
-        entity.setAlimentEntity(AlimentConvert.alimentBoToEntity(bo.getAlimentBo()));
+//        entity.setCategorieEntity(CategorieConvert.categorieBoToEntity(bo.getCategorieBo()));
+//        entity.setCouvoirEntity(CouvoirConvert.couvoirBoToEntity(bo.getCouvoirBo()));
+//        entity.setSoucheEntity(SoucheConvert.soucheBoToEntity(bo.getSoucheBo()));
+//        entity.setAlimentEntity(AlimentConvert.alimentBoToEntity(bo.getAlimentBo()));
         entity.setNbPoulesMEP(bo.getNbPoulesMEP());
         entity.setFinLotTheorique(bo.getFinLotTheorique());
         entity.setCoefErosion(bo.getCoefErosion());
@@ -58,6 +64,11 @@ public class LotConvert {
         entity.setPrelevement2(bo.getPrelevement2());
         entity.setPrelevement3(bo.getPrelevement3());
         entity.setPrelevement4(bo.getPrelevement4());
+        entity.setCommentaires(bo.getCommentaires());
+        entity.setActif(bo.isActif());
+        entity.setArchive(bo.isArchive());
+        entity.setCreated(bo.getCreated());
+        entity.setModified(bo.getModified());
 
         return entity;
     }
@@ -66,16 +77,19 @@ public class LotConvert {
         LotBo bo = new LotBo();
         bo.setCodeOeuf(form.getCodeOeuf());
         bo.setDureeProdTheorique(form.getDureeProdTheorique());
-        bo.setBatimentPo(form.getBatimentId());
-        bo.setCategorieBo(form.getCategorieId());
-        bo.setCouvoirBo(form.getCouvoirId());
-        bo.setSoucheBo(form.getSoucheId());
-        bo.setAlimentBo(form.getAlimentId());
+        bo.setBatimentPo(new BatimentPo(form.getBatimentId()));
+//        bo.setCategorieBo(new CategorieBo(form.getCategorieId()));
+//        bo.setCouvoirBo(new CouvoirBo(form.getCouvoirId()));
+//        bo.setSoucheBo(new SoucheBo(form.getSoucheId()));
+//        bo.setAlimentBo(new AlimentBo(form.getAlimentId()));
         bo.setNbPoulesMEP(form.getNbPoulesMEP());
         bo.setFinLotTheorique(form.getFinLotTheorique());
         bo.setDernierLot(form.isDernierLot());
         bo.setNaissancePoules(form.getNaissancePoules());
         bo.setMep(form.getMep());
+        bo.setCommentaires(form.getCommentaires());
+        bo.setCreated(form.getCreated());
+        bo.setModified(form.getModified());
 
         return bo;
     }
@@ -85,13 +99,13 @@ public class LotConvert {
         view.setCodeOeuf(bo.getCodeOeuf());
         view.setBatiment(bo.getBatimentPo().getInuav());
         view.setBatimentId(bo.getBatimentPo().getId());
-        view.setCategorie(bo.getCategorieBo().getNom());
-        view.setCouvoir(bo.getCouvoirBo().getNom());
-        view.setCouvoirId(bo.getCouvoirBo().getId());
-        view.setSouche(bo.getSoucheBo().getNom());
-        view.setSoucheId(bo.getSoucheBo().getId());
-        view.setAliment(bo.getAlimentBo().getNom());
-        view.setSoucheId(bo.getSoucheBo().getId());
+//        view.setCategorie(bo.getCategorieBo().getNom());
+//        view.setCouvoir(bo.getCouvoirBo().getNom());
+//        view.setCouvoirId(bo.getCouvoirBo().getId());
+//        view.setSouche(bo.getSoucheBo().getNom());
+//        view.setSoucheId(bo.getSoucheBo().getId());
+//        view.setAliment(bo.getAlimentBo().getNom());
+//        view.setAlimentId(bo.getAlimentBo().getId());
         view.setDureeProdTheorique(bo.getDureeProdTheorique());
         view.setDureeProdReelle(bo.getDureeProdReelle());
         view.setNbPoulesMEP(bo.getNbPoulesMEP());
@@ -107,6 +121,11 @@ public class LotConvert {
         view.setPrelevement2(bo.getPrelevement2());
         view.setPrelevement3(bo.getPrelevement3());
         view.setPrelevement4(bo.getPrelevement4());
+        view.setCommentaire(bo.getCommentaires());
+        view.setCreated(bo.getCreated());
+        view.setModified(bo.getModified());
+        view.setActif(bo.isActif());
+        view.setArchive(bo.isArchive());
 
         return view;
     }
@@ -123,6 +142,10 @@ public class LotConvert {
         table.setNbPoulesMEP(bo.getNbPoulesMEP());
         table.setCoefErosion(bo.getCoefErosion());
         table.setMep(bo.getMep());
+        table.setActif(bo.isActif());
+        table.setArchive(bo.isArchive());
+        table.setCreated(bo.getCreated());
+        table.setModified(bo.getModified());
 
         return table;
     }

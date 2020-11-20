@@ -73,10 +73,6 @@ public class BatimentBo {
         this.entreprisePo = entreprisePo;
     }
 
-    public void setEntreprisePo(int id){
-        this.entreprisePo.setId(id);
-    }
-
     public String getDocCharte() {
         return docCharte;
     }
@@ -155,11 +151,6 @@ public class BatimentBo {
 
     public void setGps(GpsBo gps) {
         this.gps = gps;
-    }
-
-    public void setGps(float latitude, float longitude){
-        this.gps.setLatutide(latitude);
-        this.gps.setLongitude(longitude);
     }
 
     public String getCommentaires() {

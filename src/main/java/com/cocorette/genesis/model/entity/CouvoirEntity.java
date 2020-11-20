@@ -13,6 +13,10 @@ public class CouvoirEntity {
 
     public CouvoirEntity(){}
 
+    public CouvoirEntity(int id) {
+        this.id = id;
+    }
+
     public CouvoirEntity(int id, String name) {
         this.id = id;
         this.name = name;

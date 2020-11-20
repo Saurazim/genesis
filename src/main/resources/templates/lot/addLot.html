@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter Lot</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{css/form.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
 <a th:href="@{/lots}">Retour à la liste</a>
 <h1>Créer un nouveau lot</h1>
 <form th:action="@{/addLot}" th:object="${form}" method="post">
     <div>
+        <input type="hidden" name="lotId" th:value="${form.batimentId}">
         <h2>Informations</h2>
         <label>Code Oeufs*</label>
         <input type="text" th:field="*{codeOeuf}">
         <label>Durée théorique de production</label>
         <input type="text" th:field="*{dureeProdTheorique}">
-        <label>Bâtiment*</label>
-        <input type="text" th:field="*{batimentId}">
         <label>Catégorie*</label>
         <input type="text" th:field="*{categorieId}">
         <label>Couvoir*</label>
@@ -27,15 +26,15 @@
         <label>Usine d'aliment*</label>
         <input type="text" th:field="*{alimentId}">
         <label>Nombre de poule à la mise en place</label>
-        <input type="text" th:field="*{nbPoules}">
+        <input type="text" th:field="*{nbPoulesMEP}">
         <label>Fin théorique du lot</label>
         <input type="date" th:field="*{finLotTheorique}">
         <label>Date de naissance des poules</label>
         <input type="date" th:field="*{naissancePoules}">
         <label>Date de mise en place</label>
-        <input type="text" th:field="*{mep}">
+        <input type="date" th:field="*{mep}">
         <label>Dernier Lot ?</label>
-        <input type="text" th:field="*{dernierLot}">
+        <input type="checkbox" th:field="*{dernierLot}">
     </div>
     <input type="submit" value="Créer">
 </form>

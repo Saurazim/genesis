@@ -39,8 +39,8 @@ public class BatimentService {
         return tables;
     }
 
-    public void saveBatiment(BatimentEntity entity){
-        batimentDao.save(entity);
+    public BatimentEntity saveBatiment(BatimentEntity entity){
+        return batimentDao.save(entity);
     }
 
     public List<BatimentTable> findBatimentByEntreprise(EntrepriseEntity entreprise){

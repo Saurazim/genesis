@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "eleveur")
@@ -15,6 +16,11 @@ public class EleveurEntity {
     private ContactEntity contact;
     @Transient
     private List<EntrepriseEntity> entreprises;
+    private String commentaires;
+    private boolean actif;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public EleveurEntity(){}
 
@@ -65,5 +71,45 @@ public class EleveurEntity {
 
     public void setEntreprises(List<EntrepriseEntity> entreprises) {
         this.entreprises = entreprises;
+    }
+
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

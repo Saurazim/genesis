@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter Batiment</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{css/form.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
 <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
 <h1>Créer un nouveau bâtiment</h1>
-<form th:action="@{/addBatiment}" th:object="${form}">
+<form th:action="@{/addBatiment}" th:object="${form}" method="post" enctype="multipart/form-data">
     <div>
+        <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
         <h2>Informations</h2>
         <label>INUAV*</label>
         <input type="text" th:field="*{inuav}">
-        <label>Raison Sociale</label>
-        <input type="text" th:field="*{entreprise}">
-        <label>Document</label>
-        <input type="file" th:field="*{docCharte}">
+        <label>Charte sanitaire</label>
+        <input type="file" name="docCharte" th:field="*{docCharte}" accept="image/jpeg, image/png, application/pdf">
         <label>Année de signature de la charte</label>
         <input type="number" th:field="*{anneeCharte}">
         <label>Arrivée d'eau</label>
@@ -29,7 +28,7 @@
         <label>Date de début de validité du certificat bio</label>
         <input type="date" th:field="*{certifBioDebut}">
         <label>Date de fin de validité du certificat bio</label>
-        <input type="date" th:field="*{certifBioDebut}">
+        <input type="date" th:field="*{certifBioFin}">
         <label>Année de début d'exploitation</label>
         <input type="number" th:field="*{anneeDebut}">
     </div>
@@ -43,20 +42,13 @@
         <input type="text" th:field="*{ville}">
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
-        <label>Latitude</label>
-        <input type="number" th:field="*{latitude}">
-        <label>Longitude</label>
-        <label>Distance du centre</label>
-        <input type="number" th:field="*{distCentre}">
-        <input type="number" th:field="*{longitude}">
     </div>
     <div>
         <h2>Autres</h2>
         <label>Commentaires</label>
         <input type="text" th:field="*{commentaires}">
-        <label>date de création</label>
-        <input type="date" th:field="*{created}">
     </div>
+    <input type="submit" value="Créer">
 </form>
 </body>
 </html>

@@ -36,7 +36,7 @@ public class EleveurController {
         return "eleveur/eleveurList";
     }
 
-    @GetMapping("/addEleveur")
+    @GetMapping("/addEleveur/")
     public String showAddEleveurPage(Model model){
         EleveurForm form = new EleveurForm();
         model.addAttribute("form",form);
@@ -48,6 +48,7 @@ public class EleveurController {
     public String saveEleveur(Model model, @ModelAttribute("form") EleveurForm form){
         String nom = form.getNom();
         String prenom = form.getPrenom();
+
 
         if(!nom.isBlank() && !prenom.isBlank()){
             eleveurCoord.saveEleveur(form);

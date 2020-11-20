@@ -6,6 +6,10 @@ public class AlimentBo {
 
     public AlimentBo(){}
 
+    public AlimentBo(int id){
+        this.id = id;
+    }
+
     public AlimentBo(int id, String nom) {
         this.id = id;
         this.nom = nom;

@@ -11,6 +11,7 @@ import com.cocorette.genesis.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -23,6 +24,10 @@ public class EleveurCoord {
 
     public void saveEleveur(EleveurForm form){
         EleveurEntity entity = EleveurConvert.eleveurFormToEntity(form);
+        entity.setActif(true);
+        entity.setArchive(false);
+        entity.setCreated(LocalDateTime.now());
+        entity.setModified(LocalDateTime.now());
         contactService.saveContact(entity.getContact());
         eleveurService.saveEleveur(entity);
     }

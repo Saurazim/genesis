@@ -6,6 +6,10 @@ public class SoucheBo {
 
     public SoucheBo(){}
 
+    public SoucheBo(int id){
+        this.id = id;
+    }
+
     public SoucheBo(int id, String nom) {
         this.id = id;
         this.nom = nom;

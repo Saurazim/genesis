@@ -28,9 +28,9 @@ public class LotController {
         return "lot/lotList";
     }
 
-    @GetMapping("/addLot")
-    public String showAddLot(Model model){
-        LotForm form = new LotForm();
+    @GetMapping("/addLot/{batimentId}")
+    public String showAddLot(Model model, @PathVariable int batimentId){
+        LotForm form = new LotForm(batimentId);
         model.addAttribute("form", form);
 
         return "lot/addLot";
