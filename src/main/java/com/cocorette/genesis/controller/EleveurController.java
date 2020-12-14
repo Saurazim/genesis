@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class EleveurController {
@@ -26,7 +27,6 @@ public class EleveurController {
     @Autowired
     EntrepriseCoord entrepriseCoord;
 
-    private String erreur = "Le nom et le prénom doivent être remplis";
 
     @GetMapping("/eleveurs")
     public String eleveurList(Model model){
@@ -36,7 +36,7 @@ public class EleveurController {
         return "eleveur/eleveurList";
     }
 
-    @GetMapping("/addEleveur/")
+    @GetMapping("/addEleveur")
     public String showAddEleveurPage(Model model){
         EleveurForm form = new EleveurForm();
         model.addAttribute("form",form);
@@ -46,16 +46,14 @@ public class EleveurController {
 
     @PostMapping("/addEleveur")
     public String saveEleveur(Model model, @ModelAttribute("form") EleveurForm form){
-        String nom = form.getNom();
-        String prenom = form.getPrenom();
+        Map<String, String> erreurs = eleveurCoord.validEleveur(form);
 
-
-        if(!nom.isBlank() && !prenom.isBlank()){
+        if(erreurs.isEmpty()){
             eleveurCoord.saveEleveur(form);
             return "redirect:/eleveurs";
         }
 
-        model.addAttribute("erreur", erreur);
+        model.addAttribute(erreurs);
         return "eleveur/addEleveur";
     }
 

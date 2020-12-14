@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class EleveurCoord {
@@ -30,6 +33,21 @@ public class EleveurCoord {
         entity.setModified(LocalDateTime.now());
         contactService.saveContact(entity.getContact());
         eleveurService.saveEleveur(entity);
+    }
+
+    public Map<String, String> validEleveur(EleveurForm form){
+        Map<String, String> erreurs = new HashMap<>();
+
+        if (form.getNom() == null)
+            erreurs.put("nom","le nom est vide");
+
+        if (form.getPrenom() == null)
+            erreurs.put("prenom","le nom est vide");
+
+        if (form.getFax() == null && form.getMail() == null && form.getTelFixe() == null && form.getTelPort() == null)
+            erreurs.put("contact","au moins un contact doit etre rempli");
+
+        return erreurs;
     }
 
     public EleveurView findEleveurView(int id){

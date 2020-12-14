@@ -12,10 +12,11 @@
 <form th:action="@{/addEleveur}" th:object="${form}" method="POST">
     <div>
         <h2>Informations</h2>
-        <label>Nom*</label>
-        <input type="text" th:field="*{nom}">
-        <label>Prénom*</label>
-        <input type="text" th:field="*{prenom}">
+        <label>Nom</label>
+        <input type="text" th:field="*{nom}" required>
+        <span class="erreur"></span>
+        <label>Prénom</label>
+        <input type="text" th:field="*{prenom}" required>
     </div>
     <div>
         <h2>Contact</h2>
