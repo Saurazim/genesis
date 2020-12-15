@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
 public class MainController {
 
     private static List<Person> people = new ArrayList<>();
@@ -29,7 +28,7 @@ public class MainController {
     @Value("${error.message}")
     private String errorMessage;
 
-    @GetMapping(value = {"/","/index"})
+    //@GetMapping(value = {"/","/index"})
     public String index(Model model){
         model.addAttribute("message",message);
 

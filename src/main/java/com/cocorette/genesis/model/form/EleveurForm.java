@@ -10,9 +10,6 @@ public class EleveurForm {
     private String telPort;
     private String fax;
     private String rue;
-    private int codePostal;
-    private String ville;
-    private String pays;
     private String commentaires;
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -73,29 +70,6 @@ public class EleveurForm {
         this.rue = rue;
     }
 
-    public int getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(int codePostal) {
-        this.codePostal = codePostal;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
 
     public String getCommentaires() {
         return commentaires;

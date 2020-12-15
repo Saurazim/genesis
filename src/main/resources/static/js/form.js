@@ -8,7 +8,7 @@ function validateForm(){
             return false;
         }else if(string.length>100){
             alert("Name too long");
-    
+
             return false;
         }
     });
@@ -71,5 +71,5 @@ $(document).ready(function(){
         }
     })
 
-   
+
 })
