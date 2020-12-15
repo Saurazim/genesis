@@ -1,5 +1,6 @@
 package com.cocorette.genesis.coordination;
 
+import com.cocorette.genesis.configuration.Constantes;
 import com.cocorette.genesis.convert.EleveurConvert;
 import com.cocorette.genesis.model.bo.EleveurBo;
 import com.cocorette.genesis.model.entity.EleveurEntity;
@@ -8,6 +9,7 @@ import com.cocorette.genesis.model.table.EleveurTable;
 import com.cocorette.genesis.model.view.EleveurView;
 import com.cocorette.genesis.service.ContactService;
 import com.cocorette.genesis.service.EleveurService;
+import com.cocorette.genesis.util.ConstantesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,9 @@ public class EleveurCoord {
     @Autowired
     ContactService contactService;
 
+    private String mailRegex = ConstantesUtil.getProperty(Constantes.REGEX_MAIL);
+    private String telRegex = ConstantesUtil.getProperty(Constantes.REGEX_TEL);
+
     public void saveEleveur(EleveurForm form){
         EleveurEntity entity = EleveurConvert.eleveurFormToEntity(form);
         entity.setActif(true);
@@ -38,14 +43,29 @@ public class EleveurCoord {
     public Map<String, String> validEleveur(EleveurForm form){
         Map<String, String> erreurs = new HashMap<>();
 
-        if (form.getNom() == null)
+        if (form.getNom().isBlank())
             erreurs.put("nom","le nom est vide");
 
-        if (form.getPrenom() == null)
+        if (form.getPrenom().isBlank())
             erreurs.put("prenom","le nom est vide");
 
-        if (form.getFax() == null && form.getMail() == null && form.getTelFixe() == null && form.getTelPort() == null)
+        if (form.getFax().isBlank() && form.getMail().isBlank() && form.getTelFixe().isBlank() && form.getTelPort().isBlank()){
             erreurs.put("contact","au moins un contact doit etre rempli");
+        }
+        else{
+            if (!form.getFax().isBlank() && !telRegex.matches(form.getFax())){
+                erreurs.put("fax", "numéro invalide");
+            }
+            if (!form.getTelFixe().isBlank() && !telRegex.matches(form.getTelFixe())){
+                erreurs.put("telfixe", "numéro invalide");
+            }
+            if (!form.getTelPort().isBlank() && !telRegex.matches(form.getTelPort())){
+                erreurs.put("telport", "numéro invalide");
+            }
+            if (!form.getMail().isBlank() && !mailRegex.matches(form.getMail())){
+                erreurs.put("mail", "mail invalide");
+            }
+        }
 
         return erreurs;
     }

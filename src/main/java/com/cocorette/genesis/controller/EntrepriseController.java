@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class EntrepriseController {
@@ -44,9 +45,17 @@ public class EntrepriseController {
 
     @PostMapping("/addEntreprise")
     public String saveEntreprise(Model model, @ModelAttribute("form") EntrepriseForm form){
-        entrepriseCoord.saveEntreprise(form);
+        Map<String, String> erreurs = entrepriseCoord.validateEntreprise(form);
 
-        return "redirect:/entreprises";
+        if (erreurs.isEmpty()){
+            entrepriseCoord.saveEntreprise(form);
+
+            return "redirect:/entreprises";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit", "Formulaire invalide");
+        return "entreprise/addEntreprise";
     }
 
     @GetMapping("/entreprise/{id}")

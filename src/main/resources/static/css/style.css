@@ -1,9 +1,15 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1{
     color: #0000ff;
 }
 
-h2{
+legend{
     color: #FF0000;
+    font-size: large;
+    font-weight: bold;
 }
 
 table{

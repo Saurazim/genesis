@@ -6,20 +6,20 @@ input[type=text], input[type=number], input[type=email], input[type=file], input
 }
 
 form label {
-    display: inline-block;
+    display: block;
     width: 100px;
 }
 
-form div {
+form div,form fieldset {
     margin-bottom: 10px;
 }
 
 .error {
     color: red;
     margin-left: 5px;
+    display: block;
 }
 
-label.error {
-    display: inline;
+span.error{
+    padding-bottom: 10px;
 }
-

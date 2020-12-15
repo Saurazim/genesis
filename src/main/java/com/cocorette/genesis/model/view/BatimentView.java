@@ -14,7 +14,7 @@ public class BatimentView {
     private LocalDate certifBioDebut;
     private LocalDate certifBioFin;
     private String rue;
-    private int codePostal;
+    private String codePostal;
     private String ville;
     private String pays;
     private String commentaire;
@@ -105,11 +105,11 @@ public class BatimentView {
         this.rue = rue;
     }
 
-    public int getCodePostal() {
+    public String getCodePostal() {
         return codePostal;
     }
 
-    public void setCodePostal(int codePostal) {
+    public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
     }
 

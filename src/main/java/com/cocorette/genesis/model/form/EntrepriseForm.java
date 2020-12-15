@@ -7,7 +7,7 @@ public class EntrepriseForm {
     private String ede;
     private String nom;
     private String rue;
-    private int codePostal;
+    private String codePostal;
     private String ville;
     private String pays;
     private String mail;
@@ -59,11 +59,11 @@ public class EntrepriseForm {
         this.rue = rue;
     }
 
-    public int getCodePostal() {
+    public String getCodePostal() {
         return codePostal;
     }
 
-    public void setCodePostal(int codePostal) {
+    public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
     }
 

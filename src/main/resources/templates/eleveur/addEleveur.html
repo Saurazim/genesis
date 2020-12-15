@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <title>Ajouter Eleveur</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+    <!--<script type="text/javascript" th:src="@{/js/eleveur_form.js}"></script>-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}"/>
 </head>
 <body>
 <a th:href="@{/eleveurs}">Retour à la liste des éleveurs</a>
 <h1>Créer un nouvel éleveur</h1>
 <form name="form" th:action="@{/addEleveur}" th:object="${form}" method="POST">
-    <div>
-        <h2>Informations</h2>
-        <label>Nom*</label>
+    <fieldset>
+        <legend>Informations</legend>
+        <label>Nom</label>
         <input type="text" class="name" th:field="*{nom}" required>
-        <label>Prénom*</label>
+        <span class="error" th:text="${nom}"></span>
+        <label>Prénom</label>
         <input type="text" class="first_name" th:field="*{prenom}" required>
-    </div>
-    <div>
-        <h2>Contact</h2>
+        <span class="error" th:text="${prenom}"></span>
+    </fieldset>
+    <fieldset>
+        <legend>Contact</legend>
+        <h3>Un champ minimum est requis</h3>
+        <span class="error" th:text="${contact}"></span>
         <label>Email</label>
         <input type="email" class="email" th:field="*{mail}">
+        <span class="error" th:text="${mail}"></span>
         <label>Téléphone fixe</label>
         <input type="text" class="tel_fixe" th:field="*{telFixe}">
+        <span class="error" th:text="${telfixe}"></span>
         <label>Téléphone Portable</label>
         <input type="text" class="tel_port" th:field="*{telPort}">
+        <span class="error" th:text="${telport}"></span>
         <label>Fax</label>
         <input type="text" class="fax" th:field="*{fax}">
-    </div>
-    <input class="submit" type="submit" value="Créer">
+        <span class="error" th:text="${fax}"></span>
+    </fieldset>
+    <input class="submit" type="submit" value="Créer un nouvel éleveur">
+    <span class="error" th:text="${submit}"></span>
 </form>
-<div th:if="${erreur}" th:utext="${erreur}">
+<div th:if="${error}" th:utext="${error}">
     ...
 </div>
 </body>

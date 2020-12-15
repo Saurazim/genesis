@@ -1,5 +1,6 @@
 package com.cocorette.genesis.coordination;
 
+import com.cocorette.genesis.configuration.Constantes;
 import com.cocorette.genesis.convert.EntrepriseConvert;
 import com.cocorette.genesis.model.bo.EntrepriseBo;
 import com.cocorette.genesis.model.entity.EleveurEntity;
@@ -11,11 +12,14 @@ import com.cocorette.genesis.service.AdresseService;
 import com.cocorette.genesis.service.ContactService;
 import com.cocorette.genesis.service.EleveurService;
 import com.cocorette.genesis.service.EntrepriseService;
+import com.cocorette.genesis.util.ConstantesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class EntrepriseCoord {
@@ -28,6 +32,10 @@ public class EntrepriseCoord {
     @Autowired
     AdresseService adresseService;
 
+    private String mailRegex = ConstantesUtil.getProperty(Constantes.REGEX_MAIL);
+    private String telRegex = ConstantesUtil.getProperty(Constantes.REGEX_TEL);
+    private String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
+
     public void saveEntreprise(EntrepriseForm form){
         EntrepriseEntity entity = EntrepriseConvert.entrepriseFormToEntity(form);
         entity.setActif(true);
@@ -39,6 +47,43 @@ public class EntrepriseCoord {
         EleveurEntity eleveur = eleveurService.findEleveur(form.getEleveurId()).orElseThrow();
         entity.setEleveur(eleveur);
         entrepriseService.saveEntreprise(entity);
+    }
+
+    public Map<String,String> validateEntreprise(EntrepriseForm form){
+        Map<String,String> error = new HashMap<>();
+        //verif obligatoires
+        if (form.getNom().isBlank())
+            error.put("nom","Le nom est obligatoire");
+        if (form.getEde().isBlank())
+            error.put("ede","EDE obligatoire");
+        if (form.getMail().isBlank() && form.getTelFixe().isBlank()
+                && form.getTelPort().isBlank() && form.getFax().isBlank()){
+            error.put("contact","au moins un contact doit etre rempli");
+        }else{
+            //verif contacts
+            if (!form.getFax().isBlank() && !telRegex.matches(form.getFax())){
+                error.put("fax", "numéro invalide");
+            }
+            if (!form.getTelFixe().isBlank() && !telRegex.matches(form.getTelFixe())){
+                error.put("telfixe", "numéro invalide");
+            }
+            if (!form.getTelPort().isBlank() && !telRegex.matches(form.getTelPort())){
+                error.put("telport", "numéro invalide");
+            }
+            if (!form.getMail().isBlank() && !mailRegex.matches(form.getMail())){
+                error.put("mail", "mail invalide");
+            }
+        }
+        //verifs adresse
+        if (form.getRue().isBlank()||form.getCodePostal().isBlank()
+                ||form.getVille().isBlank()||form.getPays().isBlank()){
+            error.put("adresse", "adresse invalide");
+        }else {
+            if (!cpRegex.matches(form.getCodePostal()))
+                error.put("codepostal","Code postal invalide");
+        }
+
+        return error;
     }
 
     public List<EntrepriseTable> findAll(){

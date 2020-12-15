@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter Batiment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
@@ -10,9 +11,9 @@
 <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
 <h1>Créer un nouveau bâtiment</h1>
 <form th:action="@{/addBatiment}" th:object="${form}" method="post" enctype="multipart/form-data">
-    <div>
+    <fieldset>
         <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
-        <h2>Informations</h2>
+        <legend>Informations</legend>
         <label>INUAV*</label>
         <input type="text" th:field="*{inuav}">
         <label>Charte sanitaire</label>
@@ -21,18 +22,8 @@
         <input type="number" th:field="*{anneeCharte}">
         <label>Arrivée d'eau</label>
         <input type="text" th:field="*{eau}">
-        <label>Date de signature du contrat</label>
-        <input type="date" th:field="*{contratDebut}">
-        <label>Date de fin de validité du contrat</label>
-        <input type="date" th:field="*{contratFin}">
-        <label>Date de début de validité du certificat bio</label>
-        <input type="date" th:field="*{certifBioDebut}">
-        <label>Date de fin de validité du certificat bio</label>
-        <input type="date" th:field="*{certifBioFin}">
-        <label>Année de début d'exploitation</label>
-        <input type="number" th:field="*{anneeDebut}">
-    </div>
-    <div>
+    </fieldset>
+    <fieldset>
         <h2>Adresse</h2>
         <label>Rue</label>
         <input type="text" th:field="*{rue}">
@@ -42,7 +33,7 @@
         <input type="text" th:field="*{ville}">
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
-    </div>
+    </fieldset>
     <div>
         <h2>Autres</h2>
         <label>Commentaires</label>

@@ -53,7 +53,8 @@ public class EleveurController {
             return "redirect:/eleveurs";
         }
 
-        model.addAttribute(erreurs);
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit","Formulaire invalide");
         return "eleveur/addEleveur";
     }
 
