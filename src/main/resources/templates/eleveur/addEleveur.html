@@ -14,10 +14,10 @@
 <form name="form" th:action="@{/addEleveur}" th:object="${form}" method="POST">
     <fieldset>
         <legend>Informations</legend>
-        <label>Nom</label>
+        <label>Nom*</label>
         <input type="text" class="name" th:field="*{nom}" required>
         <span class="error" th:text="${nom}"></span>
-        <label>Prénom</label>
+        <label>Prénom*</label>
         <input type="text" class="first_name" th:field="*{prenom}" required>
         <span class="error" th:text="${prenom}"></span>
     </fieldset>

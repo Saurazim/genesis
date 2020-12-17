@@ -13,16 +13,13 @@ public class BatimentBo {
     private String inuav;
     private AdresseBo adresseBo;
     private EntreprisePo entreprisePo;
-    private String docCharte;
-    private int anneeCharte;
     private String eau;
     private int distCentre;
-    private LocalDate contratDebut;
-    private LocalDate contratFin;
-    private LocalDate certifBioDebut;
-    private LocalDate certifBioFin;
     private int anneeDebut;
     private GpsBo gps;
+    private String typeBatiment;
+    private int nbArbres;
+    private String typeArbres;
     private String commentaires;
     private boolean actif;
     private boolean archive;
@@ -73,22 +70,6 @@ public class BatimentBo {
         this.entreprisePo = entreprisePo;
     }
 
-    public String getDocCharte() {
-        return docCharte;
-    }
-
-    public void setDocCharte(String docCharte) {
-        this.docCharte = docCharte;
-    }
-
-    public int getAnneeCharte() {
-        return anneeCharte;
-    }
-
-    public void setAnneeCharte(int anneeCharte) {
-        this.anneeCharte = anneeCharte;
-    }
-
     public String getEau() {
         return eau;
     }
@@ -105,38 +86,6 @@ public class BatimentBo {
         this.distCentre = distCentre;
     }
 
-    public LocalDate getContratDebut() {
-        return contratDebut;
-    }
-
-    public void setContratDebut(LocalDate contratDebut) {
-        this.contratDebut = contratDebut;
-    }
-
-    public LocalDate getContratFin() {
-        return contratFin;
-    }
-
-    public void setContratFin(LocalDate contratFin) {
-        this.contratFin = contratFin;
-    }
-
-    public LocalDate getCertifBioDebut() {
-        return certifBioDebut;
-    }
-
-    public void setCertifBioDebut(LocalDate certifBioDebut) {
-        this.certifBioDebut = certifBioDebut;
-    }
-
-    public LocalDate getCertifBioFin() {
-        return certifBioFin;
-    }
-
-    public void setCertifBioFin(LocalDate certifBioFin) {
-        this.certifBioFin = certifBioFin;
-    }
-
     public int getAnneeDebut() {
         return anneeDebut;
     }
@@ -151,6 +100,30 @@ public class BatimentBo {
 
     public void setGps(GpsBo gps) {
         this.gps = gps;
+    }
+
+    public String getTypeBatiment() {
+        return typeBatiment;
+    }
+
+    public void setTypeBatiment(String typeBatiment) {
+        this.typeBatiment = typeBatiment;
+    }
+
+    public int getNbArbres() {
+        return nbArbres;
+    }
+
+    public void setNbArbres(int nbArbres) {
+        this.nbArbres = nbArbres;
+    }
+
+    public String getTypeArbres() {
+        return typeArbres;
+    }
+
+    public void setTypeArbres(String typeArbres) {
+        this.typeArbres = typeArbres;
     }
 
     public String getCommentaires() {

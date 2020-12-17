@@ -83,7 +83,6 @@ public class LotConvert {
 //        bo.setSoucheBo(new SoucheBo(form.getSoucheId()));
 //        bo.setAlimentBo(new AlimentBo(form.getAlimentId()));
         bo.setNbPoulesMEP(form.getNbPoulesMEP());
-        bo.setFinLotTheorique(form.getFinLotTheorique());
         bo.setDernierLot(form.isDernierLot());
         bo.setNaissancePoules(form.getNaissancePoules());
         bo.setMep(form.getMep());

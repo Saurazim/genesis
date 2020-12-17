@@ -10,33 +10,45 @@
 <a th:href="@{/lots}">Retour à la liste</a>
 <h1>Créer un nouveau lot</h1>
 <form th:action="@{/addLot}" th:object="${form}" method="post">
-    <div>
+    <fieldset>
         <input type="hidden" name="lotId" th:value="${form.batimentId}">
-        <h2>Informations</h2>
+        <legend>Informations</legend>
         <label>Code Oeufs*</label>
-        <input type="text" th:field="*{codeOeuf}">
-        <label>Durée théorique de production</label>
-        <input type="text" th:field="*{dureeProdTheorique}">
+        <input type="text" th:field="*{codeOeuf}" required>
+        <span class="error" th:text="${codeoeuf}"></span>
         <label>Catégorie*</label>
         <input type="text" th:field="*{categorieId}">
+        <span class="error" th:text="${categorieid}"></span>
         <label>Couvoir*</label>
         <input type="text" th:field="*{couvoirId}">
+        <span class="error" th:text="${couvoirid}"></span>
         <label>Souche*</label>
         <input type="text" th:field="*{soucheId}">
+        <span class="error" th:text="${soucheid}"></span>
         <label>Usine d'aliment*</label>
         <input type="text" th:field="*{alimentId}">
-        <label>Nombre de poule à la mise en place</label>
+        <span class="error" th:text="${alimentid}"></span>
+        <label>Nombre de poule à la mise en place*</label>
         <input type="text" th:field="*{nbPoulesMEP}">
-        <label>Fin théorique du lot</label>
-        <input type="date" th:field="*{finLotTheorique}">
-        <label>Date de naissance des poules</label>
+        <span class="error" th:text="${nbpoulesmep}"></span>
+        <label>Date de naissance des poules*</label>
         <input type="date" th:field="*{naissancePoules}">
-        <label>Date de mise en place</label>
+        <span class="error" th:text="${naissancepoules}"></span>
+        <label>Date de mise en place*</label>
         <input type="date" th:field="*{mep}">
+        <span class="error" th:text="${mep}"></span>
         <label>Dernier Lot ?</label>
         <input type="checkbox" th:field="*{dernierLot}">
-    </div>
+        <span class="error" th:text="${dernierlot}"></span>
+    </fieldset>
+    <fieldset>
+        <legend>Autres</legend>
+        <label>Commentaires</label>
+
+    </fieldset>
     <input type="submit" value="Créer">
+    <span class="error" th:text="${submit}"></span>
+
 </form>
 </body>
 </html>

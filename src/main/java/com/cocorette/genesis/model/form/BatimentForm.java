@@ -13,21 +13,14 @@ public class BatimentForm {
     private String ville;
     private String pays;
     private int entrepriseId;
-    //private String docCharte;//document, get chemin to doc charte
-    private int anneeCharte;
     private String eau;
     private int distCentre;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate contratDebut;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate contratFin;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate certifBioDebut;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate certifBioFin;
     private int anneeDebut;
     private float latitude;
     private float longitude;
+    private String typeBatiment;
+    private int nbArbres;
+    private String typeArbres;
     private String commentaires;
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -94,14 +87,6 @@ public class BatimentForm {
 //        this.docCharte = docCharte;
 //    }
 
-    public int getAnneeCharte() {
-        return anneeCharte;
-    }
-
-    public void setAnneeCharte(int anneeCharte) {
-        this.anneeCharte = anneeCharte;
-    }
-
     public String getEau() {
         return eau;
     }
@@ -116,38 +101,6 @@ public class BatimentForm {
 
     public void setDistCentre(int distCentre) {
         this.distCentre = distCentre;
-    }
-
-    public LocalDate getContratDebut() {
-        return contratDebut;
-    }
-
-    public void setContratDebut(LocalDate contratDebut) {
-        this.contratDebut = contratDebut;
-    }
-
-    public LocalDate getContratFin() {
-        return contratFin;
-    }
-
-    public void setContratFin(LocalDate contratFin) {
-        this.contratFin = contratFin;
-    }
-
-    public LocalDate getCertifBioDebut() {
-        return certifBioDebut;
-    }
-
-    public void setCertifBioDebut(LocalDate certifBioDebut) {
-        this.certifBioDebut = certifBioDebut;
-    }
-
-    public LocalDate getCertifBioFin() {
-        return certifBioFin;
-    }
-
-    public void setCertifBioFin(LocalDate certifBioFin) {
-        this.certifBioFin = certifBioFin;
     }
 
     public int getAnneeDebut() {
@@ -172,6 +125,30 @@ public class BatimentForm {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getTypeBatiment() {
+        return typeBatiment;
+    }
+
+    public void setTypeBatiment(String typeBatiment) {
+        this.typeBatiment = typeBatiment;
+    }
+
+    public int getNbArbres() {
+        return nbArbres;
+    }
+
+    public void setNbArbres(int nbArbres) {
+        this.nbArbres = nbArbres;
+    }
+
+    public String getTypeArbres() {
+        return typeArbres;
+    }
+
+    public void setTypeArbres(String typeArbres) {
+        this.typeArbres = typeArbres;
     }
 
     public String getCommentaires() {

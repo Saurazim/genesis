@@ -15,31 +15,48 @@
         <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
         <legend>Informations</legend>
         <label>INUAV*</label>
-        <input type="text" th:field="*{inuav}">
-        <label>Charte sanitaire</label>
+        <input type="text" th:field="*{inuav}" required>
+        <span class="error" th:text="${inuav}"></span>
+        <!--<label>Charte sanitaire</label>
         <input type="file" name="docCharte" th:field="*{docCharte}" accept="image/jpeg, image/png, application/pdf">
         <label>Année de signature de la charte</label>
-        <input type="number" th:field="*{anneeCharte}">
-        <label>Arrivée d'eau</label>
-        <input type="text" th:field="*{eau}">
+        <input type="number" th:field="*{anneeCharte}">-->
+        <label>Type de batiment</label>
+        <input type="text" th:field="*{typeBatiment}">
+        <span class="error" th:text="${typebatiment}"></span>
+        <label>Nombre d'arbres</label>
+        <input type="number" th:field="*{nbArbres}">
+        <span class="error" th:text="${nbarbres}"></span>
+        <label>Type d'arbres</label>
+        <input type="text" th:field="*{typeArbres}">
+        <span class="error" th:text="${typearbres}"></span>
+        <label>Arrivée d'eau*</label>
+        <input type="text" th:field="*{eau}" required>
+        <span class="error" th:text="${eau}"></span>
     </fieldset>
     <fieldset>
-        <h2>Adresse</h2>
+        <legend>Adresse</legend>
+        <span class="error" th:text="${adresse}"></span>
         <label>Rue</label>
         <input type="text" th:field="*{rue}">
+        <span class="error" th:text="${rue}"></span>
         <label>Code Postal</label>
         <input type="text" th:field="*{codePostal}">
+        <span class="error" th:text="${codepostal}"></span>
         <label>Ville</label>
         <input type="text" th:field="*{ville}">
+        <span class="error" th:text="${ville}"></span>
         <label>Pays</label>
         <input type="text" th:field="*{pays}">
+        <span class="error" th:text="${pays}"></span>
     </fieldset>
-    <div>
-        <h2>Autres</h2>
+    <fieldset>
+        <legend>Autres</legend>
         <label>Commentaires</label>
         <input type="text" th:field="*{commentaires}">
-    </div>
+    </fieldset>
     <input type="submit" value="Créer">
+    <span class="error" th:text="${submit}"></span>
 </form>
 </body>
 </html>

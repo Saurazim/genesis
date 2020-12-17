@@ -6,6 +6,24 @@ input[type=text], input[type=number], input[type=email], input[type=file], input
 }
 
 form label {
+    display: inline-block;
+    width: 100px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+    margin-left: 5px;
+}
+
+label.error {
+    display: inline;
+}
+
+form label {
     display: block;
     width: 100px;
 }

@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BatimentController {
@@ -42,9 +43,18 @@ public class BatimentController {
 
     @PostMapping("/addBatiment")
     public String saveBatiment(Model model, @ModelAttribute("form") BatimentForm form, @RequestParam("docCharte") MultipartFile file) throws IOException {
-        batimentCoord.saveBatiment(form, file);
+        Map<String, String> erreurs = batimentCoord.validBatiment(form);
 
-        return "redirect:/batiments";
+        if (erreurs.isEmpty()){
+            batimentCoord.saveBatiment(form, file);
+
+            return "redirect:/batiments";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit","Formulaire invalide");
+
+        return "batiment/addBatiment";
     }
 
     @GetMapping("/batiment/{id}")

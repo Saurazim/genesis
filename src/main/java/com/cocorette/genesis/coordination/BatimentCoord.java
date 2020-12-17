@@ -20,7 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class BatimentCoord {
@@ -33,12 +35,14 @@ public class BatimentCoord {
     @Autowired
     GpsService gpsService;
 
+    private String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
+
     public void saveBatiment(BatimentForm form, MultipartFile file) throws IOException {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
         BatimentEntity entity = BatimentConvert.batimentFormToEntity(form);
 
-        entity.setDocCharte(filename);
+        //entity.setDocCharte(filename);
         entity.setActif(true);
         entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());
@@ -52,6 +56,27 @@ public class BatimentCoord {
         String uploadDir = ConstantesUtil.getProperty(Constantes.PATH_UPLOAD_BATIMENT) + savedEntity.getId();
 
         FileUploadUtil.saveFile(uploadDir, filename, file);
+    }
+
+    public Map<String, String> validBatiment(BatimentForm form){
+        Map<String, String> error = new HashMap<>();
+
+        if (form.getInuav().isBlank())
+            error.put("inuav","Le code INUAV est obligatoire");
+
+        if (form.getEau().isBlank())
+            error.put("eau","Le type d'arrivée d'eau est obligatoire");
+
+        //verifs adresse
+        if (form.getRue().isBlank()||form.getCodePostal().isBlank()
+                ||form.getVille().isBlank()||form.getPays().isBlank()){
+            error.put("adresse", "adresse invalide");
+        }else {
+            if (!cpRegex.matches(form.getCodePostal()))
+                error.put("codepostal","Code postal invalide");
+        }
+
+        return error;
     }
 
     public List<BatimentTable> findAll(){

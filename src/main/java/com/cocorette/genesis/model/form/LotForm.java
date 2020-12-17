@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 
 public class LotForm {
     private String codeOeuf;
-    private int dureeProdTheorique;
     private int batimentId;
     private String batimentNom;
     private int categorieId;
@@ -19,8 +18,6 @@ public class LotForm {
     private int alimentId;
     private String alimentNom;
     private int nbPoulesMEP;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate finLotTheorique;
     private boolean dernierLot;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate naissancePoules;
@@ -42,14 +39,6 @@ public class LotForm {
 
     public void setCodeOeuf(String codeOeuf) {
         this.codeOeuf = codeOeuf;
-    }
-
-    public int getDureeProdTheorique() {
-        return dureeProdTheorique;
-    }
-
-    public void setDureeProdTheorique(int dureeProdTheorique) {
-        this.dureeProdTheorique = dureeProdTheorique;
     }
 
     public int getBatimentId() {
@@ -138,14 +127,6 @@ public class LotForm {
 
     public void setNbPoulesMEP(int nbPoulesMEP) {
         this.nbPoulesMEP = nbPoulesMEP;
-    }
-
-    public LocalDate getFinLotTheorique() {
-        return finLotTheorique;
-    }
-
-    public void setFinLotTheorique(LocalDate finLotTheorique) {
-        this.finLotTheorique = finLotTheorique;
     }
 
     public boolean isDernierLot() {
