@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Fournisseur de poulettes</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav></nav>
+<section class="row fondblanc">
+    <a th:href="@{/couvoirs}">Retour à la liste des catégories</a>
+    <h3 th:utext="${couvoir.nom}">..!..</h3>
+    <div class="section-container tabs">
+        <fieldset>
+            <h5 class="title">
+                <a href="#">Informations</a>
+            </h5>
+            <div class="content">
+                <div class="row collapse">
+                    <div class="large-6 columns">
+                        <label class="inline bold">Nom</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${couvoir.nom}"></label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</section>
+</body>
+</html>

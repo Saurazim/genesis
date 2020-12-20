@@ -26,12 +26,6 @@ public class LotConvert {
         bo.setNaissancePoules(entity.getNaissancePoules());
         bo.setMep(entity.getMep());
         bo.setFinLot(entity.getFinLot());
-        bo.setAnalyse1(entity.getAnalyse1());
-        bo.setAnalyse2(entity.getAnalyse2());
-        bo.setPrelevement1(entity.getPrelevement1());
-        bo.setPrelevement2(entity.getPrelevement2());
-        bo.setPrelevement3(entity.getPrelevement3());
-        bo.setPrelevement4(entity.getPrelevement4());
         bo.setCommentaires(entity.getCommentaires());
         bo.setActif(entity.isActif());
         bo.setArchive(entity.isArchive());
@@ -58,12 +52,6 @@ public class LotConvert {
         entity.setNaissancePoules(bo.getNaissancePoules());
         entity.setMep(bo.getMep());
         entity.setFinLot(bo.getFinLot());
-        entity.setAnalyse1(bo.getAnalyse1());
-        entity.setAnalyse2(bo.getAnalyse2());
-        entity.setPrelevement1(bo.getPrelevement1());
-        entity.setPrelevement2(bo.getPrelevement2());
-        entity.setPrelevement3(bo.getPrelevement3());
-        entity.setPrelevement4(bo.getPrelevement4());
         entity.setCommentaires(bo.getCommentaires());
         entity.setActif(bo.isActif());
         entity.setArchive(bo.isArchive());
@@ -76,7 +64,6 @@ public class LotConvert {
     public static LotBo lotFormToBo(LotForm form){
         LotBo bo = new LotBo();
         bo.setCodeOeuf(form.getCodeOeuf());
-        bo.setDureeProdTheorique(form.getDureeProdTheorique());
         bo.setBatimentPo(new BatimentPo(form.getBatimentId()));
 //        bo.setCategorieBo(new CategorieBo(form.getCategorieId()));
 //        bo.setCouvoirBo(new CouvoirBo(form.getCouvoirId()));
@@ -114,12 +101,6 @@ public class LotConvert {
         view.setNaissancePoules(bo.getNaissancePoules());
         view.setMep(bo.getMep());
         view.setFinLot(bo.getFinLot());
-        view.setAnalyse1(bo.getAnalyse1());
-        view.setAnalyse2(bo.getAnalyse2());
-        view.setPrelevement1(bo.getPrelevement1());
-        view.setPrelevement2(bo.getPrelevement2());
-        view.setPrelevement3(bo.getPrelevement3());
-        view.setPrelevement4(bo.getPrelevement4());
         view.setCommentaire(bo.getCommentaires());
         view.setCreated(bo.getCreated());
         view.setModified(bo.getModified());

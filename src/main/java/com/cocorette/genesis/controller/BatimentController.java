@@ -42,11 +42,11 @@ public class BatimentController {
     }
 
     @PostMapping("/addBatiment")
-    public String saveBatiment(Model model, @ModelAttribute("form") BatimentForm form, @RequestParam("docCharte") MultipartFile file) throws IOException {
+    public String saveBatiment(Model model, @ModelAttribute("form") BatimentForm form/*, @RequestParam("docCharte") MultipartFile file*/) throws IOException {
         Map<String, String> erreurs = batimentCoord.validBatiment(form);
 
         if (erreurs.isEmpty()){
-            batimentCoord.saveBatiment(form, file);
+            batimentCoord.saveBatiment(form);//, file);
 
             return "redirect:/batiments";
         }

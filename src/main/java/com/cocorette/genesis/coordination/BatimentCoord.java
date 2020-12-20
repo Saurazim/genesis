@@ -58,6 +58,19 @@ public class BatimentCoord {
         FileUploadUtil.saveFile(uploadDir, filename, file);
     }
 
+    public void saveBatiment(BatimentForm form){
+        BatimentEntity entity = BatimentConvert.batimentFormToEntity(form);
+        entity.setActif(true);
+        entity.setArchive(false);
+        entity.setCreated(LocalDateTime.now());
+        entity.setModified(LocalDateTime.now());
+        adresseService.saveAdresse(entity.getAdresse());
+        gpsService.saveGps(entity.getGps());
+        EntrepriseEntity entreprise = entrepriseService.findEntreprise(form.getEntrepriseId()).orElseThrow();
+        entity.setEntreprise(entreprise);
+        batimentService.saveBatiment(entity);
+    }
+
     public Map<String, String> validBatiment(BatimentForm form){
         Map<String, String> error = new HashMap<>();
 

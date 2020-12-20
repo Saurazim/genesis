@@ -11,6 +11,7 @@ import com.cocorette.genesis.model.form.LotForm;
 import com.cocorette.genesis.model.table.LotTable;
 import com.cocorette.genesis.model.view.LotView;
 import com.cocorette.genesis.service.BatimentService;
+import com.cocorette.genesis.service.CategorieService;
 import com.cocorette.genesis.service.LotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,16 +32,15 @@ public class LotCoord {
     @Autowired
     CouvoirDao couvoirDao;
     @Autowired
-    CategorieDao categorieDao;
+    CategorieService categorieService;
 
     public void saveLot(LotForm form){
         LotEntity entity = LotConvert.lotFormToEntity(form);
-        //TODO gérer categ, aliment, souche, couvoir
 
         entity.setAlimentEntity(alimentDao.findById(0).orElseThrow());
         entity.setSoucheEntity(soucheDao.findById(0).orElseThrow());
         entity.setCouvoirEntity(couvoirDao.findById(0).orElseThrow());
-        entity.setCategorieEntity(categorieDao.findById(0).orElseThrow());
+        entity.setCategorieEntity(categorieService.findById(form.getCategorieId()).orElseThrow());
         //
         entity.setActif(true);
         entity.setArchive(false);
@@ -50,6 +50,8 @@ public class LotCoord {
         entity.setBatimentEntity(batiment);
         lotService.saveLot(entity);
     }
+
+    public void validLot(LotForm form){}
 
     public List<LotTable> findAll(){
         return lotService.findAll();

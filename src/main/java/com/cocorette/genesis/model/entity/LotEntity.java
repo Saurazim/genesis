@@ -35,12 +35,6 @@ public class LotEntity {
     private LocalDate naissancePoules;
     private LocalDate mep;
     private LocalDate finLot;
-    private LocalDate analyse1;
-    private LocalDate analyse2;
-    private LocalDate prelevement1;
-    private LocalDate prelevement2;
-    private LocalDate prelevement3;
-    private LocalDate prelevement4;
     private String commentaires;
     private boolean actif;
     private boolean archive;
@@ -175,54 +169,6 @@ public class LotEntity {
 
     public void setFinLot(LocalDate finLot) {
         this.finLot = finLot;
-    }
-
-    public LocalDate getAnalyse1() {
-        return analyse1;
-    }
-
-    public void setAnalyse1(LocalDate analyse1) {
-        this.analyse1 = analyse1;
-    }
-
-    public LocalDate getAnalyse2() {
-        return analyse2;
-    }
-
-    public void setAnalyse2(LocalDate analyse2) {
-        this.analyse2 = analyse2;
-    }
-
-    public LocalDate getPrelevement1() {
-        return prelevement1;
-    }
-
-    public void setPrelevement1(LocalDate prelevement1) {
-        this.prelevement1 = prelevement1;
-    }
-
-    public LocalDate getPrelevement2() {
-        return prelevement2;
-    }
-
-    public void setPrelevement2(LocalDate prelevement2) {
-        this.prelevement2 = prelevement2;
-    }
-
-    public LocalDate getPrelevement3() {
-        return prelevement3;
-    }
-
-    public void setPrelevement3(LocalDate prelevement3) {
-        this.prelevement3 = prelevement3;
-    }
-
-    public LocalDate getPrelevement4() {
-        return prelevement4;
-    }
-
-    public void setPrelevement4(LocalDate prelevement4) {
-        this.prelevement4 = prelevement4;
     }
 
     public String getCommentaires() {

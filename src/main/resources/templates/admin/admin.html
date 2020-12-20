@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Administration</title>
+</head>
+
+<body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a th:href="@{/}">Home</a>
+        </li>
+        <li>
+            <a th:href="@{/eleveurs}">Eleveurs</a>
+        </li>
+        <li>
+            <a th:href="@{/entreprises}">Raisons Sociales</a>
+        </li>
+        <li>
+            <a th:href="@{/batiments}">Bâtiments</a>
+        </li>
+        <li>
+            <a th:href="@{/lots}">Lots</a>
+        </li>
+        <li>
+            <a th:href="@{/administration}">Administration</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
+    <h1>Administration</h1>
+    <ul>
+        <li>
+            <a th:href="@{/categories}">Catégories</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a th:href="@{/aliments}">Fabriques d'aliment</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a th:href="@{/souches}">Souches</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a th:href="@{/couvoirs}">Fournisseurs de poulettes</a>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

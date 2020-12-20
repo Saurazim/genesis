@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Fabriques d'aliments</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+</head>
+
+<body>
+<nav class="topbar">
+    <ul>
+        <li>
+            <a th:href="@{/}">Home</a>
+        </li>
+        <li>
+            <a th:href="@{/eleveurs}">Eleveurs</a>
+        </li>
+        <li>
+            <a th:href="@{/entreprises}">Raisons Sociales</a>
+        </li>
+        <li>
+            <a th:href="@{/batiments}">Bâtiments</a>
+        </li>
+        <li>
+            <a th:href="@{/lots}">Lots</a>
+        </li>
+        <li>
+            <a th:href="@{/administration}">Administration</a>
+        </li>
+    </ul>
+</nav>
+<section class="main_section">
+    <h1>Liste des Fabriques d'aliments</h1>
+    <a th:href="@{/addAliment}">Ajouter une fabrique d'aliments</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+            </tr>
+            <tr th:each="aliment : ${aliments}">
+                <td><a th:href="@{/aliment/{id}(id=${aliment.id})}">...</a></td>
+            </tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>
