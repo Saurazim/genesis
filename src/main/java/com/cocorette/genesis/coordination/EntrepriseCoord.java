@@ -61,16 +61,16 @@ public class EntrepriseCoord {
             error.put("contact","au moins un contact doit etre rempli");
         }else{
             //verif contacts
-            if (!form.getFax().isBlank() && !telRegex.matches(form.getFax())){
+            if (!form.getFax().isBlank() && !form.getFax().matches(telRegex)){
                 error.put("fax", "numéro invalide");
             }
-            if (!form.getTelFixe().isBlank() && !telRegex.matches(form.getTelFixe())){
+            if (!form.getTelFixe().isBlank() && !form.getTelFixe().matches(telRegex)){
                 error.put("telfixe", "numéro invalide");
             }
-            if (!form.getTelPort().isBlank() && !telRegex.matches(form.getTelPort())){
+            if (!form.getTelPort().isBlank() && !form.getTelPort().matches(telRegex)){
                 error.put("telport", "numéro invalide");
             }
-            if (!form.getMail().isBlank() && !mailRegex.matches(form.getMail())){
+            if (!form.getMail().isBlank() && !form.getMail().matches(mailRegex)){
                 error.put("mail", "mail invalide");
             }
         }
