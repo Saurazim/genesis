@@ -10,14 +10,14 @@ import com.cocorette.genesis.model.entity.*;
 import com.cocorette.genesis.model.form.LotForm;
 import com.cocorette.genesis.model.table.LotTable;
 import com.cocorette.genesis.model.view.LotView;
-import com.cocorette.genesis.service.BatimentService;
-import com.cocorette.genesis.service.CategorieService;
-import com.cocorette.genesis.service.LotService;
+import com.cocorette.genesis.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class LotCoord {
@@ -26,20 +26,20 @@ public class LotCoord {
     @Autowired
     BatimentService batimentService;
     @Autowired
-    AlimentDao alimentDao;
+    AlimentService alimentService;
     @Autowired
-    SoucheDao soucheDao;
+    SoucheService soucheService;
     @Autowired
-    CouvoirDao couvoirDao;
+    CouvoirService couvoirService;
     @Autowired
     CategorieService categorieService;
 
     public void saveLot(LotForm form){
         LotEntity entity = LotConvert.lotFormToEntity(form);
 
-        entity.setAlimentEntity(alimentDao.findById(0).orElseThrow());
-        entity.setSoucheEntity(soucheDao.findById(0).orElseThrow());
-        entity.setCouvoirEntity(couvoirDao.findById(0).orElseThrow());
+        entity.setAlimentEntity(alimentService.findById(form.getAlimentId()).orElseThrow());
+        entity.setSoucheEntity(soucheService.findById(form.getSoucheId()).orElseThrow());
+        entity.setCouvoirEntity(couvoirService.findById(form.getCouvoirId()).orElseThrow());
         entity.setCategorieEntity(categorieService.findById(form.getCategorieId()).orElseThrow());
         //
         entity.setActif(true);
@@ -51,7 +51,27 @@ public class LotCoord {
         lotService.saveLot(entity);
     }
 
-    public void validLot(LotForm form){}
+    public Map<String, String> validLot(LotForm form){
+        Map<String, String> error = new HashMap<>();
+        if (form.getCodeOeuf().isBlank())
+            error.put("codeoeuf","Le code oeuf est obligatoire. Remplir \"A VENIR\" si indisponible");
+        if (form.getCategorieId()==null)
+            error.put("categorie","Le choix de la catégorie est obligatoire");
+        if (form.getCouvoirId()==null)
+            error.put("couvoir","Le choix d'un fournisseur de poulette est obligatoire");
+        if (form.getSoucheId()==null)
+            error.put("souche","Le choix d'une souche est obligatoire");
+        if (form.getAlimentId()==null)
+            error.put("aliment","Le choix d'une fabrique d'aliment est obligatoire");
+        if (form.getNbPoulesMEP()==null)
+            error.put("nbmep","Le nombre de poule à la mise en place est obligatoire");
+        if (form.getNaissancePoules()==null)
+            error.put("naissancepoules","La date de naissance  des poules est obligatoire");
+        if (form.getMep()==null)
+            error.put("mep","La date de mise en place est obligatoire");
+
+        return error;
+    }
 
     public List<LotTable> findAll(){
         return lotService.findAll();

@@ -1,62 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Ajouter Raison Sociale</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
-<a th:href="@{/entreprises}">Retour à la liste</a>
-<h1>Créer une nouvelle raison sociale</h1>
-<form th:action="@{/addEntreprise}" th:object="${form}" method="post">
-    <fieldset>
-        <legend>Informations</legend>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <a th:href="@{/entreprises}">Retour à la liste</a>
+    <h1>Créer une nouvelle raison sociale</h1>
+    <form th:action="@{/addEntreprise}" th:object="${form}" method="post">
+        <fieldset>
+            <legend>Informations</legend>
 
-        <label>Nom</label>
-        <input type="text" th:field="*{nom}" required>
-        <span class="error" th:text="${nom}"></span>
-        <label>EDE</label>
-        <input type="text" th:field="*{ede}" required>
-        <span class="error" th:text="${ede}"></span>
-        <input type="hidden" th:value="${form.eleveurId}" name="eleveurId">
-    </fieldset>
-    <fieldset>
-        <legend>Contact</legend>
-        <h3>Un champ minimum est requis</h3>
-        <span class="error" th:text="${contact}"></span>
-        <label>Email</label>
-        <input type="email" th:field="*{mail}">
-        <span class="error" th:text="${mail}"></span>
-        <label>Téléphone Fixe</label>
-        <input type="text" th:field="*{telFixe}">
-        <span class="error" th:text="${telfixe}"></span>
-        <label>Téléphone Portable</label>
-        <input type="text" th:field="*{telPort}">
-        <span class="error" th:text="${telport}"></span>
-        <label>Fax</label>
-        <input type="text" th:field="*{fax}">
-        <span class="error" th:text="${fax}"></span>
-    </fieldset>
-    <fieldset>
-        <legend>Adresse</legend>
-        <span class="error" th:text="adresse"></span>
-        <label>Rue</label>
-        <input type="text" th:field="*{rue}">
-        <span class="error" th:text="${rue}"></span>
-        <label>Code Postal</label>
-        <input type="number" th:field="*{codePostal}">
-        <span class="error" th:text="${codepostal}"></span>
-        <label>Ville</label>
-        <input type="text" th:field="*{ville}">
-        <span class="error" th:text="${ville}"></span>
-        <label>Pays</label>
-        <input type="text" th:field="*{pays}">
-        <span class="error" th:text="pays"></span>
-    </fieldset>
-    <input type="submit" value="Créer">
-    <span class="error" th:text="${submit}"></span>
-</form>
+            <label>Nom</label>
+            <input type="text" th:field="*{nom}" required>
+            <span class="error" th:text="${nom}"></span>
+            <label>EDE</label>
+            <input type="text" th:field="*{ede}" required>
+            <span class="error" th:text="${ede}"></span>
+            <input type="hidden" th:value="${form.eleveurId}" name="eleveurId">
+        </fieldset>
+        <fieldset>
+            <legend>Contact</legend>
+            <h3>Un champ minimum est requis</h3>
+            <span class="error" th:text="${contact}"></span>
+            <label>Email</label>
+            <input type="email" th:field="*{mail}">
+            <span class="error" th:text="${mail}"></span>
+            <label>Téléphone Fixe</label>
+            <input type="text" th:field="*{telFixe}">
+            <span class="error" th:text="${telfixe}"></span>
+            <label>Téléphone Portable</label>
+            <input type="text" th:field="*{telPort}">
+            <span class="error" th:text="${telport}"></span>
+            <label>Fax</label>
+            <input type="text" th:field="*{fax}">
+            <span class="error" th:text="${fax}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Adresse</legend>
+            <span class="error" th:text="${adresse}"></span>
+            <label>Rue</label>
+            <input type="text" th:field="*{rue}">
+            <span class="error" th:text="${rue}"></span>
+            <label>Code Postal</label>
+            <input type="number" th:field="*{codePostal}">
+            <span class="error" th:text="${codepostal}"></span>
+            <label>Ville</label>
+            <input type="text" th:field="*{ville}">
+            <span class="error" th:text="${ville}"></span>
+            <label>Pays</label>
+            <input type="text" th:field="*{pays}">
+            <span class="error" th:text="${pays}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Autres</legend>
+            <label>Commentaires</label>
+            <input type="text" th:field="*{commentaire}">
+        </fieldset>
+        <input type="submit" value="Créer">
+        <span class="error" th:text="${submit}"></span>
+    </form>
+</section>
 </body>
 </html>

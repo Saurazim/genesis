@@ -15,7 +15,7 @@ public class EntrepriseForm {
     private String telPort;
     private String fax;
     private int eleveurId;
-    private String commentaires;
+    private String commentaire;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -123,12 +123,12 @@ public class EntrepriseForm {
         this.eleveurId = eleveurId;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public LocalDateTime getCreated() {

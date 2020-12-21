@@ -30,7 +30,7 @@ public class BatimentEntity {
     private String typeArbres;
     @Transient
     private List<String> documents;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -137,12 +137,12 @@ public class BatimentEntity {
         this.documents = documents;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

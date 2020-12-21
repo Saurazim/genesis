@@ -1,0 +1,30 @@
+<!Doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+</head>
+<body>
+<nav th:fragment="topbar" class="topbar">
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/eleveurs">Eleveurs</a>
+        </li>
+        <li>
+            <a href="/entreprises">Raisons Sociales</a>
+        </li>
+        <li>
+            <a href="/batiments">Bâtiments</a>
+        </li>
+        <li>
+            <a href="/lots">Lots</a>
+        </li>
+        <li>
+            <a href="/administration">Administration</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

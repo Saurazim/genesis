@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Ajouter Batiment</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
-<a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
-<h1>Créer un nouveau bâtiment</h1>
-<form th:action="@{/addBatiment}" th:object="${form}" method="post" enctype="multipart/form-data">
-    <fieldset>
-        <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
-        <legend>Informations</legend>
-        <label>INUAV*</label>
-        <input type="text" th:field="*{inuav}" required>
-        <span class="error" th:text="${inuav}"></span>
-        <!--<label>Charte sanitaire</label>
-        <input type="file" name="docCharte" th:field="*{docCharte}" accept="image/jpeg, image/png, application/pdf">
-        <label>Année de signature de la charte</label>
-        <input type="number" th:field="*{anneeCharte}">-->
-        <label>Type de batiment</label>
-        <input type="text" th:field="*{typeBatiment}">
-        <span class="error" th:text="${typebatiment}"></span>
-        <label>Nombre d'arbres</label>
-        <input type="number" th:field="*{nbArbres}">
-        <span class="error" th:text="${nbarbres}"></span>
-        <label>Type d'arbres</label>
-        <input type="text" th:field="*{typeArbres}">
-        <span class="error" th:text="${typearbres}"></span>
-        <label>Arrivée d'eau*</label>
-        <input type="text" th:field="*{eau}" required>
-        <span class="error" th:text="${eau}"></span>
-    </fieldset>
-    <fieldset>
-        <legend>Adresse</legend>
-        <span class="error" th:text="${adresse}"></span>
-        <label>Rue</label>
-        <input type="text" th:field="*{rue}">
-        <span class="error" th:text="${rue}"></span>
-        <label>Code Postal</label>
-        <input type="text" th:field="*{codePostal}">
-        <span class="error" th:text="${codepostal}"></span>
-        <label>Ville</label>
-        <input type="text" th:field="*{ville}">
-        <span class="error" th:text="${ville}"></span>
-        <label>Pays</label>
-        <input type="text" th:field="*{pays}">
-        <span class="error" th:text="${pays}"></span>
-    </fieldset>
-    <fieldset>
-        <legend>Autres</legend>
-        <label>Commentaires</label>
-        <input type="text" th:field="*{commentaires}">
-    </fieldset>
-    <input type="submit" value="Créer">
-    <span class="error" th:text="${submit}"></span>
-</form>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
+    <h1>Créer un nouveau bâtiment</h1>
+    <form name="form" th:action="@{/addBatiment}" th:object="${form}" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
+            <legend>Informations</legend>
+            <label>INUAV*</label>
+            <input type="text" th:field="*{inuav}" required>
+            <span class="error" th:text="${inuav}"></span>
+            <!--<label>Charte sanitaire</label>
+            <input type="file" name="docCharte" th:field="*{docCharte}" accept="image/jpeg, image/png, application/pdf">
+            <label>Année de signature de la charte</label>
+            <input type="number" th:field="*{anneeCharte}">-->
+            <label>Type de batiment</label>
+            <input type="text" th:field="*{typeBatiment}">
+            <span class="error" th:text="${typebatiment}"></span>
+            <label>Nombre d'arbres</label>
+            <input type="number" th:field="*{nbArbres}">
+            <span class="error" th:text="${nbarbres}"></span>
+            <label>Type d'arbres</label>
+            <input type="text" th:field="*{typeArbres}">
+            <span class="error" th:text="${typearbres}"></span>
+            <label>Arrivée d'eau*</label>
+            <input type="text" th:field="*{eau}" required>
+            <span class="error" th:text="${eau}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Adresse</legend>
+            <span class="error" th:text="${adresse}"></span>
+            <label>Rue</label>
+            <input type="text" th:field="*{rue}">
+            <span class="error" th:text="${rue}"></span>
+            <label>Code Postal</label>
+            <input type="text" th:field="*{codePostal}">
+            <span class="error" th:text="${codepostal}"></span>
+            <label>Ville</label>
+            <input type="text" th:field="*{ville}">
+            <span class="error" th:text="${ville}"></span>
+            <label>Pays</label>
+            <input type="text" th:field="*{pays}">
+            <span class="error" th:text="${pays}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Autres</legend>
+            <label>Commentaires</label>
+            <input type="text" th:field="*{commentaire}">
+        </fieldset>
+        <input type="submit" value="Créer">
+        <span class="error" th:text="${submit}"></span>
+    </form>
+</section>
 </body>
 </html>

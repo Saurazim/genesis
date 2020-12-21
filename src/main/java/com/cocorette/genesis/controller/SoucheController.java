@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class SoucheController {
@@ -29,15 +30,26 @@ public class SoucheController {
 
     @GetMapping("/addSouche")
     public String showAddSouche(Model model){
+        SoucheForm form = new SoucheForm();
+        model.addAttribute("form", form);
 
         return "souche/addSouche";
     }
 
     @PostMapping("/addSouche")
     public String saveSouche(Model model, @ModelAttribute("form")SoucheForm form){
-        soucheCoord.saveSouche(form);
+        Map<String,String> erreur = soucheCoord.validSouche(form);
 
-        return "redirect:/souches";
+        if (erreur.isEmpty()){
+            soucheCoord.saveSouche(form);
+
+            return "redirect:/souches";
+        }
+
+        model.addAllAttributes(erreur);
+        model.addAttribute("submit","Formulaire invalide");
+
+        return "souche/addSouche";
     }
 
     @GetMapping("/souche/{id}")

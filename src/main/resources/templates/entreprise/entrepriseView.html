@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Vue Raison Sociale</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 
 <body>
-<nav></nav>
-<section class="row fondblanc">
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="row fondblanc main_section">
     <a th:href="@{/entreprises}">Retour à la liste des raisons sociales</a>
-    <h3 th:utext="${entreprise.nom}">..!..</h3>
-    <h6>Groupe technique</h6>
+    <h1 th:utext="${entreprise.nom}">..!..</h1>
+    <h2>Groupe technique</h2>
     <div class="section-container tabs">
         <section>
-            <h5 class="title">
-                <a href="#">Informations</a>
-            </h5>
-            <div class="content">
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Informations</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Nom</label>
@@ -60,11 +59,11 @@
                 <div>
                     <label class="inline" th:utext="${entreprise.centre}">..!..</label>
                 </div>
-            </div>
-            <h5 class="title">
-                <a href="#">Adresse</a>
-            </h5>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Adresse</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Rue</label>
@@ -97,11 +96,11 @@
                 <div>
                     <label class="inline" th:utext="${entreprise.pays}">..!..</label>
                 </div>
-            </div>
-            <h5 class="title">
-                <a href="#">Contacts</a>
-            </h5>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Contacts</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Email</label>
@@ -134,8 +133,40 @@
                 <div>
                     <label class="inline" th:utext="${entreprise.fax}">..!..</label>
                 </div>
-            </div>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Autre</a>
+                </legend>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Création</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${entreprise.created}">...</label>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Dernière modification</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${entrprise.modified}">...</label>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Commentaires</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${entreprise.commentaire}">...</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="content">
+                <legend>
+                    <a href="#">Liste des Bâtiments</a>
+                </legend>
                 <a th:href="@{/addBatiment/{id}(id=${entreprise.id})}">Ajouter un batiment</a>
                 <div th:unless="${#lists.isEmpty(batiments)}">
                     <table border="1">
@@ -159,7 +190,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </fieldset>
         </section>
     </div>
 </section>

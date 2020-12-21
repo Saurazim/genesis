@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 
 <head>
-  <meta charset="UTF-8">
+  <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
   <title>GENESIS</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 
 <body>
-  <h1>GENESIS</h1>
-  <h2 th:utext="${message}">..!..</h2>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <h1>GENESIS</h1>
+    <h2 th:utext="${message}">..!..</h2>
 
-  <!--  
+    <!--
 
-    In Thymeleaf the equivalent of
-    JSP's ${pageContext.request.contextPath}/edit.html
-    would be @{/edit.html}
-    
-    -->
+      In Thymeleaf the equivalent of
+      JSP's ${pageContext.request.contextPath}/edit.html
+      would be @{/edit.html}
 
-  <a th:href="@{/eleveurs}">Liste des éleveurs</a>
-  <a th:href="@{/entreprises}">Liste des entreprises</a>
-  <a th:href="@{/batiments}">Liste des batiments</a>
-  <a th:href="@{/lots}">Liste des lots</a>
+      -->
+  <ul>
+    <li>
+      <a th:href="@{/eleveurs}">Liste des éleveurs</a>
+    </li>
+    <li>
+      <a th:href="@{/entreprises}">Liste des entreprises</a>
+    </li>
+    <li>
+      <a th:href="@{/batiments}">Liste des batiments</a>
+    </li>
+    <li>
+      <a th:href="@{/lots}">Liste des lots</a>
+    </li>
+  </ul>
+</section>
 </body>
 
 </html>

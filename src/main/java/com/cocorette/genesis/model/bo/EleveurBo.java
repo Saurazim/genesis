@@ -8,7 +8,7 @@ public class EleveurBo {
     private String prenom;
     private String nom;
     private ContactBo contactBo;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -57,12 +57,12 @@ public class EleveurBo {
         this.contactBo = contactBo;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

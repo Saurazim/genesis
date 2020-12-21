@@ -1,12 +1,8 @@
 package com.cocorette.genesis.model.bo;
 
-import com.cocorette.genesis.model.entity.GpsEntity;
 import com.cocorette.genesis.model.transitionnel.EntreprisePo;
 
-import javax.persistence.Transient;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class BatimentBo {
     private int id;
@@ -20,7 +16,7 @@ public class BatimentBo {
     private String typeBatiment;
     private int nbArbres;
     private String typeArbres;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -126,12 +122,12 @@ public class BatimentBo {
         this.typeArbres = typeArbres;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

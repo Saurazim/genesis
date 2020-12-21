@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class CouvoirController {
@@ -29,14 +30,26 @@ public class CouvoirController {
 
     @GetMapping("/addCouvoir")
     public String showAddCouvoir(Model model){
+        CouvoirForm form = new CouvoirForm();
+        model.addAttribute("form", form);
+
         return "couvoir/addCouvoir";
     }
 
-    @PostMapping("/addLot")
+    @PostMapping("/addCouvoir")
     public String saveCouvoir(Model model, @ModelAttribute("form")CouvoirForm form){
-        couvoirCoord.saveCouvoir(form);
+        Map<String,String > erreurs = couvoirCoord.validCouvoir(form);
 
-        return "redirect:/couvoirs";
+        if (erreurs.isEmpty()){
+            couvoirCoord.saveCouvoir(form);
+
+            return "redirect:/couvoirs";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit", "Formulaire invalide");
+
+        return "couvoir/addCouvoir";
     }
 
     @GetMapping("/couvoir/{id}")

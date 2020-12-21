@@ -26,7 +26,7 @@ public class LotConvert {
         bo.setNaissancePoules(entity.getNaissancePoules());
         bo.setMep(entity.getMep());
         bo.setFinLot(entity.getFinLot());
-        bo.setCommentaires(entity.getCommentaires());
+        bo.setCommentaires(entity.getCommentaire());
         bo.setActif(entity.isActif());
         bo.setArchive(entity.isArchive());
         bo.setCreated(entity.getCreated());
@@ -52,7 +52,7 @@ public class LotConvert {
         entity.setNaissancePoules(bo.getNaissancePoules());
         entity.setMep(bo.getMep());
         entity.setFinLot(bo.getFinLot());
-        entity.setCommentaires(bo.getCommentaires());
+        entity.setCommentaire(bo.getCommentaires());
         entity.setActif(bo.isActif());
         entity.setArchive(bo.isArchive());
         entity.setCreated(bo.getCreated());
@@ -73,7 +73,7 @@ public class LotConvert {
         bo.setDernierLot(form.isDernierLot());
         bo.setNaissancePoules(form.getNaissancePoules());
         bo.setMep(form.getMep());
-        bo.setCommentaires(form.getCommentaires());
+        bo.setCommentaires(form.getCommentaire());
         bo.setCreated(form.getCreated());
         bo.setModified(form.getModified());
 

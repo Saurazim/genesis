@@ -32,7 +32,7 @@ public class EntrepriseEntity {
     private EleveurEntity eleveur;
     @Transient
     private List<BatimentEntity> batiments;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -116,12 +116,12 @@ public class EntrepriseEntity {
         this.batiments = batiments;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

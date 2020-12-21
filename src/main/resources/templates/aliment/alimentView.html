@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html lang="fr" xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
+    <!--/*/ <th:block th:insert="fragment/view :: header"></th:block>/*/-->
     <title>Vue Fabrique d'aliments</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<nav></nav>
-<section class="row fondblanc">
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="row fondblanc main_section">
     <a th:href="@{/aliments}">Retour à la liste des fabriques d'aliments</a>
-    <h3 th:utext="${aliment.nom}">..!..</h3>
+    <h1 th:utext="${aliment.nom}">..!..</h1>
     <div class="section-container tabs">
-        <fieldset>
-            <h5 class="title">
-                <a href="#">Informations</a>
-            </h5>
-            <div class="content">
+        <section>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Informations</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Nom</label>
@@ -25,8 +24,37 @@
                 <div>
                     <label class="inline" th:utext="${aliment.nom}"></label>
                 </div>
-            </div>
-        </fieldset>
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Autre</a>
+                </legend>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Création</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${aliment.created}">...</label>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Dernière modification</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${aliment.modified}">...</label>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class = "large-6 columns">
+                        <label class="inline bold">Commentaires</label>
+                    </div>
+                    <div>
+                        <label class="inline" th:utext="${aliment.commentaire}">...</label>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
     </div>
 </section>
 </body>

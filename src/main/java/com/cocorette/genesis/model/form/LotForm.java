@@ -7,29 +7,29 @@ import java.time.LocalDateTime;
 
 public class LotForm {
     private String codeOeuf;
-    private int batimentId;
+    private Integer batimentId;
     private String batimentNom;
-    private int categorieId;
+    private Integer categorieId;
     private String categorieNom;
     private int couvoirId;
     private String couvoirNom;
-    private int soucheId;
+    private Integer soucheId;
     private String soucheNom;
-    private int alimentId;
+    private Integer alimentId;
     private String alimentNom;
-    private int nbPoulesMEP;
+    private Integer nbPoulesMEP;
     private boolean dernierLot;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate naissancePoules;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate mep;
-    private String commentaires;
+    private String commentaire;
     private LocalDateTime created;
     private LocalDateTime modified;
 
     public LotForm(){}
 
-    public LotForm(int batimentId) {
+    public LotForm(Integer batimentId) {
         this.batimentId = batimentId;
     }
 
@@ -41,11 +41,11 @@ public class LotForm {
         this.codeOeuf = codeOeuf;
     }
 
-    public int getBatimentId() {
+    public Integer getBatimentId() {
         return batimentId;
     }
 
-    public void setBatimentId(int batimentId) {
+    public void setBatimentId(Integer batimentId) {
         this.batimentId = batimentId;
     }
 
@@ -57,11 +57,11 @@ public class LotForm {
         this.batimentNom = batimentNom;
     }
 
-    public int getCategorieId() {
+    public Integer getCategorieId() {
         return categorieId;
     }
 
-    public void setCategorieId(int categorieId) {
+    public void setCategorieId(Integer categorieId) {
         this.categorieId = categorieId;
     }
 
@@ -73,11 +73,11 @@ public class LotForm {
         this.categorieNom = categorieNom;
     }
 
-    public int getCouvoirId() {
+    public Integer getCouvoirId() {
         return couvoirId;
     }
 
-    public void setCouvoirId(int couvoirId) {
+    public void setCouvoirId(Integer couvoirId) {
         this.couvoirId = couvoirId;
     }
 
@@ -89,11 +89,11 @@ public class LotForm {
         this.couvoirNom = couvoirNom;
     }
 
-    public int getSoucheId() {
+    public Integer getSoucheId() {
         return soucheId;
     }
 
-    public void setSoucheId(int soucheId) {
+    public void setSoucheId(Integer soucheId) {
         this.soucheId = soucheId;
     }
 
@@ -105,11 +105,11 @@ public class LotForm {
         this.soucheNom = soucheNom;
     }
 
-    public int getAlimentId() {
+    public Integer getAlimentId() {
         return alimentId;
     }
 
-    public void setAlimentId(int alimentId) {
+    public void setAlimentId(Integer alimentId) {
         this.alimentId = alimentId;
     }
 
@@ -121,11 +121,11 @@ public class LotForm {
         this.alimentNom = alimentNom;
     }
 
-    public int getNbPoulesMEP() {
+    public Integer getNbPoulesMEP() {
         return nbPoulesMEP;
     }
 
-    public void setNbPoulesMEP(int nbPoulesMEP) {
+    public void setNbPoulesMEP(Integer nbPoulesMEP) {
         this.nbPoulesMEP = nbPoulesMEP;
     }
 
@@ -153,12 +153,12 @@ public class LotForm {
         this.mep = mep;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public LocalDateTime getCreated() {

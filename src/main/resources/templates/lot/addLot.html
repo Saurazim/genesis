@@ -1,54 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Ajouter Lot</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
-<a th:href="@{/lots}">Retour à la liste</a>
-<h1>Créer un nouveau lot</h1>
-<form th:action="@{/addLot}" th:object="${form}" method="post">
-    <fieldset>
-        <input type="hidden" name="lotId" th:value="${form.batimentId}">
-        <legend>Informations</legend>
-        <label>Code Oeufs*</label>
-        <input type="text" th:field="*{codeOeuf}" required>
-        <span class="error" th:text="${codeoeuf}"></span>
-        <label>Catégorie*</label>
-        <input type="text" th:field="*{categorieId}">
-        <span class="error" th:text="${categorieid}"></span>
-        <label>Couvoir*</label>
-        <input type="text" th:field="*{couvoirId}">
-        <span class="error" th:text="${couvoirid}"></span>
-        <label>Souche*</label>
-        <input type="text" th:field="*{soucheId}">
-        <span class="error" th:text="${soucheid}"></span>
-        <label>Usine d'aliment*</label>
-        <input type="text" th:field="*{alimentId}">
-        <span class="error" th:text="${alimentid}"></span>
-        <label>Nombre de poule à la mise en place*</label>
-        <input type="text" th:field="*{nbPoulesMEP}">
-        <span class="error" th:text="${nbpoulesmep}"></span>
-        <label>Date de naissance des poules*</label>
-        <input type="date" th:field="*{naissancePoules}">
-        <span class="error" th:text="${naissancepoules}"></span>
-        <label>Date de mise en place*</label>
-        <input type="date" th:field="*{mep}">
-        <span class="error" th:text="${mep}"></span>
-        <label>Dernier Lot ?</label>
-        <input type="checkbox" th:field="*{dernierLot}">
-        <span class="error" th:text="${dernierlot}"></span>
-    </fieldset>
-    <fieldset>
-        <legend>Autres</legend>
-        <label>Commentaires</label>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <a th:href="@{/lots}">Retour à la liste</a>
+    <h1>Créer un nouveau lot</h1>
+    <form th:action="@{/addLot}" th:object="${form}" method="post">
+        <fieldset>
+            <input type="hidden" name="lotId" th:value="${form.batimentId}">
+            <legend>Informations</legend>
+            <label>Code Oeufs*</label>
+            <input type="text" th:field="*{codeOeuf}" required>
+            <span class="error" th:text="${codeoeuf}"></span>
+            <label>Catégorie*</label>
+            <input type="text" th:field="*{categorieId}">
+            <span class="error" th:text="${categorieid}"></span>
+            <label>Couvoir*</label>
+            <input type="text" th:field="*{couvoirId}">
+            <span class="error" th:text="${couvoirid}"></span>
+            <label>Souche*</label>
+            <input type="text" th:field="*{soucheId}">
+            <span class="error" th:text="${soucheid}"></span>
+            <label>Usine d'aliment*</label>
+            <input type="text" th:field="*{alimentId}">
+            <span class="error" th:text="${alimentid}"></span>
+            <label>Nombre de poule à la mise en place*</label>
+            <input type="text" th:field="*{nbPoulesMEP}">
+            <span class="error" th:text="${nbpoulesmep}"></span>
+            <label>Date de naissance des poules*</label>
+            <input type="date" th:field="*{naissancePoules}">
+            <span class="error" th:text="${naissancepoules}"></span>
+            <label>Date de mise en place*</label>
+            <input type="date" th:field="*{mep}">
+            <span class="error" th:text="${mep}"></span>
+            <label>Dernier Lot ?</label>
+            <input type="checkbox" th:field="*{dernierLot}">
+            <span class="error" th:text="${dernierlot}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Autres</legend>
+            <label>Commentaires</label>
+            <input type="text" th:field="*{commentaire}">
+        </fieldset>
+        <input type="submit" value="Créer">
+        <span class="error" th:text="${submit}"></span>
 
-    </fieldset>
-    <input type="submit" value="Créer">
-    <span class="error" th:text="${submit}"></span>
-
-</form>
+    </form>
+</section>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class EleveurEntity {
     private ContactEntity contact;
     @Transient
     private List<EntrepriseEntity> entreprises;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -73,12 +73,12 @@ public class EleveurEntity {
         this.entreprises = entreprises;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

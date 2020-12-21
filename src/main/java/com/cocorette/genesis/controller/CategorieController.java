@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class CategorieController {
@@ -29,15 +30,26 @@ public class CategorieController {
 
     @GetMapping("/addCategorie")
     public String showAddCateg(Model model){
+        CategorieForm form = new CategorieForm();
+        model.addAttribute("form", form);
 
         return "categorie/addCategorie";
     }
 
-    @PostMapping("/addLot")
+    @PostMapping("/addCategorie")
     public String saveCateg(Model model, @ModelAttribute("form")CategorieForm form){
-        categorieCoord.saveCategorie(form);
+        Map<String,String> erreurs = categorieCoord.validCategorie(form);
 
-        return "redirect:/categories";
+        if (erreurs.isEmpty()){
+            categorieCoord.saveCategorie(form);
+
+            return "redirect:/categories";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit", "Formulaire invalide");
+
+        return "categorie/addCategorie";
     }
 
     @GetMapping("/categorie/{id}")
