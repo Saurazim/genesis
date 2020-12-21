@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Ajouter Fabrique d'aliment</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
-<a th:href="@{/categories}">Retour à la liste des fabriques d'aliments</a>
-<h1>Créer une nouvelle fabrique d'aliments</h1>
-<form name="form" th:action="@{/addAliment}" th:object="${form}" method="POST">
-    <fieldset>
-        <legend>Informations</legend>
-        <label>Nom*</label>
-        <input type="text" class="name" th:field="*{nom}" required>
-    </fieldset>
-    <input class="submit" type="submit" value="Créer une nouvelle fabrique d'aliment">
-    <span class="error" th:text></span>
-</form>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <a th:href="@{/categories}">Retour à la liste des fabriques d'aliments</a>
+    <h1>Créer une nouvelle fabrique d'aliments</h1>
+    <form name="form" th:action="@{/addAliment}" th:object="${form}" method="POST">
+        <fieldset>
+            <legend>Informations</legend>
+            <label>Nom*</label>
+            <input type="text" class="name" th:field="*{nom}" required>
+        </fieldset>
+        <input class="submit" type="submit" value="Créer une nouvelle fabrique d'aliment">
+        <span class="error" th:text></span>
+    </form>
+</section>
 </body>
 </html>

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Vue Bâtiment</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<nav></nav>
-<section class="row fondblanc">
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="row fondblanc main_section">
     <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
     <h3 th:utext="${batiment.inuav}">..!..</h3>
     <div class="section-container tabs">
         <section>
-            <h5 class="title">
-                <a href="#">Informations</a>
-            </h5>
-            <div class="content">
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Informations</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Raison Sociale</label>
@@ -49,11 +48,11 @@
                 <div>
                     <label class="inline" th:utext="${batiment.certifBioDebut+' - '+batiment.certifBioFin}">...</label>
                 </div>
-            </div>
-            <h5 class="title">
-                <a href="#">Adresse</a>
-            </h5>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Adresse</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Rue</label>
@@ -86,11 +85,11 @@
                 <div>
                     <label class="inline" th:utext="${batiment.pays}">...</label>
                 </div>
-            </div>
-            <h5 class="title">
-                <a href="#">Autres</a>
-            </h5>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend class="title">
+                    <a href="#">Autres</a>
+                </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Commentaires</label>
@@ -111,9 +110,15 @@
                     <div class="large-6 columns">
                         <label class="inline bold">Dernière Modification</label>
                     </div>
+                    <div>
+                        <label class="inline" th:utext="${batiment.modified}">...</label>
+                    </div>
                 </div>
-            </div>
-            <div class="content">
+            </fieldset>
+            <fieldset class="content">
+                <legend>
+                    <a href="#">Liste des lots</a>
+                </legend>
                 <a th:href="@{/addLot/{id}(id=${batiment.id})}">Ajouter un Lot</a>
                 <div th:unless="${#lists.isEmpty(lots)}">
                     <table border="1">
@@ -141,7 +146,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </fieldset>
         </section>
     </div>
 </section>

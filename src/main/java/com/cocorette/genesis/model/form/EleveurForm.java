@@ -10,7 +10,7 @@ public class EleveurForm {
     private String telPort;
     private String fax;
     private String rue;
-    private String commentaires;
+    private String commentaire;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -71,12 +71,12 @@ public class EleveurForm {
     }
 
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public LocalDateTime getCreated() {

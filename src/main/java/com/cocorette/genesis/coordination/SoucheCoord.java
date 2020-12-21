@@ -9,7 +9,10 @@ import com.cocorette.genesis.service.SoucheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class SoucheCoord {
@@ -18,7 +21,20 @@ public class SoucheCoord {
 
     public void saveSouche(SoucheForm form){
         SoucheEntity entity = SoucheConvert.soucheFormToEntity(form);
+        entity.setActive(true);
+        entity.setActive(false);
+        entity.setCreated(LocalDateTime.now());
+        entity.setModified(LocalDateTime.now());
         soucheService.saveSouche(entity);
+    }
+
+    public Map<String, String> validSouche(SoucheForm form){
+        Map<String,String> error = new HashMap<>();
+
+        if (form.getNom().isBlank())
+            error.put("nom","Le nom est obligatoire");
+
+        return error;
     }
 
     public List<SoucheTable> findAll(){

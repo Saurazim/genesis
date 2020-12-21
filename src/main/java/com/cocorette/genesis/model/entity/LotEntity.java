@@ -35,7 +35,7 @@ public class LotEntity {
     private LocalDate naissancePoules;
     private LocalDate mep;
     private LocalDate finLot;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -171,12 +171,12 @@ public class LotEntity {
         this.finLot = finLot;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

@@ -16,7 +16,7 @@ public class EleveurConvert {
         bo.setNom(entity.getNom().isBlank() ? "": entity.getNom());
         if(entity.getContact()!=null)
             bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContact()));
-        bo.setCommentaires(entity.getCommentaires());
+        bo.setCommentaire(entity.getCommentaire());
         bo.setActif(entity.isActif());
         bo.setArchive(entity.isArchive());
         bo.setCreated(entity.getCreated());
@@ -32,7 +32,7 @@ public class EleveurConvert {
         entity.setPrenom(bo.getPrenom().isBlank() ? "" : bo.getPrenom());
         entity.setNom(bo.getNom().isBlank() ? "" : bo.getNom());
         entity.setContact(ContactConvert.contactBoToEntity(bo.getContactBo()));
-        entity.setCommentaires(bo.getCommentaires());
+        entity.setCommentaire(bo.getCommentaire());
         entity.setActif(bo.isActif());
         entity.setArchive(bo.isArchive());
         entity.setCreated(bo.getCreated());
@@ -49,7 +49,7 @@ public class EleveurConvert {
                 form.getTelFixe(),
                 form.getTelPort(),
                 form.getFax()));
-        bo.setCommentaires(form.getCommentaires());
+        bo.setCommentaire(form.getCommentaire());
         bo.setCreated(form.getCreated());
         bo.setModified(form.getModified());
 
@@ -71,7 +71,7 @@ public class EleveurConvert {
         view.setTelFixe(bo.getContactBo().getTelFixe());
         view.setTelPort(bo.getContactBo().getTelPort());
         view.setFax(bo.getContactBo().getFax());
-        view.setCommentaire(bo.getCommentaires());
+        view.setCommentaire(bo.getCommentaire());
         view.setCreated(bo.getCreated());
         view.setModified(bo.getModified());
         view.setActif(bo.isActif());

@@ -4,7 +4,6 @@ import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
-import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.transitionnel.BatimentPo;
@@ -24,7 +23,7 @@ public class BatimentConvert {
         bo.setGps(GpsConvert.gpsEntityToBo(entity.getGps()));
         bo.setTypeBatiment(bo.getTypeBatiment());
         bo.setNbArbres(bo.getNbArbres());
-        bo.setCommentaires(entity.getCommentaires());
+        bo.setCommentaire(entity.getCommentaire());
         bo.setActif(entity.isActif());
         bo.setArchive(entity.isArchive());
         bo.setCreated(entity.getCreated());
@@ -46,7 +45,7 @@ public class BatimentConvert {
         entity.setTypeBatiment(bo.getTypeBatiment());
         entity.setNbArbres(bo.getNbArbres());
         entity.setTypeArbres(bo.getTypeArbres());
-        entity.setCommentaires(bo.getCommentaires());
+        entity.setCommentaire(bo.getCommentaire());
         entity.setActif(bo.isActif());
         entity.setArchive(bo.isArchive());
         entity.setCreated(bo.getCreated());
@@ -67,7 +66,7 @@ public class BatimentConvert {
         bo.setTypeBatiment(form.getTypeBatiment());
         bo.setNbArbres(form.getNbArbres());
         bo.setTypeArbres(form.getTypeArbres());
-        bo.setCommentaires(form.getCommentaires());
+        bo.setCommentaire(form.getCommentaire());
         bo.setCreated(form.getCreated());
         bo.setModified(form.getModified());
 
@@ -87,7 +86,7 @@ public class BatimentConvert {
         view.setTypeBatiment(bo.getTypeBatiment());
         view.setNbArbres(bo.getNbArbres());
         view.setTypeArbres(bo.getTypeArbres());
-        view.setCommentaire(bo.getCommentaires());
+        view.setCommentaire(bo.getCommentaire());
         view.setCreated(bo.getCreated());
         view.setModified(bo.getModified());
         view.setActif(bo.isActif());

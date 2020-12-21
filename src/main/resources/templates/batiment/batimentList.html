@@ -1,34 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Liste des Bâtiments</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
-</head>
+ </head>
 <body>
-<nav class="topbar">
-    <ul>
-        <li>
-            <a th:href="@{/}">Home</a>
-        </li>
-        <li>
-            <a th:href="@{/eleveurs}">Eleveurs</a>
-        </li>
-        <li>
-            <a th:href="@{/entreprises}">Raisons Sociales</a>
-        </li>
-        <li>
-            <a th:href="@{/batiments}">Bâtiments</a>
-        </li>
-        <li>
-            <a th:href="@{/lots}">Lots</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
     <h1>Liste des Bâtiments</h1>
-    <a th:href="@{/addBatiment}">Ajouter un bâtiment</a>
     <div>
         <table border="1">
             <tr>

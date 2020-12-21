@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html lang="fr" xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Vue Catégorie</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<nav></nav>
-<section class="row fondblanc">
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="row fondblanc main_section">
     <a th:href="@{/categories}">Retour à la liste des catégories</a>
-    <h3 th:utext="${categorie.nom}">..!..</h3>
+    <h1 th:utext="${categorie.nom}">..!..</h1>
     <div class="section-container tabs">
         <fieldset>
-            <h5 class="title">
+            <legend class="title">
                 <a href="#">Informations</a>
-            </h5>
+            </legend>
             <div class="content">
                 <div class="row collapse">
                     <div class="large-6 columns">
@@ -24,6 +23,35 @@
                 </div>
                 <div>
                     <label class="inline" th:utext="${categorie.nom}"></label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="content">
+            <legend class="title">
+                <a href="#">Autre</a>
+            </legend>
+            <div class="row collapse">
+                <div class = "large-6 columns">
+                    <label class="inline bold">Création</label>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${categorie.created}">...</label>
+                </div>
+            </div>
+            <div class="row collapse">
+                <div class = "large-6 columns">
+                    <label class="inline bold">Dernière modification</label>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${categorie.modified}">...</label>
+                </div>
+            </div>
+            <div class="row collapse">
+                <div class = "large-6 columns">
+                    <label class="inline bold">Commentaires</label>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${categorie.commentaire}">...</label>
                 </div>
             </div>
         </fieldset>

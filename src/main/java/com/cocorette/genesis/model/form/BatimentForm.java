@@ -1,9 +1,5 @@
 package com.cocorette.genesis.model.form;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class BatimentForm {
@@ -21,7 +17,7 @@ public class BatimentForm {
     private String typeBatiment;
     private int nbArbres;
     private String typeArbres;
-    private String commentaires;
+    private String commentaire;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -151,12 +147,12 @@ public class BatimentForm {
         this.typeArbres = typeArbres;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public LocalDateTime getCreated() {

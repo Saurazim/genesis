@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AlimentController {
@@ -29,15 +30,26 @@ public class AlimentController {
 
     @GetMapping("/addAliment")
     public String showAddAliment(Model model){
+        AlimentForm form = new AlimentForm();
+        model.addAttribute("form", form);
 
         return "aliment/addAliment";
     }
 
     @PostMapping("/addAliment")
     public String saveAliment(Model model, @ModelAttribute("form")AlimentForm form){
-        alimentCoord.saveAliment(form);
+        Map<String, String> erreurs = alimentCoord.validAliment(form);
 
-        return "redirect:/aliments";
+        if (erreurs.isEmpty()){
+            alimentCoord.saveAliment(form);
+
+            return "redirect:/aliments";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit","Formulaire invalide");
+
+        return "aliment/addAliment";
     }
 
     @GetMapping("/aliment/{id}")

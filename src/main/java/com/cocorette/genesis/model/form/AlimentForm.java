@@ -2,6 +2,7 @@ package com.cocorette.genesis.model.form;
 
 public class AlimentForm {
     private String nom;
+    private String commentaire;
 
     public AlimentForm(){}
 
@@ -15,5 +16,13 @@ public class AlimentForm {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 }

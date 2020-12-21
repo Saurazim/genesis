@@ -1,13 +1,11 @@
 package com.cocorette.genesis.controller;
 
-import com.cocorette.genesis.convert.BatimentConvert;
 import com.cocorette.genesis.coordination.BatimentCoord;
 import com.cocorette.genesis.coordination.EntrepriseCoord;
 import com.cocorette.genesis.model.form.EntrepriseForm;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EntrepriseView;
-import com.cocorette.genesis.service.EntrepriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +43,7 @@ public class EntrepriseController {
 
     @PostMapping("/addEntreprise")
     public String saveEntreprise(Model model, @ModelAttribute("form") EntrepriseForm form){
-        Map<String, String> erreurs = entrepriseCoord.validateEntreprise(form);
+        Map<String, String> erreurs = entrepriseCoord.validEntreprise(form);
 
         if (erreurs.isEmpty()){
             entrepriseCoord.saveEntreprise(form);

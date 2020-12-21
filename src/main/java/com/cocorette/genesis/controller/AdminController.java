@@ -21,4 +21,9 @@ public class AdminController {
     public String administration(Model model){
         return "admin/admin";
     }
+
+    @GetMapping("/test")
+    public String testView(Model model){
+        return "test";
+    }
 }

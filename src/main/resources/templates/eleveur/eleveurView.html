@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
+  <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
   <title>Vue Eleveur</title>
   <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 
 <body>
-<nav></nav>
-<section class="row fondblanc">
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="row fondblanc main_section">
   <a th:href="@{/eleveurs}">Retour à la liste des éleveurs</a>
-  <h3 th:utext="${eleveur.prenom+' '+eleveur.nom}">..!..</h3>
-  <h6>Groupe technique</h6>
+  <h1 th:utext="${eleveur.prenom+' '+eleveur.nom}">..!..</h1>
+  <h2>Groupe technique</h2>
   <div class="section-container tabs">
     <section>
-      <h5 class="title">
-        <a href="#">Informations</a>
-      </h5>
-      <div class="content">
+      <fieldset class="content">
+        <legend class="title">
+          <a href="#">Informations</a>
+        </legend>
         <div class="row collapse">
           <div class="large-6 columns">
             <label class="inline bold">Prenom</label>
@@ -37,11 +36,11 @@
           </div>
         </div>
         <div class="row collapse"></div>
-      </div>
-      <h5 class="title">
-        <a href="#">Contacts</a>
-      </h5>
-      <div class="content">
+      </fieldset>
+      <fieldset class="content">
+        <legend class="title">
+          <a href="#">Contacts</a>
+        </legend>
         <div class="row collapse">
           <div class="large-6 columns">
             <label class="inline bold">Email</label>
@@ -74,8 +73,40 @@
             <label class="inline" th:utext="${eleveur.fax}">..!..</label>
           </div>
         </div>
-      </div>
-      <div class="content">
+      </fieldset>
+      <fieldset class="content">
+        <legend class="title">
+          <a href="#">Autre</a>
+        </legend>
+        <div class="row collapse">
+          <div class = "large-6 columns">
+            <label class="inline bold">Création</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.created}">...</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class = "large-6 columns">
+            <label class="inline bold">Dernière modification</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.modified}">...</label>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class = "large-6 columns">
+            <label class="inline bold">Commentaires</label>
+          </div>
+          <div>
+            <label class="inline" th:utext="${eleveur.commentaire}">...</label>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="content">
+        <legend class="title">
+          <a href="#">Liste des raisons sociales</a>
+        </legend>
         <a th:href="@{/addEntreprise/{id}(id=${eleveur.id})}">Ajouter une raison sociale</a>
         <div th:unless="${#lists.isEmpty(entreprises)}">
           <table border="1">
@@ -105,7 +136,7 @@
             </tr>
           </table>
         </div>
-      </div>
+      </fieldset>
     </section>
   </div>
 </section>

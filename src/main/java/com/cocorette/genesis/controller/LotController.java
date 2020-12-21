@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class LotController {
@@ -38,9 +39,19 @@ public class LotController {
 
     @PostMapping("/addLot")
     public String saveLot(Model model, @ModelAttribute("form") LotForm form){
-        lotCoord.saveLot(form);
+        Map<String, String> erreurs = lotCoord.validLot(form);
 
-        return "redirect:/lots";
+        if (erreurs.isEmpty())
+        {
+            lotCoord.saveLot(form);
+
+            return "redirect:/lots";
+        }
+
+        model.addAllAttributes(erreurs);
+        model.addAttribute("submit", "formulaire invalide");
+
+        return "lot/addlot";
     }
 
     @GetMapping("/lot/{id}")

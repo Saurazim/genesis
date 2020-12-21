@@ -1,35 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Liste des Entreprises</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
+    <title>Liste des Raisons Sociales</title>
 </head>
+
 <body>
-<nav class="topbar">
-    <ul>
-        <li>
-            <a th:href="@{/}">Home</a>
-        </li>
-        <li>
-            <a th:href="@{/eleveurs}">Eleveurs</a>
-        </li>
-        <li>
-            <a th:href="@{/entreprises}">Raisons Sociales</a>
-        </li>
-        <li>
-            <a th:href="@{/batiments}">Bâtiments</a>
-        </li>
-        <li>
-            <a th:href="@{/lots}">Lots</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
     <h1>Liste des Raisons Sociales</h1>
-    <a th:href="@{/addEntreprise}">Ajouter une raison sociale</a>
     <div>
         <table border="1">
             <tr>
@@ -43,6 +23,7 @@
                 <th>Fax</th>
                 <th>Vétérinaire</th>
                 <th>Centre</th>
+                <th>Création</th>
             </tr>
             <tr th:each="entreprise : ${entreprises}">
                 <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
@@ -55,6 +36,7 @@
                 <td th:utext="${entreprise.fax}">...</td>
                 <td th:utext="${entreprise.veterinaire}">...</td>
                 <td th:utext="${entreprise.centre}">...</td>
+                <td th:utext="${entreprise.created}">...</td>
             </tr>
         </table>
     </div>

@@ -13,7 +13,7 @@ public class EntrepriseBo {
     private ContactBo contactBo;
     private EleveurPo eleveurPo;
     private VeterinaireBo veterinaireBo;
-    private String commentaires;
+    private String commentaire;
     private boolean actif;
     private boolean archive;
     private LocalDateTime created;
@@ -83,12 +83,12 @@ public class EntrepriseBo {
         this.veterinaireBo = veterinaireBo;
     }
 
-    public String getCommentaires() {
-        return commentaires;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setCommentaires(String commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     public boolean isActif() {

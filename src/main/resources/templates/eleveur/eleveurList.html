@@ -1,33 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Liste des Eleveurs</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
+    <title>Liste des éleveurs</title>
 </head>
 
 <body>
-<nav class="topbar">
-    <ul>
-        <li>
-            <a th:href="@{/}">Home</a>
-        </li>
-        <li>
-            <a th:href="@{/eleveurs}">Eleveurs</a>
-        </li>
-        <li>
-            <a th:href="@{/entreprises}">Raisons Sociales</a>
-        </li>
-        <li>
-            <a th:href="@{/batiments}">Bâtiments</a>
-        </li>
-        <li>
-            <a th:href="@{/lots}">Lots</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
     <h1>Liste des éleveurs</h1>
     <a th:href="@{/addEleveur}">Ajouter un Eleveur</a>
@@ -39,6 +19,7 @@
                 <th>Téléphone fixe</th>
                 <th>Téléphone Portable</th>
                 <th>Fax</th>
+                <th>Création</th>
             </tr>
             <tr th:each="eleveur : ${eleveurs}">
                 <td><a th:href="@{/eleveur/{id}(id=${eleveur.id})}" th:text="${eleveur.nom}+' '+${eleveur.prenom}"></a></td>
@@ -46,6 +27,7 @@
                 <td th:utext="${eleveur.telFixe}">...</td>
                 <td th:utext="${eleveur.telPort}">...</td>
                 <td th:utext="${eleveur.fax}">...</td>
+                <td th:utext="${eleveur.created}">...</td>
             </tr>
         </table>
     </div>

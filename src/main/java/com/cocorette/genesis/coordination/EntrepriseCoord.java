@@ -49,7 +49,7 @@ public class EntrepriseCoord {
         entrepriseService.saveEntreprise(entity);
     }
 
-    public Map<String,String> validateEntreprise(EntrepriseForm form){
+    public Map<String,String> validEntreprise(EntrepriseForm form){
         Map<String,String> error = new HashMap<>();
         //verif obligatoires
         if (form.getNom().isBlank())

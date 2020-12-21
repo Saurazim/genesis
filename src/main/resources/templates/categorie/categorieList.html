@@ -1,35 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="fr" xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
     <title>Liste des Catégories</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/topbar.css}">
 </head>
 
 <body>
-<nav class="topbar">
-    <ul>
-        <li>
-            <a th:href="@{/}">Home</a>
-        </li>
-        <li>
-            <a th:href="@{/eleveurs}">Eleveurs</a>
-        </li>
-        <li>
-            <a th:href="@{/entreprises}">Raisons Sociales</a>
-        </li>
-        <li>
-            <a th:href="@{/batiments}">Bâtiments</a>
-        </li>
-        <li>
-            <a th:href="@{/lots}">Lots</a>
-        </li>
-        <li>
-            <a th:href="@{/administration}">Administration</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
     <h1>Liste des Catégories</h1>
     <a th:href="@{/addCategorie}">Ajouter une catégorie</a>
@@ -37,9 +14,15 @@
         <table border="1">
             <tr>
                 <th>Nom</th>
+                <th>Commentaire</th>
+                <th>Création</th>
+                <th>Dernière Modification</th>
             </tr>
             <tr th:each="categorie : ${categories}">
-                <td><a th:href="@{/categorie/{id}(id=${categorie.id})}">...</a></td>
+                <td><a th:href="@{/categorie/{id}(id=${categorie.id})}" th:utext="${categorie.nom}">...</a></td>
+                <td th:utext="${categorie.commentaire}">...</td>
+                <td th:utext="${categorie.created}">...</td>
+                <td th:utext="${categorie.modified}">...</td>
             </tr>
         </table>
     </div>
