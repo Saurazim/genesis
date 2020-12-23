@@ -18,6 +18,8 @@ public class BatimentForm {
     private int nbArbres;
     private String typeArbres;
     private String commentaire;
+    private boolean active;
+    private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
 

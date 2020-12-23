@@ -21,8 +21,9 @@ public class BatimentConvert {
         bo.setDistCentre(entity.getDistCentre());
         bo.setAnneeDebut(entity.getAnneeDebut());
         bo.setGps(GpsConvert.gpsEntityToBo(entity.getGps()));
-        bo.setTypeBatiment(bo.getTypeBatiment());
-        bo.setNbArbres(bo.getNbArbres());
+        bo.setTypeBatiment(entity.getTypeBatiment());
+        bo.setNbArbres(entity.getNbArbres());
+        bo.setTypeArbres(entity.getTypeArbres());
         bo.setCommentaire(entity.getCommentaire());
         bo.setActif(entity.isActif());
         bo.setArchive(entity.isArchive());
@@ -83,6 +84,9 @@ public class BatimentConvert {
         view.setCodePostal(bo.getAdresseBo().getCodePostal());
         view.setVille(bo.getAdresseBo().getVille());
         view.setPays(bo.getAdresseBo().getPays());
+        view.setEau(bo.getEau());
+        view.setDistCentre(bo.getDistCentre());
+        view.setAnneeDebut(bo.getAnneeDebut());
         view.setTypeBatiment(bo.getTypeBatiment());
         view.setNbArbres(bo.getNbArbres());
         view.setTypeArbres(bo.getTypeArbres());

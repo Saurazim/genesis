@@ -12,6 +12,9 @@ public class BatimentView {
     private String codePostal;
     private String ville;
     private String pays;
+    private String eau;
+    private int distCentre;
+    private int anneeDebut;
     private String typeBatiment;
     private int nbArbres;
     private String typeArbres;
@@ -81,6 +84,30 @@ public class BatimentView {
 
     public String getPays() {
         return pays;
+    }
+
+    public String getEau() {
+        return eau;
+    }
+
+    public void setEau(String eau) {
+        this.eau = eau;
+    }
+
+    public int getDistCentre() {
+        return distCentre;
+    }
+
+    public void setDistCentre(int distCentre) {
+        this.distCentre = distCentre;
+    }
+
+    public int getAnneeDebut() {
+        return anneeDebut;
+    }
+
+    public void setAnneeDebut(int anneeDebut) {
+        this.anneeDebut = anneeDebut;
     }
 
     public String getTypeBatiment() {
