@@ -9,14 +9,14 @@ public class CentreEntity {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
+    private String nom;
     private float longitude;
     private float latitude;
 
     public CentreEntity(){}
 
-    public CentreEntity(String name) {
-        this.name = name;
+    public CentreEntity(String nom) {
+        this.nom = nom;
     }
 
     public int getId() {
@@ -27,12 +27,12 @@ public class CentreEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public float getLongitude() {

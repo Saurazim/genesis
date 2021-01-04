@@ -9,7 +9,6 @@ public class EleveurForm {
     private String telFixe;
     private String telPort;
     private String fax;
-    private String rue;
     private String commentaire;
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -61,15 +60,6 @@ public class EleveurForm {
     public void setFax(String fax) {
         this.fax = fax;
     }
-
-    public String getRue() {
-        return rue;
-    }
-
-    public void setRue(String rue) {
-        this.rue = rue;
-    }
-
 
     public String getCommentaire() {
         return commentaire;

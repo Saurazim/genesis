@@ -7,7 +7,7 @@ public class GpsConvert {
     public static GpsBo gpsEntityToBo(GpsEntity entity){
         GpsBo bo = new GpsBo();
         bo.setId(entity.getId());
-        bo.setLatutide(entity.getLatitude());
+        bo.setLatitude(entity.getLatitude());
         bo.setLongitude(entity.getLongitude());
 
         return bo;
@@ -16,7 +16,7 @@ public class GpsConvert {
     public static GpsEntity gpsBoToEntity(GpsBo bo){
         GpsEntity entity = new GpsEntity();
         entity.setId(bo.getId());
-        entity.setLatitude(bo.getLatutide());
+        entity.setLatitude(bo.getLatitude());
         entity.setLongitude(bo.getLongitude());
 
         return entity;

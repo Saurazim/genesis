@@ -13,7 +13,7 @@ public class EntrepriseConvert {
     public static EntrepriseEntity entrepriseBoToEntity(EntrepriseBo bo){
         EntrepriseEntity entity = new EntrepriseEntity();
         entity.setId(bo.getId());
-        entity.setNom(bo.getName());
+        entity.setNom(bo.getNom());
         entity.setEde(bo.getEde());
         entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
         if (bo.getContactBo()!=null)
@@ -33,7 +33,7 @@ public class EntrepriseConvert {
     public static EntrepriseBo entrepriseEntityToBo(EntrepriseEntity entity){
         EntrepriseBo bo = new EntrepriseBo();
         bo.setId(entity.getId());
-        bo.setName(entity.getNom());
+        bo.setNom(entity.getNom());
         bo.setEde(entity.getEde());
         bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
         if (entity.getContact()!=null)
@@ -53,9 +53,14 @@ public class EntrepriseConvert {
 
     public static EntrepriseBo entrepriseFormToBo(EntrepriseForm form){
         EntrepriseBo bo = new EntrepriseBo();
-        bo.setName(form.getNom());
+        ContactBo contact = new ContactBo();
+        contact.setMail(form.getMail());
+        contact.setTelFixe(form.getTelFixe());
+        contact.setTelPort(form.getTelPort());
+        contact.setFax(form.getFax());
+        bo.setNom(form.getNom());
         bo.setEde(form.getEde());
-        bo.setContactBo(new ContactBo(form.getMail(), form.getTelFixe(), form.getTelPort(), form.getFax()));
+        bo.setContactBo(contact);
         bo.setEleveurPo(new EleveurPo(form.getEleveurId()));
         bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
         bo.setCommentaire(form.getCommentaire());
@@ -74,7 +79,7 @@ public class EntrepriseConvert {
     public static EntrepriseTable entrepriseBoToTable(EntrepriseBo bo){
         EntrepriseTable table = new EntrepriseTable();
         table.setId(bo.getId());
-        table.setNom(bo.getName());
+        table.setNom(bo.getNom());
         table.setEde(bo.getEde());
         table.setAdresse(bo.getAdresseBo().toString());
         if (bo.getContactBo()!=null){
@@ -84,7 +89,7 @@ public class EntrepriseConvert {
             table.setFax(bo.getContactBo().getFax());
         }
         if (bo.getCentreBo()!=null)
-            table.setCentre(bo.getCentreBo().getName());
+            table.setCentre(bo.getCentreBo().getNom());
         table.setEleveurNom(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
         if (bo.getVeterinaireBo()!=null)
             table.setVeterinaire(bo.getVeterinaireBo().getName());
@@ -105,7 +110,7 @@ public class EntrepriseConvert {
     public static EntrepriseView entrepriseBoToView(EntrepriseBo bo){
         EntrepriseView view = new EntrepriseView();
         view.setId(bo.getId());
-        view.setNom(bo.getName());
+        view.setNom(bo.getNom());
         view.setEde(bo.getEde());
         view.setRue(bo.getAdresseBo().getRue());
         view.setCodePostal(bo.getAdresseBo().getCodePostal());
@@ -120,7 +125,7 @@ public class EntrepriseConvert {
         view.setEleveur(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
         view.setEleveurId(bo.getEleveurPo().getId());
         if (bo.getCentreBo()!=null){
-            view.setCentre(bo.getCentreBo().getName());
+            view.setCentre(bo.getCentreBo().getNom());
             view.setCentreId(bo.getCentreBo().getId());
         }
         if (bo.getVeterinaireBo()!=null) {

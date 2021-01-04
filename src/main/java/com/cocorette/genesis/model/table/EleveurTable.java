@@ -6,7 +6,7 @@ public class EleveurTable {
     private int id;
     private String prenom;
     private String nom;
-    private String email;
+    private String mail;
     private String telFixe;
     private String telPort;
     private String fax;
@@ -39,12 +39,12 @@ public class EleveurTable {
         this.nom = nom;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getTelFixe() {

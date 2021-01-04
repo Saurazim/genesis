@@ -2,7 +2,7 @@ package com.cocorette.genesis.model.bo;
 
 public class GpsBo {
     private int id;
-    private float latutide;
+    private float latitude;
     private float longitude;
 
     public GpsBo(){}
@@ -11,8 +11,8 @@ public class GpsBo {
         this.id = id;
     }
 
-    public GpsBo(float latutide, float longitude) {
-        this.latutide = latutide;
+    public GpsBo(float latitude, float longitude) {
+        this.latitude = latitude;
         this.longitude = longitude;
     }
 
@@ -24,12 +24,12 @@ public class GpsBo {
         this.id = id;
     }
 
-    public float getLatutide() {
-        return latutide;
+    public float getLatitude() {
+        return latitude;
     }
 
-    public void setLatutide(float latutide) {
-        this.latutide = latutide;
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
     }
 
     public float getLongitude() {

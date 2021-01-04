@@ -39,9 +39,18 @@ public class BatimentTest {
 
     public BatimentEntity creerEntity(){
         BatimentEntity entity = new BatimentEntity();
-        AdresseEntity adresse = new AdresseEntity();
+
         EntrepriseEntity entreprise = new EntrepriseEntity();
+
+        AdresseEntity adresse = new AdresseEntity();
+        adresse.setRue(RUE);
+        adresse.setCodePostal(CP);
+        adresse.setVille(VILLE);
+        adresse.setPays(PAYS);
+
         GpsEntity gps = new GpsEntity();
+        gps.setLatitude(LATITUDE);
+        gps.setLongitude(LONGITUDE);
 
         entity.setId(ID);
         entity.setInuav(INUAV);
@@ -65,9 +74,17 @@ public class BatimentTest {
 
     public BatimentBo creerBo(){
         BatimentBo bo = new BatimentBo();
-        AdresseBo adresse = new AdresseBo();
         EntreprisePo entreprise = new EntreprisePo();
+
+        AdresseBo adresse = new AdresseBo();
+        adresse.setRue(RUE);
+        adresse.setCodePostal(CP);
+        adresse.setVille(VILLE);
+        adresse.setPays(PAYS);
+
         GpsBo gps = new GpsBo();
+        gps.setLatitude(LATITUDE);
+        gps.setLongitude(LONGITUDE);
 
         bo.setId(ID);
         bo.setInuav(INUAV);

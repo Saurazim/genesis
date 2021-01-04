@@ -43,12 +43,16 @@ public class EleveurConvert {
 
     public static EleveurBo eleveurFormToBo(EleveurForm form){
         EleveurBo bo = new EleveurBo();
+
+        ContactBo contact = new ContactBo();
+        contact.setMail(form.getMail());
+        contact.setTelFixe(form.getTelFixe());
+        contact.setTelPort(form.getTelPort());
+        contact.setFax(form.getFax());
+
         bo.setPrenom(form.getPrenom().isBlank() ? "": form.getPrenom());
         bo.setNom(form.getNom().isBlank() ? "": form.getNom());
-        bo.setContactBo(new ContactBo(form.getMail(),
-                form.getTelFixe(),
-                form.getTelPort(),
-                form.getFax()));
+        bo.setContactBo(contact);
         bo.setCommentaire(form.getCommentaire());
         bo.setCreated(form.getCreated());
         bo.setModified(form.getModified());
@@ -91,7 +95,7 @@ public class EleveurConvert {
         table.setId(bo.getId());
         table.setPrenom(bo.getPrenom());
         table.setNom(bo.getNom());
-        table.setEmail(bo.getContactBo().getMail());
+        table.setMail(bo.getContactBo().getMail());
         table.setTelFixe(bo.getContactBo().getTelFixe());
         table.setTelPort(bo.getContactBo().getTelPort());
         table.setFax(bo.getContactBo().getFax());

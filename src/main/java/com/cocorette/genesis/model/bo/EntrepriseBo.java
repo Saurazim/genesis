@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class EntrepriseBo {
     private int id;
-    private String name;
+    private String nom;
     private String ede;
     private CentreBo centreBo;
     private AdresseBo adresseBo;
@@ -27,12 +27,12 @@ public class EntrepriseBo {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getEde() {

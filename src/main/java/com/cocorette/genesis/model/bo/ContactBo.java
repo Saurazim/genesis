@@ -1,6 +1,7 @@
 package com.cocorette.genesis.model.bo;
 
 public class ContactBo {
+    private int id;
     private String mail;
     private String telFixe;
     private String telPort;
@@ -8,11 +9,12 @@ public class ContactBo {
 
     public ContactBo(){}
 
-    public ContactBo(String mail, String telFixe, String telPort, String fax){
-        this.mail = mail;
-        this.telFixe = telFixe;
-        this.telPort = telPort;
-        this.fax = fax;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMail() {

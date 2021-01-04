@@ -83,6 +83,12 @@ public class BatimentConvertTest {
         assertEquals(expected.getCommentaire(), result.getCommentaire());
         assertEquals(expected.getCreated(), result.getCreated());
         assertEquals(expected.getModified(), result.getModified());
+        assertEquals(expected.getAdresseBo().getRue(), result.getAdresseBo().getRue());
+        assertEquals(expected.getAdresseBo().getCodePostal(), result.getAdresseBo().getCodePostal());
+        assertEquals(expected.getAdresseBo().getVille(), result.getAdresseBo().getVille());
+        assertEquals(expected.getAdresseBo().getPays(), result.getAdresseBo().getPays());
+        assertEquals(expected.getGps().getLatitude(), result.getGps().getLatitude());
+        assertEquals(expected.getGps().getLongitude(), result.getGps().getLongitude());
     }
 
     @Test

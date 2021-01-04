@@ -7,7 +7,7 @@ public class CentreConvert {
     public static CentreEntity centreBoToEntity(CentreBo bo){
         CentreEntity entity = new CentreEntity();
         entity.setId(bo.getId());
-        entity.setName(bo.getName());
+        entity.setNom(bo.getNom());
         entity.setLongitude(bo.getLongitude());
         entity.setLatitude(bo.getLatitude());
 
@@ -17,7 +17,7 @@ public class CentreConvert {
     public static CentreBo centreEntityToBo(CentreEntity entity){
         CentreBo bo = new CentreBo();
         bo.setId(entity.getId());
-        bo.setName(entity.getName());
+        bo.setNom(entity.getNom());
         bo.setLongitude(entity.getLongitude());
         bo.setLatitude(entity.getLatitude());
 
