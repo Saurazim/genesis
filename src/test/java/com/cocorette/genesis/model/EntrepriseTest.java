@@ -29,6 +29,7 @@ public class EntrepriseTest {
     private static final String FAX = "+33399999999";
     private static final int ELEVEURID = 456;
     private static final String ELEVEURNOM = "L'éleveur";
+    private static final String ELEVEURPRENOM = "Ducoin";
     private static final int VETOID = 147;
     private static final String VETO = "Le vétérinaire";
     private static final int CENTREID = 963;
@@ -44,7 +45,7 @@ public class EntrepriseTest {
         EleveurEntity eleveur = new EleveurEntity();
         eleveur.setId(ELEVEURID);
         eleveur.setNom(ELEVEURNOM);
-
+        eleveur.setPrenom(ELEVEURPRENOM);
 
         entity.setId(ID);
         entity.setEde(EDE);
@@ -71,14 +72,25 @@ public class EntrepriseTest {
         centre.setNom(CENTRE);
 
         AdresseBo adresse = new AdresseBo();
+        adresse.setRue(RUE);
+        adresse.setCodePostal(CP);
+        adresse.setVille(VILLE);
+        adresse.setPays(PAYS);
+
         ContactBo contact = new ContactBo();
+        contact.setMail(MAIL);
+        contact.setTelFixe(FIXE);
+        contact.setTelPort(PORT);
+        contact.setFax(FAX);
+
         VeterinaireBo veto = new VeterinaireBo();
         veto.setId(VETOID);
-        veto.setName(VETO);
+        veto.setNom(VETO);
 
         EleveurPo eleveur = new EleveurPo();
         eleveur.setId(ELEVEURID);
         eleveur.setNom(ELEVEURNOM);
+        eleveur.setPrenom(ELEVEURPRENOM);
 
         bo.setId(ID);
         bo.setNom(NOM);
@@ -112,6 +124,7 @@ public class EntrepriseTest {
         form.setTelPort(PORT);
         form.setFax(FAX);
         form.setEleveurId(ELEVEURID);
+        form.setCommentaire(COMM);
 
         return form;
     }
@@ -122,7 +135,7 @@ public class EntrepriseTest {
         table.setId(ID);
         table.setEde(EDE);
         table.setNom(NOM);
-        table.setEleveurNom(ELEVEURNOM);
+        table.setEleveurNom(ELEVEURNOM+" "+ELEVEURPRENOM);
         table.setEleveurId(ELEVEURID);
         table.setAdresse(RUE+" "+CP+" "+VILLE+" "+PAYS);
         table.setMail(MAIL);

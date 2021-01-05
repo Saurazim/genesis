@@ -1,7 +1,9 @@
 package com.cocorette.genesis.convert;
 
 import com.cocorette.genesis.model.EntrepriseTest;
+import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.bo.EntrepriseBo;
+import com.cocorette.genesis.model.entity.ContactEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.EntrepriseForm;
 import com.cocorette.genesis.model.table.EntrepriseTable;
@@ -14,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EntrepriseConvertTest {
     private static EntrepriseTest entrepriseTest;
+
+    //TODO cas particuliers, cas limites
 
     @BeforeAll
     public static void init(){
@@ -37,9 +41,14 @@ public class EntrepriseConvertTest {
         assertEquals(expected.getModified(), result.getModified());
     }
 
+    @Test
     public void entityToBo_noContact(){
         EntrepriseEntity input = entrepriseTest.creerEntity();
-        
+        input.setContact(null);
+
+        EntrepriseBo result  = EntrepriseConvert.entrepriseEntityToBo(input);
+
+        assertNull(result.getContactBo());
     }
 
     @Test
@@ -70,10 +79,6 @@ public class EntrepriseConvertTest {
         assertEquals(expected.getNom(), result.getNom());
         assertEquals(expected.getEde(), result.getEde());
         assertEquals(expected.getCommentaire(), result.getCommentaire());
-        assertEquals(expected.isActif(), result.isActif());
-        assertEquals(expected.isArchive(), result.isArchive());
-        assertEquals(expected.getCreated(), result.getCreated());
-        assertEquals(expected.getModified(), result.getModified());
         assertEquals(expected.getContactBo().getMail(), result.getContactBo().getMail());
         assertEquals(expected.getContactBo().getTelFixe(), result.getContactBo().getTelFixe());
         assertEquals(expected.getContactBo().getTelPort(), result.getContactBo().getTelPort());

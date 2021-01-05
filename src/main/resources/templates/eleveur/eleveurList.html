@@ -23,7 +23,7 @@
             </tr>
             <tr th:each="eleveur : ${eleveurs}">
                 <td><a th:href="@{/eleveur/{id}(id=${eleveur.id})}" th:text="${eleveur.nom}+' '+${eleveur.prenom}"></a></td>
-                <td th:utext="${eleveur.email}">...</td>
+                <td th:utext="${eleveur.mail}">...</td>
                 <td th:utext="${eleveur.telFixe}">...</td>
                 <td th:utext="${eleveur.telPort}">...</td>
                 <td th:utext="${eleveur.fax}">...</td>

@@ -16,8 +16,7 @@ public class EntrepriseForm {
     private String fax;
     private int eleveurId;
     private String commentaire;
-    private LocalDateTime created;
-    private LocalDateTime modified;
+
 
     public EntrepriseForm() {}
 
@@ -129,21 +128,5 @@ public class EntrepriseForm {
 
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public LocalDateTime getModified() {
-        return modified;
-    }
-
-    public void setModified(LocalDateTime modified) {
-        this.modified = modified;
     }
 }

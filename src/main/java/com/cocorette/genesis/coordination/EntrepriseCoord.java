@@ -32,9 +32,9 @@ public class EntrepriseCoord {
     @Autowired
     AdresseService adresseService;
 
-    private String mailRegex = ConstantesUtil.getProperty(Constantes.REGEX_MAIL);
-    private String telRegex = ConstantesUtil.getProperty(Constantes.REGEX_TEL);
-    private String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
+    private final String mailRegex = ConstantesUtil.getProperty(Constantes.REGEX_MAIL);
+    private final String telRegex = ConstantesUtil.getProperty(Constantes.REGEX_TEL);
+    private final String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
 
     public void saveEntreprise(EntrepriseForm form){
         EntrepriseEntity entity = EntrepriseConvert.entrepriseFormToEntity(form);
@@ -79,7 +79,7 @@ public class EntrepriseCoord {
                 ||form.getVille().isBlank()||form.getPays().isBlank()){
             error.put("adresse", "adresse invalide");
         }else {
-            if (!cpRegex.matches(form.getCodePostal()))
+            if (!form.getCodePostal().matches(cpRegex))
                 error.put("codepostal","Code postal invalide");
         }
 

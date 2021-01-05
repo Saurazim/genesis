@@ -9,6 +9,7 @@ import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.entity.GpsEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
+import com.cocorette.genesis.model.transitionnel.BatimentPo;
 import com.cocorette.genesis.model.transitionnel.EntreprisePo;
 import com.cocorette.genesis.model.view.BatimentView;
 
@@ -170,5 +171,14 @@ public class BatimentTest {
         view.setArchive(ARCHIVE);
 
         return view;
+    }
+
+    public BatimentPo creerPo(){
+        BatimentPo po = new BatimentPo();
+
+        po.setId(ID);
+        po.setInuav(INUAV);
+
+        return po;
     }
 }

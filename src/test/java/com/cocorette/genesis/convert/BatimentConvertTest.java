@@ -7,6 +7,7 @@ import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
+import com.cocorette.genesis.model.transitionnel.BatimentPo;
 import com.cocorette.genesis.model.view.BatimentView;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -51,6 +52,7 @@ public class BatimentConvertTest {
 
         BatimentEntity result = BatimentConvert.batimentBoToEntity(input);
 
+        assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getInuav(), result.getInuav());
         assertEquals(expected.getEau(), result.getEau());
@@ -73,6 +75,7 @@ public class BatimentConvertTest {
 
         BatimentBo result = BatimentConvert.batimentFormToBo(input);
 
+        assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getInuav(), result.getInuav());
         assertEquals(expected.getEau(), result.getEau());
         assertEquals(expected.getDistCentre(), result.getDistCentre());
@@ -98,6 +101,7 @@ public class BatimentConvertTest {
 
         BatimentView result = BatimentConvert.batimentBoToView(input);
 
+        assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getInuav(), result.getInuav());
         assertEquals(expected.getEau(), result.getEau());
@@ -120,11 +124,24 @@ public class BatimentConvertTest {
 
         BatimentTable result = BatimentConvert.batimentBoToTable(input);
 
+        assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getInuav(), result.getInuav());
         assertEquals(expected.isActif(), result.isActif());
         assertEquals(expected.isArchive(), result.isArchive());
         assertEquals(expected.getCreated(), result.getCreated());
         assertEquals(expected.getModified(), result.getModified());
+    }
+
+    @Test
+    void batimentEntityToPo(){
+        BatimentEntity input = batimentTest.creerEntity();
+        BatimentPo expected = batimentTest.creerPo();
+
+        BatimentPo result = BatimentConvert.batimentEntityToPo(input);
+
+        assertEquals(expected.getClass(),result.getClass());
+        assertEquals(expected.getId(), result.getId());
+        assertEquals(expected.getInuav(), result.getInuav());
     }
 }

@@ -50,6 +50,10 @@ public class EleveurTest {
     public EleveurBo creerBo(){
         EleveurBo bo = new EleveurBo();
         ContactBo contact = new ContactBo();
+        contact.setMail(MAIL);
+        contact.setTelFixe(FIXE);
+        contact.setTelPort(PORT);
+        contact.setFax(FAX);
 
         bo.setId(ID);
         bo.setPrenom(PRENOM);

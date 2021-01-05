@@ -39,7 +39,6 @@ public class ContactConvertTest {
         ContactEntity result = ContactConvert.contactBoToEntity(input);
 
         assertEquals(expected.getClass(), result.getClass());
-        assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getMail(), result.getMail());
         assertEquals(expected.getTelFixe(), result.getTelFixe());
         assertEquals(expected.getTelPort(), result.getTelPort());

@@ -64,8 +64,6 @@ public class EntrepriseConvert {
         bo.setEleveurPo(new EleveurPo(form.getEleveurId()));
         bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
         bo.setCommentaire(form.getCommentaire());
-        bo.setCreated(form.getCreated());
-        bo.setModified(form.getModified());
 
         return bo;
     }
@@ -92,7 +90,7 @@ public class EntrepriseConvert {
             table.setCentre(bo.getCentreBo().getNom());
         table.setEleveurNom(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
         if (bo.getVeterinaireBo()!=null)
-            table.setVeterinaire(bo.getVeterinaireBo().getName());
+            table.setVeterinaire(bo.getVeterinaireBo().getNom());
         table.setActif(bo.isActif());
         table.setArchive(bo.isArchive());
         table.setCreated(bo.getCreated());
@@ -129,7 +127,7 @@ public class EntrepriseConvert {
             view.setCentreId(bo.getCentreBo().getId());
         }
         if (bo.getVeterinaireBo()!=null) {
-            view.setVeterinaire(bo.getVeterinaireBo().getName());
+            view.setVeterinaire(bo.getVeterinaireBo().getNom());
             view.setVeterinaireId(bo.getVeterinaireBo().getId());
         }
         view.setCommentaire(bo.getCommentaire());

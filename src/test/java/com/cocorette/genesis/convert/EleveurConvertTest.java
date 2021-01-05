@@ -73,8 +73,6 @@ public class EleveurConvertTest {
         assertEquals(expected.getContactBo().getTelPort(), result.getContactBo().getTelPort());
         assertEquals(expected.getContactBo().getFax(), result.getContactBo().getFax());
         assertEquals(expected.getCommentaire(), result.getCommentaire());
-        assertEquals(expected.isActif(), result.isActif());
-        assertEquals(expected.isArchive(), result.isArchive());
         assertEquals(expected.getCreated(), result.getCreated());
         assertEquals(expected.getModified(), result.getModified());
     }
@@ -133,65 +131,5 @@ public class EleveurConvertTest {
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getPrenom(), result.getPrenom());
         assertEquals(expected.getNom(), result.getNom());
-    }
-
-    @Test
-    public void eleveurFormToEntityTest(){
-        EleveurEntity expected = eleveurTest.creerEntity();
-        EleveurForm input = eleveurTest.creerForm();
-
-        EleveurEntity result = EleveurConvert.eleveurFormToEntity(input);
-
-        assertEquals(expected.getClass(), result.getClass());
-        assertEquals(expected.getPrenom(), result.getPrenom());
-        assertEquals(expected.getNom(), result.getNom());
-        assertEquals(expected.getContact().getMail(), result.getContact().getMail());
-        assertEquals(expected.getContact().getTelFixe(), result.getContact().getTelFixe());
-        assertEquals(expected.getContact().getTelPort(), result.getContact().getTelPort());
-        assertEquals(expected.getContact().getFax(), result.getContact().getFax());
-    }
-
-    @Test
-    public void eleveurEntityToViewTest(){
-        EleveurEntity input = eleveurTest.creerEntity();
-        EleveurView expected = eleveurTest.creerView();
-
-        EleveurView result = EleveurConvert.eleveurEntityToView(input);
-
-        assertEquals(expected.getClass(), result.getClass());
-        assertEquals(expected.getId(), result.getId());
-        assertEquals(expected.getPrenom(), result.getPrenom());
-        assertEquals(expected.getNom(), result.getNom());
-        assertEquals(expected.getMail(), result.getMail());
-        assertEquals(expected.getTelFixe(), result.getTelFixe());
-        assertEquals(expected.getTelPort(), result.getTelPort());
-        assertEquals(expected.getFax(), result.getFax());
-        assertEquals(expected.getCommentaire(), result.getCommentaire());
-        assertEquals(expected.isActif(), result.isActif());
-        assertEquals(expected.isArchive(), result.isArchive());
-        assertEquals(expected.getCreated(), result.getCreated());
-        assertEquals(expected.getModified(), result.getModified());
-    }
-
-    //FIXME à garder ?
-    @Test
-    public void eleveurEntityToTable(){
-        EleveurEntity input = eleveurTest.creerEntity();
-        EleveurTable expected = eleveurTest.creerTable();
-
-        EleveurTable result = EleveurConvert.eleveurEntityToTable(input);
-
-        assertEquals(expected.getClass(), result.getClass());
-        assertEquals(expected.getId(), result.getId());
-        assertEquals(expected.getPrenom(), result.getPrenom());
-        assertEquals(expected.getNom(), result.getNom());
-        assertEquals(expected.getMail(), result.getMail());
-        assertEquals(expected.getTelFixe(), result.getTelFixe());
-        assertEquals(expected.getTelPort(), result.getTelPort());
-        assertEquals(expected.getFax(), result.getFax());
-        assertEquals(expected.isActif(), result.isActif());
-        assertEquals(expected.isArchive(), result.isArchive());
-        assertEquals(expected.getCreated(), result.getCreated());
-        assertEquals(expected.getModified(), result.getModified());
     }
 }

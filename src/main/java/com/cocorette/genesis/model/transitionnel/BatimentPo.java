@@ -4,6 +4,8 @@ public class BatimentPo {
     private int id;
     private String inuav;
 
+    public BatimentPo(){}
+
     public BatimentPo(int id){
         this.id = id;
     }

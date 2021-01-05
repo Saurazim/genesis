@@ -1,8 +1,7 @@
 package com.cocorette.genesis.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity(name = "veterinaire")
 public class VeterinaireEntity {
@@ -10,8 +9,14 @@ public class VeterinaireEntity {
     @GeneratedValue
     private int id;
     private String nom;
-    private float longitude;
-    private float latitude;
+    @ManyToOne
+    @JoinColumn(name = "gpsId")
+    private GpsEntity gps;
+    private String commentaire;
+    private boolean active;
+    private boolean archive;
+    private LocalDateTime created;
+    private LocalDateTime modified;
 
     public VeterinaireEntity(){}
 
@@ -35,19 +40,51 @@ public class VeterinaireEntity {
         this.nom = nom;
     }
 
-    public float getLongitude() {
-        return longitude;
+    public GpsEntity getGps() {
+        return gps;
     }
 
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
+    public void setGps(GpsEntity gps) {
+        this.gps = gps;
     }
 
-    public float getLatitude() {
-        return latitude;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public void setArchive(boolean archive) {
+        this.archive = archive;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
     }
 }

@@ -10,7 +10,7 @@ public class SoucheConvert {
     public static SoucheBo soucheEntityToBo(SoucheEntity entity){
         SoucheBo bo = new SoucheBo();
         bo.setId(entity.getId());
-        bo.setNom(bo.getNom());
+        bo.setNom(entity.getNom());
         bo.setCommentaire(entity.getCommentaire());
         bo.setActive(entity.isActive());
         bo.setArchive(entity.isArchive());

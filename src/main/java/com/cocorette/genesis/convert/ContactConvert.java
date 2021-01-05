@@ -16,6 +16,7 @@ public class ContactConvert {
 
     public static ContactBo contactEntityToBo(ContactEntity entity){
         ContactBo bo = new ContactBo();
+        bo.setId(entity.getId());
         bo.setMail(entity.getMail());
         bo.setTelFixe(entity.getTelFixe());
         bo.setTelPort(entity.getTelPort());
