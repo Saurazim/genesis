@@ -41,6 +41,7 @@ public class LotConvert {
         entity.setCodeOeuf(bo.getCodeOeuf());
         entity.setDureeProdTheorique(bo.getDureeProdTheorique());
         entity.setDureeProdReelle(bo.getDureeProdReelle());
+        //TODO ?
 //        entity.setCategorieEntity(CategorieConvert.categorieBoToEntity(bo.getCategorieBo()));
 //        entity.setCouvoirEntity(CouvoirConvert.couvoirBoToEntity(bo.getCouvoirBo()));
 //        entity.setSoucheEntity(SoucheConvert.soucheBoToEntity(bo.getSoucheBo()));
@@ -65,6 +66,7 @@ public class LotConvert {
         LotBo bo = new LotBo();
         bo.setCodeOeuf(form.getCodeOeuf());
         bo.setBatimentPo(new BatimentPo(form.getBatimentId()));
+        //TODO ?
 //        bo.setCategorieBo(new CategorieBo(form.getCategorieId()));
 //        bo.setCouvoirBo(new CouvoirBo(form.getCouvoirId()));
 //        bo.setSoucheBo(new SoucheBo(form.getSoucheId()));
@@ -85,6 +87,7 @@ public class LotConvert {
         view.setCodeOeuf(bo.getCodeOeuf());
         view.setBatiment(bo.getBatimentPo().getInuav());
         view.setBatimentId(bo.getBatimentPo().getId());
+        //TODO ?
 //        view.setCategorie(bo.getCategorieBo().getNom());
 //        view.setCouvoir(bo.getCouvoirBo().getNom());
 //        view.setCouvoirId(bo.getCouvoirBo().getId());

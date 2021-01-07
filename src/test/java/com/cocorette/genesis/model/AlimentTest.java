@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.AlimentBo;
 import com.cocorette.genesis.model.entity.AlimentEntity;
 import com.cocorette.genesis.model.form.AlimentForm;
@@ -9,13 +10,13 @@ import com.cocorette.genesis.model.view.AlimentView;
 import java.time.LocalDateTime;
 
 public class AlimentTest {
-    private int ID = 123;
-    private String NOM = "Trucmuche";
-    private String COMM = "Ceci est un commentaire";
-    private boolean ACTIF = false;
-    private boolean ARCHIVE = true;
-    private LocalDateTime CREA = LocalDateTime.MIN;
-    private LocalDateTime MOD = LocalDateTime.MAX;
+    private int ID = ConstantesForTest.ID;
+    private String NOM = ConstantesForTest.NOM_ALIMENT;
+    private String COMM = ConstantesForTest.COMM;
+    private boolean ACTIF = ConstantesForTest.ACTIF;
+    private boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private LocalDateTime CREA = ConstantesForTest.CREATION;
+    private LocalDateTime MOD = ConstantesForTest.MODIF;
 
     public AlimentEntity creerEntity() {
         AlimentEntity entity = new AlimentEntity();

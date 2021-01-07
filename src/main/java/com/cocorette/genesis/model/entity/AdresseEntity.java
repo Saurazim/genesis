@@ -18,11 +18,12 @@ public class AdresseEntity {
 
     public AdresseEntity(){}
 
-    public AdresseEntity(String rue, String codePostal, String ville, String pays) {
-        this.rue = rue;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.pays = pays;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRue() {

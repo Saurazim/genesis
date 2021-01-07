@@ -1,24 +1,20 @@
 package com.cocorette.genesis.model.bo;
 
 public class AdresseBo {
-    private String rue="XXXX";
-    private String codePostal="99999";
-    private String ville="XXXX";
-    private String pays="France";
+    private int id;
+    private String rue;
+    private String codePostal;
+    private String ville;
+    private String pays;
 
     public AdresseBo(){}
 
-    public AdresseBo(String rue, String codePostal, String ville, String pays) {
-        this.rue = rue;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.pays = pays;
+    public int getId() {
+        return id;
     }
 
-    public AdresseBo(String rue, String codePostal, String ville) {
-        this.rue = rue;
-        this.codePostal = codePostal;
-        this.ville = ville;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRue() {

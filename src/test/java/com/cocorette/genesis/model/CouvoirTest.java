@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.CouvoirBo;
 import com.cocorette.genesis.model.entity.ContactEntity;
 import com.cocorette.genesis.model.entity.CouvoirEntity;
@@ -7,13 +8,13 @@ import com.cocorette.genesis.model.entity.CouvoirEntity;
 import java.time.LocalDateTime;
 
 public class CouvoirTest {
-    private final static int ID=573;
-    private final static String NOM = "Poulette";
-    private final static String COMM = "Ceci est un commentaire";
-    private final static boolean ACTIF = true;
-    private final static boolean ARCHIVE = false;
-    private final static LocalDateTime CREATION = LocalDateTime.MIN;
-    private final static LocalDateTime MODIF = LocalDateTime.MAX;
+    private final static int ID= ConstantesForTest.ID;
+    private final static String NOM = ConstantesForTest.NOM_COUVOIR;
+    private final static String COMM = ConstantesForTest.COMM;
+    private final static boolean ACTIF = ConstantesForTest.ACTIF;
+    private final static boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private final static LocalDateTime CREATION = ConstantesForTest.CREATION;
+    private final static LocalDateTime MODIF = ConstantesForTest.MODIF;
 
     public CouvoirEntity creerEntity(){
         CouvoirEntity entity = new CouvoirEntity();

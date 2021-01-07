@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.bo.VeterinaireBo;
 import com.cocorette.genesis.model.entity.GpsEntity;
@@ -8,15 +9,15 @@ import com.cocorette.genesis.model.entity.VeterinaireEntity;
 import java.time.LocalDateTime;
 
 public class VeterinaireTest {
-    private static final int ID = 789;
-    private static final String NOM = "Vétérinaire";
-    private static final float LONGITUDE = 78945;
-    private static final float LATITUDE = 123456;
-    private static final String COMMENTAIRE = "Ceci est un commentaire";
-    private static final boolean ACTIVE = true;
-    private static final boolean ARCHIVE = false;
-    private static final LocalDateTime CREATION = LocalDateTime.MIN;
-    private static final LocalDateTime MODIF = LocalDateTime.MAX;
+    private static final int ID = ConstantesForTest.ID;
+    private static final String NOM = ConstantesForTest.NOM_VETO;
+    private static final float LONGITUDE = ConstantesForTest.LONGITUDE;
+    private static final float LATITUDE = ConstantesForTest.LATITUDE;
+    private static final String COMMENTAIRE = ConstantesForTest.COMM;
+    private static final boolean ACTIVE = ConstantesForTest.ACTIF;
+    private static final boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private static final LocalDateTime CREATION = ConstantesForTest.CREATION;
+    private static final LocalDateTime MODIF = ConstantesForTest.MODIF;
 
     public VeterinaireEntity creerEntity(){
         VeterinaireEntity entity = new VeterinaireEntity();

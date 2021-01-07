@@ -1,13 +1,15 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.entity.AdresseEntity;
 
 public class AdresseTest {
-    private String RUE = "25 rue TrucMuche";
-    private String CP = "56 123";
-    private String VILLE = "Trifouillis les Oies";
-    private String PAYS = "France";
+    private int ID = ConstantesForTest.ID;
+    private String RUE = ConstantesForTest.RUE;
+    private String CP = ConstantesForTest.CP;
+    private String VILLE = ConstantesForTest.VILLE;
+    private String PAYS = ConstantesForTest.PAYS;
 
     public AdresseBo creerBo(){
         AdresseBo bo = new AdresseBo();

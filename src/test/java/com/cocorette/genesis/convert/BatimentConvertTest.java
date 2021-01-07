@@ -1,9 +1,15 @@
 package com.cocorette.genesis.convert;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.notNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import com.cocorette.genesis.model.AdresseTest;
 import com.cocorette.genesis.model.BatimentTest;
+import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
+import com.cocorette.genesis.model.entity.AdresseEntity;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
@@ -11,9 +17,18 @@ import com.cocorette.genesis.model.transitionnel.BatimentPo;
 import com.cocorette.genesis.model.view.BatimentView;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class BatimentConvertTest {
+
+    @Mock
+    AdresseConvert adresseConvert;
+
     private static BatimentTest batimentTest;
+    private static AdresseTest adresseTest;
 
     //TODO faire tests adresse, entreprise, etc.
 
@@ -24,8 +39,16 @@ public class BatimentConvertTest {
 
     @Test
     void batimentEntityToBoTest(){
+        adresseTest = new AdresseTest();
+        AdresseEntity adresseEntity = adresseTest.creerEntity();
+        AdresseBo adresseBo = adresseTest.creerBo();
+
         BatimentEntity input = batimentTest.creerEntity();
+        input.setAdresse(adresseEntity);
         BatimentBo expected = batimentTest.creerBo();
+
+
+        when(adresseConvert.adresseEntityToBo(input.getAdresse())).thenReturn(adresseBo);
 
         BatimentBo result = BatimentConvert.batimentEntityToBo(input);
 
@@ -43,6 +66,8 @@ public class BatimentConvertTest {
         assertEquals(expected.isArchive(),result.isArchive());
         assertEquals(expected.getCreated(),result.getCreated());
         assertEquals(expected.getModified(),result.getModified());
+        verify(adresseConvert).adresseEntityToBo(adresseEntity);
+        //assertEquals(adresseBo, result.getAdresseBo()); //TODO verifier marche à suivre
     }
 
     @Test

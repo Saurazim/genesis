@@ -25,6 +25,7 @@ public class AdresseConvertTest {
         AdresseEntity result = AdresseConvert.adresseBoToEntity(input);
 
         assertEquals(expected.getClass(), result.getClass());
+        assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getRue(), result.getRue());
         assertEquals(expected.getCodePostal(), result.getCodePostal());
         assertEquals(expected.getVille(), result.getVille());
@@ -39,6 +40,7 @@ public class AdresseConvertTest {
         AdresseBo result = AdresseConvert.adresseEntityToBo(input);
 
         assertEquals(expected.getClass(), result.getClass());
+        assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getRue(), result.getRue());
         assertEquals(expected.getCodePostal(), result.getCodePostal());
         assertEquals(expected.getVille(), result.getVille());

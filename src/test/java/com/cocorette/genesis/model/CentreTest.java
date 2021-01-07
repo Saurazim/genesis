@@ -1,13 +1,15 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.CentreBo;
 import com.cocorette.genesis.model.entity.CentreEntity;
 
 public class CentreTest {
-    private static final int ID = 12;
-    private static final String NOM = "Doullens";
-    private static final float LONGITUDE = 45654;
-    private static final float LATITUDE = 12355;
+    private static final int ID = ConstantesForTest.ID;
+    private static final String NOM = ConstantesForTest.NOM_CENTRE;
+    private static final float LONGITUDE = ConstantesForTest.LONGITUDE;
+    private static final float LATITUDE = ConstantesForTest.LATITUDE;
+
     public CentreEntity creerEntity(){
 
         CentreEntity entity = new CentreEntity();

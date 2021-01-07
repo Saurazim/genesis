@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.CategorieBo;
 import com.cocorette.genesis.model.entity.CategorieEntity;
 import com.cocorette.genesis.model.form.CategorieForm;
@@ -10,13 +11,13 @@ import java.time.LocalDateTime;
 
 public class CategorieTest {
 
-    private static final int ID = 100;
-    private static final String NOM = "categ test";
-    private static final String COMMENTAIRE = "Ceci est un commentaire";
-    private static final boolean ACTIF = true;
-    private static final boolean ARCHIVE = false;
-    private static final LocalDateTime CREATION = LocalDateTime.MIN;
-    private static final LocalDateTime MODIF = LocalDateTime.MAX;
+    private static final int ID = ConstantesForTest.ID;
+    private static final String NOM = ConstantesForTest.NOM_CATEG;
+    private static final String COMMENTAIRE = ConstantesForTest.COMM;
+    private static final boolean ACTIF = ConstantesForTest.ACTIF;
+    private static final boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private static final LocalDateTime CREATION = ConstantesForTest.CREATION;
+    private static final LocalDateTime MODIF = ConstantesForTest.MODIF;
 
     public CategorieEntity creerEntity(){
         CategorieEntity entity = new CategorieEntity();

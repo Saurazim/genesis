@@ -1,12 +1,13 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.entity.GpsEntity;
 
 public class GpsTest {
-    private static final int ID = 123;
-    private static final float LATITUDE = 123546;
-    private static final float LONGITUDE = 456132;
+    private static final int ID = ConstantesForTest.ID;
+    private static final float LATITUDE = ConstantesForTest.LATITUDE;
+    private static final float LONGITUDE = ConstantesForTest.LONGITUDE;
 
     public GpsEntity creerEntity(){
         GpsEntity entity = new GpsEntity();

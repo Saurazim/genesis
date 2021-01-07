@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.bo.GpsBo;
@@ -16,38 +17,31 @@ import com.cocorette.genesis.model.view.BatimentView;
 import java.time.LocalDateTime;
 
 public class BatimentTest {
-    private static final int ID = 132;
-    private static final String INUAV = "code00xxx";
-    private static final String EAU = "arrosage";
-    private static final int DIST_CENTRE = 456;
-    private static final int ANNEE_DEBUT = 2020;
-    private static final String T_BATIMENT = "Poulailler";
-    private static final int NB_ARBRES = 8456;
-    private static final String T_ARBRES = "Noyer";
-    private static final String COMMENTAIRE = "Ceci est un commentaire";
-    private static final boolean ACTIF = true;
-    private static final boolean ARCHIVE = true;
-    private static final LocalDateTime CREATION = LocalDateTime.MIN;
-    private static final LocalDateTime MODIF = LocalDateTime.MAX;
-    private static final String RUE = "25 rue TrucMuche";
-    private static final String CP = "95 056";
-    private static final String VILLE = "Rintintin";
-    private static final String PAYS = "France";
-    private static final int ENTREPRISE_ID = 654;
-    private static final String ENTREPRISE_NOM = "Test oeuf";
-    private static final float LATITUDE = 951;
-    private static final float LONGITUDE = 159;
+    private static final int ID = ConstantesForTest.ID;
+    private static final String INUAV = ConstantesForTest.INUAV;
+    private static final String EAU = ConstantesForTest.EAU;
+    private static final int DIST_CENTRE = ConstantesForTest.DIST_CENTRE;
+    private static final int ANNEE_DEBUT = ConstantesForTest.ANNEE_DEBUT;
+    private static final String T_BATIMENT = ConstantesForTest.T_BATIMENT;
+    private static final int NB_ARBRES = ConstantesForTest.NB_ARBRES;
+    private static final String T_ARBRES = ConstantesForTest.T_ARBRES;
+    private static final String COMMENTAIRE = ConstantesForTest.COMM;
+    private static final boolean ACTIF = ConstantesForTest.ACTIF;
+    private static final boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private static final LocalDateTime CREATION = ConstantesForTest.CREATION;
+    private static final LocalDateTime MODIF = ConstantesForTest.MODIF;
+    private static final String RUE = ConstantesForTest.RUE;
+    private static final String CP = ConstantesForTest.CP;
+    private static final String VILLE = ConstantesForTest.VILLE;
+    private static final String PAYS = ConstantesForTest.PAYS;
+    private static final float LATITUDE = ConstantesForTest.LATITUDE;
+    private static final float LONGITUDE = ConstantesForTest.LONGITUDE;
+    private static final String NOM_ENTERPRISE = ConstantesForTest.NOM_ENTERPRISE;
 
     public BatimentEntity creerEntity(){
         BatimentEntity entity = new BatimentEntity();
 
         EntrepriseEntity entreprise = new EntrepriseEntity();
-
-        AdresseEntity adresse = new AdresseEntity();
-        adresse.setRue(RUE);
-        adresse.setCodePostal(CP);
-        adresse.setVille(VILLE);
-        adresse.setPays(PAYS);
 
         GpsEntity gps = new GpsEntity();
         gps.setLatitude(LATITUDE);
@@ -55,7 +49,6 @@ public class BatimentTest {
 
         entity.setId(ID);
         entity.setInuav(INUAV);
-        entity.setAdresse(adresse);
         entity.setEntreprise(entreprise);
         entity.setEau(EAU);
         entity.setDistCentre(DIST_CENTRE);
@@ -77,19 +70,12 @@ public class BatimentTest {
         BatimentBo bo = new BatimentBo();
         EntreprisePo entreprise = new EntreprisePo();
 
-        AdresseBo adresse = new AdresseBo();
-        adresse.setRue(RUE);
-        adresse.setCodePostal(CP);
-        adresse.setVille(VILLE);
-        adresse.setPays(PAYS);
-
         GpsBo gps = new GpsBo();
         gps.setLatitude(LATITUDE);
         gps.setLongitude(LONGITUDE);
 
         bo.setId(ID);
         bo.setInuav(INUAV);
-        bo.setAdresseBo(adresse);
         bo.setEntreprisePo(entreprise);
         bo.setEau(EAU);
         bo.setDistCentre(DIST_CENTRE);
@@ -115,7 +101,7 @@ public class BatimentTest {
         form.setCodePostal(CP);
         form.setVille(VILLE);
         form.setPays(PAYS);
-        form.setEntrepriseId(ENTREPRISE_ID);
+        form.setEntrepriseId(ID);
         form.setEau(EAU);
         form.setDistCentre(DIST_CENTRE);
         form.setAnneeDebut(ANNEE_DEBUT);
@@ -137,8 +123,8 @@ public class BatimentTest {
         table.setId(ID);
         table.setInuav(INUAV);
         table.setAdresse(RUE+" "+CP+" "+VILLE+" "+PAYS);
-        table.setEntrepriseId(ENTREPRISE_ID);
-        table.setEntrepriseNom(ENTREPRISE_NOM);
+        table.setEntrepriseId(ID);
+        table.setEntrepriseNom(NOM_ENTERPRISE);
         table.setActif(ACTIF);
         table.setArchive(ARCHIVE);
         table.setCreated(CREATION);
@@ -152,8 +138,8 @@ public class BatimentTest {
 
         view.setId(ID);
         view.setInuav(INUAV);
-        view.setEntreprise(ENTREPRISE_NOM);
-        view.setEntrepriseId(ENTREPRISE_ID);
+        view.setEntreprise(NOM_ENTERPRISE);
+        view.setEntrepriseId(ID);
         view.setRue(RUE);
         view.setCodePostal(CP);
         view.setVille(VILLE);

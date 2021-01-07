@@ -1,5 +1,6 @@
 package com.cocorette.genesis.model;
 
+import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.bo.EleveurBo;
 import com.cocorette.genesis.model.entity.ContactEntity;
@@ -12,20 +13,20 @@ import com.cocorette.genesis.model.view.EleveurView;
 import java.time.LocalDateTime;
 
 public class EleveurTest {
-    private static final int ID = 123;
-    private static final String PRENOM = "PASCAL";
-    private static final String NOM = "LEMAIRE";
-    private static final String COMMENTAIRE = "Ceci est un commentaire";
-    private static final boolean ACTIF = false;
-    private static final boolean ARCHIVE = true;
-    private static final LocalDateTime CREATION = LocalDateTime.MIN;
-    private static final LocalDateTime MODIF = LocalDateTime.MAX;
+    private static final int ID = ConstantesForTest.ID;
+    private static final String PRENOM = ConstantesForTest.PRENOM_ELEVEUR;
+    private static final String NOM = ConstantesForTest.NOM_ELEVEUR;
+    private static final String COMMENTAIRE = ConstantesForTest.COMM;
+    private static final boolean ACTIF = ConstantesForTest.ACTIF;
+    private static final boolean ARCHIVE = ConstantesForTest.ARCHIVE;
+    private static final LocalDateTime CREATION = ConstantesForTest.CREATION;
+    private static final LocalDateTime MODIF = ConstantesForTest.MODIF;
 
     //Contact
-    private static final String MAIL = "azer@azer.fr";
-    private static final String FIXE = "0199999999";
-    private static final String PORT = "0299999999";
-    private static final String FAX = "0399999999";
+    private static final String MAIL = ConstantesForTest.MAIL;
+    private static final String FIXE = ConstantesForTest.FIXE;
+    private static final String PORT = ConstantesForTest.PORT;
+    private static final String FAX = ConstantesForTest.FAX;
 
 
 
