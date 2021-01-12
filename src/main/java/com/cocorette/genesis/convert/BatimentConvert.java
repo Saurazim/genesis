@@ -58,7 +58,6 @@ public class BatimentConvert {
     public static BatimentBo batimentFormToBo(BatimentForm form){
         BatimentBo bo = new BatimentBo();
         bo.setInuav(form.getInuav());
-        bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
         bo.setEntreprisePo(new EntreprisePo(form.getEntrepriseId()));
         bo.setEau(form.getEau());
         bo.setDistCentre(form.getDistCentre());

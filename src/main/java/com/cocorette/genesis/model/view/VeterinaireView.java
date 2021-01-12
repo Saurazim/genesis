@@ -1,27 +1,19 @@
-package com.cocorette.genesis.model.bo;
+package com.cocorette.genesis.model.view;
 
 import java.time.LocalDateTime;
 
-public class CentreBo {
+public class VeterinaireView {
     private int id;
     private String nom;
-    private GpsBo gpsBo;
+    private float latitude;
+    private float longitude;
     private String commentaire;
     private boolean active;
     private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
 
-    public CentreBo(){}
-
-    public CentreBo(String name) {
-        this.nom = name;
-    }
-
-    public CentreBo(int id, String name) {
-        this.id = id;
-        this.nom = name;
-    }
+    public VeterinaireView(){}
 
     public int getId() {
         return id;
@@ -39,12 +31,20 @@ public class CentreBo {
         this.nom = nom;
     }
 
-    public GpsBo getGpsBo() {
-        return gpsBo;
+    public float getLatitude() {
+        return latitude;
     }
 
-    public void setGpsBo(GpsBo gpsBo) {
-        this.gpsBo = gpsBo;
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
     }
 
     public String getCommentaire() {

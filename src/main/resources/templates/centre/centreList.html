@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://thymeleaf.org">
+<head>
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
+    <title>Liste des Fabriques d'aliments</title>
+</head>
+
+<body>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <h1>Liste des Centres</h1>
+    <a th:href="@{/addCentre}">Ajouter un Centre</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Commentaire</th>
+                <th>Dernière Modification</th>
+            </tr>
+            <tr th:each="centre : ${centres}">
+                <td><a th:href="@{/centre/{id}(id=${centre.id})}" th:utext="${centre.nom}">...</a></td>
+                <td th:utext="${centre.latitude}">...</td>
+                <td th:utext="${centre.longitude}">...</td>
+                <td th:utext="${centre.commentaire}">...</td>
+                <td th:utext="${centre.modified}">...</td>
+            </tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>

@@ -1,27 +1,17 @@
-package com.cocorette.genesis.model.bo;
+package com.cocorette.genesis.model.table;
 
 import java.time.LocalDateTime;
 
-public class CentreBo {
+public class CentreTable {
     private int id;
     private String nom;
-    private GpsBo gpsBo;
     private String commentaire;
     private boolean active;
     private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
 
-    public CentreBo(){}
-
-    public CentreBo(String name) {
-        this.nom = name;
-    }
-
-    public CentreBo(int id, String name) {
-        this.id = id;
-        this.nom = name;
-    }
+    public CentreTable(){}
 
     public int getId() {
         return id;
@@ -37,14 +27,6 @@ public class CentreBo {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public GpsBo getGpsBo() {
-        return gpsBo;
-    }
-
-    public void setGpsBo(GpsBo gpsBo) {
-        this.gpsBo = gpsBo;
     }
 
     public String getCommentaire() {

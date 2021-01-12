@@ -22,7 +22,7 @@ public class AlimentCoord {
     public void saveAliment(AlimentForm form){
         AlimentEntity entity = AlimentConvert.alimentFormToEntity(form);
         entity.setActive(true);
-        entity.setActive(false);
+        entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());
         entity.setModified(LocalDateTime.now());
         alimentService.saveAliment(entity);

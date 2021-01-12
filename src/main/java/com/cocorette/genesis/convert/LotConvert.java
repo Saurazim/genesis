@@ -41,11 +41,10 @@ public class LotConvert {
         entity.setCodeOeuf(bo.getCodeOeuf());
         entity.setDureeProdTheorique(bo.getDureeProdTheorique());
         entity.setDureeProdReelle(bo.getDureeProdReelle());
-        //TODO ?
-//        entity.setCategorieEntity(CategorieConvert.categorieBoToEntity(bo.getCategorieBo()));
-//        entity.setCouvoirEntity(CouvoirConvert.couvoirBoToEntity(bo.getCouvoirBo()));
-//        entity.setSoucheEntity(SoucheConvert.soucheBoToEntity(bo.getSoucheBo()));
-//        entity.setAlimentEntity(AlimentConvert.alimentBoToEntity(bo.getAlimentBo()));
+        entity.setCategorieEntity(CategorieConvert.categorieBoToEntity(bo.getCategorieBo()));
+        entity.setCouvoirEntity(CouvoirConvert.couvoirBoToEntity(bo.getCouvoirBo()));
+        entity.setSoucheEntity(SoucheConvert.soucheBoToEntity(bo.getSoucheBo()));
+        entity.setAlimentEntity(AlimentConvert.alimentBoToEntity(bo.getAlimentBo()));
         entity.setNbPoulesMEP(bo.getNbPoulesMEP());
         entity.setFinLotTheorique(bo.getFinLotTheorique());
         entity.setCoefErosion(bo.getCoefErosion());
@@ -66,11 +65,10 @@ public class LotConvert {
         LotBo bo = new LotBo();
         bo.setCodeOeuf(form.getCodeOeuf());
         bo.setBatimentPo(new BatimentPo(form.getBatimentId()));
-        //TODO ?
-//        bo.setCategorieBo(new CategorieBo(form.getCategorieId()));
-//        bo.setCouvoirBo(new CouvoirBo(form.getCouvoirId()));
-//        bo.setSoucheBo(new SoucheBo(form.getSoucheId()));
-//        bo.setAlimentBo(new AlimentBo(form.getAlimentId()));
+        bo.setCategorieBo(new CategorieBo(form.getCategorieId()));
+        bo.setCouvoirBo(new CouvoirBo(form.getCouvoirId()));
+        bo.setSoucheBo(new SoucheBo(form.getSoucheId()));
+        bo.setAlimentBo(new AlimentBo(form.getAlimentId()));
         bo.setNbPoulesMEP(form.getNbPoulesMEP());
         bo.setDernierLot(form.isDernierLot());
         bo.setNaissancePoules(form.getNaissancePoules());
@@ -87,14 +85,13 @@ public class LotConvert {
         view.setCodeOeuf(bo.getCodeOeuf());
         view.setBatiment(bo.getBatimentPo().getInuav());
         view.setBatimentId(bo.getBatimentPo().getId());
-        //TODO ?
-//        view.setCategorie(bo.getCategorieBo().getNom());
-//        view.setCouvoir(bo.getCouvoirBo().getNom());
-//        view.setCouvoirId(bo.getCouvoirBo().getId());
-//        view.setSouche(bo.getSoucheBo().getNom());
-//        view.setSoucheId(bo.getSoucheBo().getId());
-//        view.setAliment(bo.getAlimentBo().getNom());
-//        view.setAlimentId(bo.getAlimentBo().getId());
+        view.setCategorie(bo.getCategorieBo().getNom());
+        view.setCouvoir(bo.getCouvoirBo().getNom());
+        view.setCouvoirId(bo.getCouvoirBo().getId());
+        view.setSouche(bo.getSoucheBo().getNom());
+        view.setSoucheId(bo.getSoucheBo().getId());
+        view.setAliment(bo.getAlimentBo().getNom());
+        view.setAlimentId(bo.getAlimentBo().getId());
         view.setDureeProdTheorique(bo.getDureeProdTheorique());
         view.setDureeProdReelle(bo.getDureeProdReelle());
         view.setNbPoulesMEP(bo.getNbPoulesMEP());

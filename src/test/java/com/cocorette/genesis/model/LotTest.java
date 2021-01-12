@@ -37,20 +37,10 @@ public class LotTest {
 
     public LotEntity creerEntity(){
         LotEntity entity = new LotEntity();
-        BatimentEntity batiment = new BatimentEntity();
-        CategorieEntity categorie = new CategorieEntity();
-        CouvoirEntity couvoir = new CouvoirEntity();
-        SoucheEntity souche = new SoucheEntity();
-        AlimentEntity aliment = new AlimentEntity();
 
         entity.setId(ID);
-        entity.setBatimentEntity(batiment);
         entity.setDureeProdTheorique(DUREE_THEORIQUE);
         entity.setDureeProdReelle(DUREE_REELLE);
-        entity.setCategorieEntity(categorie);
-        entity.setCouvoirEntity(couvoir);
-        entity.setSoucheEntity(souche);
-        entity.setAlimentEntity(aliment);
         entity.setNbPoulesMEP(NB_POULES_MEP);
         entity.setFinLotTheorique(FIN_LOT_THEORIQ);
         entity.setCoefErosion(COEF_EROSION);
@@ -69,21 +59,11 @@ public class LotTest {
 
     public LotBo creerBo(){
         LotBo bo = new LotBo();
-        BatimentPo batiment = new BatimentPo();
-        CategorieBo categorie = new CategorieBo();
-        CouvoirBo couvoir = new CouvoirBo();
-        SoucheBo souche = new SoucheBo();
-        AlimentBo aliment = new AlimentBo();
 
         bo.setId(ID);
         bo.setCodeOeuf(CODE_OEUF);
-        bo.setBatimentPo(batiment);
         bo.setDureeProdTheorique(DUREE_THEORIQUE);
         bo.setDureeProdReelle(DUREE_REELLE);
-        bo.setCategorieBo(categorie);
-        bo.setCouvoirBo(couvoir);
-        bo.setSoucheBo(souche);
-        bo.setAlimentBo(aliment);
         bo.setNbPoulesMEP(NB_POULES_MEP);
         bo.setFinLotTheorique(FIN_LOT_THEORIQ);
         bo.setCoefErosion(COEF_EROSION);

@@ -54,6 +54,7 @@ public class EntrepriseConvert {
     public static EntrepriseBo entrepriseFormToBo(EntrepriseForm form){
         EntrepriseBo bo = new EntrepriseBo();
         ContactBo contact = new ContactBo();
+
         contact.setMail(form.getMail());
         contact.setTelFixe(form.getTelFixe());
         contact.setTelPort(form.getTelPort());
@@ -62,7 +63,6 @@ public class EntrepriseConvert {
         bo.setEde(form.getEde());
         bo.setContactBo(contact);
         bo.setEleveurPo(new EleveurPo(form.getEleveurId()));
-        bo.setAdresseBo(new AdresseBo(form.getRue(), form.getCodePostal(), form.getVille(), form.getPays()));
         bo.setCommentaire(form.getCommentaire());
 
         return bo;

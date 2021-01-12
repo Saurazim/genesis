@@ -1,9 +1,7 @@
 package com.cocorette.genesis.model;
 
 import com.cocorette.genesis.configuration.ConstantesForTest;
-import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.bo.EleveurBo;
-import com.cocorette.genesis.model.entity.ContactEntity;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.table.EleveurTable;
@@ -33,12 +31,10 @@ public class EleveurTest {
 
     public EleveurEntity creerEntity(){
         EleveurEntity entity = new EleveurEntity();
-        ContactEntity contact = new ContactEntity();
 
         entity.setId(ID);
         entity.setPrenom(PRENOM);
         entity.setNom(NOM);
-        entity.setContact(contact);
         entity.setCommentaire(COMMENTAIRE);
         entity.setActif(ACTIF);
         entity.setArchive(ARCHIVE);
@@ -50,16 +46,10 @@ public class EleveurTest {
 
     public EleveurBo creerBo(){
         EleveurBo bo = new EleveurBo();
-        ContactBo contact = new ContactBo();
-        contact.setMail(MAIL);
-        contact.setTelFixe(FIXE);
-        contact.setTelPort(PORT);
-        contact.setFax(FAX);
 
         bo.setId(ID);
         bo.setPrenom(PRENOM);
         bo.setNom(NOM);
-        bo.setContactBo(contact);
         bo.setCommentaire(COMMENTAIRE);
         bo.setActif(ACTIF);
         bo.setArchive(ARCHIVE);

@@ -1,5 +1,6 @@
 package com.cocorette.genesis.convert;
 
+import com.cocorette.genesis.model.GpsTest;
 import com.cocorette.genesis.model.VeterinaireTest;
 import com.cocorette.genesis.model.bo.VeterinaireBo;
 import com.cocorette.genesis.model.entity.VeterinaireEntity;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VeterinaireConvertTest {
     private static VeterinaireTest veterinaireTest;
+    private static GpsTest gpsTest;
 
     @BeforeAll
     public static void init(){

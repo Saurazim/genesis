@@ -37,22 +37,11 @@ public class EntrepriseTest {
         EntrepriseEntity entity = new EntrepriseEntity();
 
         VeterinaireEntity veto = new VeterinaireEntity();
-        CentreEntity centre = new CentreEntity();
-        AdresseEntity adresse = new AdresseEntity();
-        ContactEntity contact = new ContactEntity();
-        EleveurEntity eleveur = new EleveurEntity();
-        eleveur.setId(ID);
-        eleveur.setNom(ELEVEURNOM);
-        eleveur.setPrenom(ELEVEURPRENOM);
+
 
         entity.setId(ID);
         entity.setEde(EDE);
         entity.setNom(NOM);
-        entity.setVeterinaire(veto);
-        entity.setCentre(centre);
-        entity.setAdresse(adresse);
-        entity.setContact(contact);
-        entity.setEleveur(eleveur);
         entity.setCommentaire(COMM);
         entity.setActif(ACTIF);
         entity.setArchive(ARCHIVE);
@@ -65,39 +54,14 @@ public class EntrepriseTest {
     public EntrepriseBo creerBo(){
         EntrepriseBo bo = new EntrepriseBo();
 
-        CentreBo centre = new CentreBo();
-        centre.setId(ID);
-        centre.setNom(CENTRE);
-
-        AdresseBo adresse = new AdresseBo();
-        adresse.setRue(RUE);
-        adresse.setCodePostal(CP);
-        adresse.setVille(VILLE);
-        adresse.setPays(PAYS);
-
-        ContactBo contact = new ContactBo();
-        contact.setMail(MAIL);
-        contact.setTelFixe(FIXE);
-        contact.setTelPort(PORT);
-        contact.setFax(FAX);
-
         VeterinaireBo veto = new VeterinaireBo();
         veto.setId(ID);
         veto.setNom(VETO);
 
-        EleveurPo eleveur = new EleveurPo();
-        eleveur.setId(ID);
-        eleveur.setNom(ELEVEURNOM);
-        eleveur.setPrenom(ELEVEURPRENOM);
-
         bo.setId(ID);
         bo.setNom(NOM);
         bo.setEde(EDE);
-        bo.setCentreBo(centre);
-        bo.setAdresseBo(adresse);
-        bo.setContactBo(contact);
         bo.setVeterinaireBo(veto);
-        bo.setEleveurPo(eleveur);
         bo.setCommentaire(COMM);
         bo.setActif(ACTIF);
         bo.setArchive(ARCHIVE);
