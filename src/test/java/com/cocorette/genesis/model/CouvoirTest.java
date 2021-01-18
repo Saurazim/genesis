@@ -4,6 +4,9 @@ import com.cocorette.genesis.configuration.ConstantesForTest;
 import com.cocorette.genesis.model.bo.CouvoirBo;
 import com.cocorette.genesis.model.entity.ContactEntity;
 import com.cocorette.genesis.model.entity.CouvoirEntity;
+import com.cocorette.genesis.model.form.CouvoirForm;
+import com.cocorette.genesis.model.table.CouvoirTable;
+import com.cocorette.genesis.model.view.CouvoirView;
 
 import java.time.LocalDateTime;
 
@@ -42,5 +45,42 @@ public class CouvoirTest {
         bo.setModified(MODIF);
 
         return bo;
+    }
+
+    public CouvoirForm creerForm(){
+        CouvoirForm form = new CouvoirForm();
+
+        form.setNom(NOM);
+        form.setNom(COMM);
+
+        return form;
+    }
+
+    public CouvoirTable creerTable(){
+        CouvoirTable table = new CouvoirTable();
+
+        table.setId(ID);
+        table.setNom(NOM);
+        table.setCommentaire(COMM);
+        table.setActive(ACTIF);
+        table.setArchive(ARCHIVE);
+        table.setCreated(CREATION);
+        table.setModified(MODIF);
+
+        return table;
+    }
+
+    public CouvoirView creerView(){
+        CouvoirView view = new CouvoirView();
+
+        view.setId(ID);
+        view.setNom(NOM);
+        view.setCommentaire(COMM);
+        view.setActive(ACTIF);
+        view.setArchive(ARCHIVE);
+        view.setCreated(CREATION);
+        view.setModified(MODIF);
+
+        return view;
     }
 }

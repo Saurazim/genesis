@@ -2,15 +2,15 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
-    <title>Ajouter Centre</title>
+    <title>Ajouter Veterinaire</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
 </head>
 <body>
 <div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
-    <a th:href="@{/centres}">Retour à la liste des centres</a>
-    <h1>Créer un nouveau centre</h1>
-    <form name="form" th:action="@{/addCentre}" th:object="${form}" method="POST">
+    <a th:href="@{/veterinaires}">Retour à la liste des veterinaires</a>
+    <h1>Créer un nouveau veterinaire</h1>
+    <form name="form" th:action="@{/addVeterinaire}" th:object="${form}" method="POST">
         <fieldset>
             <legend>Informations</legend>
             <label>Nom*</label>
@@ -28,7 +28,7 @@
             <label>Commentaires</label>
             <input type="text" th:field="*{commentaire}">
         </fieldset>
-        <input class="submit" type="submit" value="Créer un nouveau centre">
+        <input class="submit" type="submit" value="Créer un nouveau veterinaire">
         <span class="error" th:text></span>
     </form>
 </section>

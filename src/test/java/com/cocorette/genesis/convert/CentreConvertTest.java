@@ -2,7 +2,7 @@ package com.cocorette.genesis.convert;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static reactor.core.publisher.Mono.when;
+import static org.mockito.Mockito.when;
 
 import com.cocorette.genesis.model.CentreTest;
 import com.cocorette.genesis.model.GpsTest;
@@ -40,7 +40,7 @@ public class CentreConvertTest {
         CentreBo input = centreTest.creerBo();
         input.setGpsBo(gpsBo);
 
-        when((Iterable<? extends Publisher<?>>) gpsConvert.gpsBoToEntity(input.getGpsBo())).thenReturn(gpsEntity);
+        when(gpsConvert.gpsBoToEntity(input.getGpsBo())).thenReturn(gpsEntity);
 
         CentreEntity result = CentreConvert.centreBoToEntity(input);
 
@@ -64,7 +64,7 @@ public class CentreConvertTest {
         input.setGpsEntity(gpsEntity);
         CentreBo expected = centreTest.creerBo();
 
-        when((Iterable<? extends Publisher<?>>) gpsConvert.gpsEntityToBo(input.getGpsEntity())).thenReturn(gpsBo);
+        when(gpsConvert.gpsEntityToBo(input.getGpsEntity())).thenReturn(gpsBo);
 
         CentreBo result = CentreConvert.centreEntityToBo(input);
 

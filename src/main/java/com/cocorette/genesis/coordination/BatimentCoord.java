@@ -37,6 +37,13 @@ public class BatimentCoord {
 
     private String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
 
+    /**
+     * @deprecated
+     * sauvegarde le batiment et un document (charte sanitaire)
+     * @param form
+     * @param file
+     * @throws IOException
+     */
     public void saveBatiment(BatimentForm form, MultipartFile file) throws IOException {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
 

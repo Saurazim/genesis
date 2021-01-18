@@ -14,8 +14,7 @@ import org.reactivestreams.Publisher;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static reactor.core.publisher.Mono.when;
-
+import static org.mockito.Mockito.when;
 public class LotConvertTest {
     @Mock
     BatimentConvert batimentConvert;
@@ -70,11 +69,11 @@ public class LotConvertTest {
         input.setAlimentEntity(alimentEntity);
         LotBo expected = lotTest.creerBo();
 
-        when((Iterable<? extends Publisher<?>>) batimentConvert.batimentEntityToBo(input.getBatimentEntity())).thenReturn(batimentPo);
-        when((Iterable<? extends Publisher<?>>) categorieConvert.categorieEntityToBo(input.getCategorieEntity())).thenReturn(categorieBo);
-        when((Iterable<? extends Publisher<?>>) couvoirConvert.couvoirEntityToBo(input.getCouvoirEntity())).thenReturn(couvoirBo);
-        when((Iterable<? extends Publisher<?>>) soucheConvert.soucheEntityToBo(input.getSoucheEntity())).thenReturn(soucheBo);
-        when((Iterable<? extends Publisher<?>>) alimentConvert.alimentEntityToBo(input.getAlimentEntity())).thenReturn(alimentBo);
+        when(batimentConvert.batimentEntityToPo(input.getBatimentEntity())).thenReturn(batimentPo);
+        when(categorieConvert.categorieEntityToBo(input.getCategorieEntity())).thenReturn(categorieBo);
+        when(couvoirConvert.couvoirEntityToBo(input.getCouvoirEntity())).thenReturn(couvoirBo);
+        when(soucheConvert.soucheEntityToBo(input.getSoucheEntity())).thenReturn(soucheBo);
+        when(alimentConvert.alimentEntityToBo(input.getAlimentEntity())).thenReturn(alimentBo);
         LotBo result = LotConvert.lotEntityToBo(input);
 
         assertEquals(expected.getClass(), result.getClass());
@@ -127,11 +126,11 @@ public class LotConvertTest {
         input.setSoucheBo(soucheBo);
         input.setAlimentBo(alimentBo);
 
-        when((Iterable<? extends Publisher<?>>) batimentConvert.batimentPoToEntity(input.getBatimentPo())).thenReturn(batimentEntity);
-        when((Iterable<? extends Publisher<?>>) categorieConvert.categorieBoToEntity(input.getCategorieBo())).thenReturn(categorieEntity);
-        when((Iterable<? extends Publisher<?>>) couvoirConvert.couvoirBoToEntity(input.getCouvoirBo())).thenReturn(couvoirEntity);
-        when((Iterable<? extends Publisher<?>>) soucheConvert.soucheBoToEntity(input.getSoucheBo())).thenReturn(soucheEntity);
-        when((Iterable<? extends Publisher<?>>) alimentConvert.alimentBoToEntity(input.getAlimentBo())).thenReturn(alimentEntity);
+        when(batimentConvert.batimentPoToEntity(input.getBatimentPo())).thenReturn(batimentEntity);
+        when(categorieConvert.categorieBoToEntity(input.getCategorieBo())).thenReturn(categorieEntity);
+        when(couvoirConvert.couvoirBoToEntity(input.getCouvoirBo())).thenReturn(couvoirEntity);
+        when(soucheConvert.soucheBoToEntity(input.getSoucheBo())).thenReturn(soucheEntity);
+        when(alimentConvert.alimentBoToEntity(input.getAlimentBo())).thenReturn(alimentEntity);
 
         LotEntity result = LotConvert.lotBoToEntity(input);
 

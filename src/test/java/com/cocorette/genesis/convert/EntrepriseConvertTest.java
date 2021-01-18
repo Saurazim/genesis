@@ -17,7 +17,7 @@ import org.reactivestreams.Publisher;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static reactor.core.publisher.Mono.when;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class EntrepriseConvertTest {
@@ -105,7 +105,7 @@ public class EntrepriseConvertTest {
         EntrepriseEntity input = entrepriseTest.creerEntity();
         input.setCentre(centreEntity);
 
-        when((Iterable<? extends Publisher<?>>) centreConvert.centreEntityToBo(input.getCentre())).thenReturn(centreBo);
+        when(centreConvert.centreEntityToBo(input.getCentre())).thenReturn(centreBo);
 
         EntrepriseBo result = EntrepriseConvert.entrepriseEntityToBo(input);
 
@@ -126,7 +126,7 @@ public class EntrepriseConvertTest {
         EntrepriseEntity input = entrepriseTest.creerEntity();
         input.setContact(contactEntity);
 
-        when((Iterable<? extends Publisher<?>>) contactConvert.contactEntityToBo(input.getContact())).thenReturn(contactBo);
+        when(contactConvert.contactEntityToBo(input.getContact())).thenReturn(contactBo);
 
         EntrepriseBo result = EntrepriseConvert.entrepriseEntityToBo(input);
 
@@ -146,7 +146,7 @@ public class EntrepriseConvertTest {
         EntrepriseEntity input = entrepriseTest.creerEntity();
         input.setVeterinaire(veterinaireEntity);
 
-        when((Iterable<? extends Publisher<?>>) veterinaireConvert.veterinaireEntityToBo(input.getVeterinaire())).thenReturn(veterinaireBo);
+        when(veterinaireConvert.veterinaireEntityToBo(input.getVeterinaire())).thenReturn(veterinaireBo);
 
         EntrepriseBo result = EntrepriseConvert.entrepriseEntityToBo(input);
 
@@ -190,7 +190,7 @@ public class EntrepriseConvertTest {
         EntrepriseBo input = entrepriseTest.creerBo();
         input.setAdresseBo(adresseBo);
 
-        when((Iterable<? extends Publisher<?>>) adresseConvert.adresseBoToEntity(input.getAdresseBo())).thenReturn(adresseEntity);
+        when(adresseConvert.adresseBoToEntity(input.getAdresseBo())).thenReturn(adresseEntity);
 
         EntrepriseEntity result = EntrepriseConvert.entrepriseBoToEntity(input);
 
@@ -210,7 +210,7 @@ public class EntrepriseConvertTest {
         EntrepriseBo input = entrepriseTest.creerBo();
         input.setCentreBo(centreBo);
 
-        when((Iterable<? extends Publisher<?>>) centreConvert.centreBoToEntity(input.getCentreBo())).thenReturn(centreEntity);
+        when(centreConvert.centreBoToEntity(input.getCentreBo())).thenReturn(centreEntity);
 
         EntrepriseEntity result = EntrepriseConvert.entrepriseBoToEntity(input);
 
@@ -230,7 +230,7 @@ public class EntrepriseConvertTest {
         EntrepriseBo input = entrepriseTest.creerBo();
         input.setContactBo(contactBo);
 
-        when((Iterable<? extends Publisher<?>>) contactConvert.contactBoToEntity(input.getContactBo())).thenReturn(contactEntity);
+        when(contactConvert.contactBoToEntity(input.getContactBo())).thenReturn(contactEntity);
 
         EntrepriseEntity result = EntrepriseConvert.entrepriseBoToEntity(input);
 

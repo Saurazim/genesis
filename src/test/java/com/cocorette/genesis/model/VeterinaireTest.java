@@ -5,6 +5,9 @@ import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.bo.VeterinaireBo;
 import com.cocorette.genesis.model.entity.GpsEntity;
 import com.cocorette.genesis.model.entity.VeterinaireEntity;
+import com.cocorette.genesis.model.form.VeterinaireForm;
+import com.cocorette.genesis.model.table.VeterinaireTable;
+import com.cocorette.genesis.model.view.VeterinaireView;
 
 import java.time.LocalDateTime;
 
@@ -49,5 +52,46 @@ public class VeterinaireTest {
         bo.setGpsBo(gpsBo);
 
         return bo;
+    }
+
+    public VeterinaireForm creerForm(){
+        VeterinaireForm form = new VeterinaireForm();
+
+        form.setNom(NOM);
+        form.setLatitude(LATITUDE);
+        form.setLongitude(LONGITUDE);
+        form.setCommentaire(COMMENTAIRE);
+
+        return form;
+    }
+
+    public VeterinaireTable creerTable(){
+        VeterinaireTable table = new VeterinaireTable();
+
+        table.setId(ID);
+        table.setNom(NOM);
+        table.setCommentaire(COMMENTAIRE);
+        table.setActive(ACTIVE);
+        table.setArchive(ARCHIVE);
+        table.setCreated(CREATION);
+        table.setModified(MODIF);
+
+        return table;
+    }
+
+    public VeterinaireView creerView(){
+        VeterinaireView view = new VeterinaireView();
+
+        view.setId(ID);
+        view.setNom(NOM);
+        view.setLatitude(LATITUDE);
+        view.setLongitude(LONGITUDE);
+        view.setCommentaire(COMMENTAIRE);
+        view.setActive(ACTIVE);
+        view.setArchive(ARCHIVE);
+        view.setCreated(CREATION);
+        view.setModified(MODIF);
+
+        return view;
     }
 }

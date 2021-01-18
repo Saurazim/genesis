@@ -21,7 +21,7 @@ import org.reactivestreams.Publisher;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static reactor.core.publisher.Mono.when;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class EleveurConvertTest {
@@ -64,7 +64,7 @@ public class EleveurConvertTest {
         EleveurEntity input = eleveurTest.creerEntity();
         input.setContact(contactEntity);
 
-        when((Iterable<? extends Publisher<?>>) contactConvert.contactEntityToBo(input.getContact())).thenReturn(contactBo);
+        when(contactConvert.contactEntityToBo(input.getContact())).thenReturn(contactBo);
 
         EleveurBo result = EleveurConvert.eleveurEntityToBo(input);
 
@@ -98,7 +98,7 @@ public class EleveurConvertTest {
         EleveurBo input = eleveurTest.creerBo();
         input.setContactBo(contactBo);
 
-        when((Iterable<? extends Publisher<?>>) contactConvert.contactBoToEntity(input.getContactBo())).thenReturn(contactEntity);
+        when(contactConvert.contactBoToEntity(input.getContactBo())).thenReturn(contactEntity);
 
         EleveurEntity result = EleveurConvert.eleveurBoToEntity(input);
 
