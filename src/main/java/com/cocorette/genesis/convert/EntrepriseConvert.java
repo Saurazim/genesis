@@ -15,7 +15,8 @@ public class EntrepriseConvert {
         entity.setId(bo.getId());
         entity.setNom(bo.getNom());
         entity.setEde(bo.getEde());
-        entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
+        if(bo.getAdresseBo()!=null)
+            entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
         if (bo.getContactBo()!=null)
             entity.setContact(ContactConvert.contactBoToEntity(bo.getContactBo()));
         if (bo.getCentreBo()!=null)

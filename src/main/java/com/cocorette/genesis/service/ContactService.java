@@ -4,6 +4,7 @@ import com.cocorette.genesis.convert.ContactConvert;
 import com.cocorette.genesis.dao.ContactDao;
 import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.entity.ContactEntity;
+import com.cocorette.genesis.model.form.EntrepriseForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,14 @@ public class ContactService {
         contactDao.save(contact);
     }
 
+    public ContactBo getContactFromEntreprise(EntrepriseForm form){
+        ContactBo contactBo = new ContactBo();
+        contactBo.setMail(form.getMail());
+        contactBo.setTelFixe(form.getTelFixe());
+        contactBo.setTelPort(form.getTelPort());
+        contactBo.setFax(form.getFax());
 
+        return contactBo;
+    }
 
 }

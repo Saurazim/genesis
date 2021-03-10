@@ -2,6 +2,8 @@ package com.cocorette.genesis.coordination;
 
 import com.cocorette.genesis.configuration.Constantes;
 import com.cocorette.genesis.convert.BatimentConvert;
+import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
@@ -67,7 +69,10 @@ public class BatimentCoord {
     }
 
     public void saveBatiment(BatimentForm form){
-        BatimentEntity entity = BatimentConvert.batimentFormToEntity(form);
+        BatimentBo bo = BatimentConvert.batimentFormToBo(form);
+        AdresseBo adresse = adresseService.getAdresseBo(form);
+        bo.setAdresseBo(adresse);
+        BatimentEntity entity = BatimentConvert.batimentBoToEntity(bo);
         entity.setActif(true);
         entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());
@@ -93,7 +98,7 @@ public class BatimentCoord {
                 ||form.getVille().isBlank()||form.getPays().isBlank()){
             error.put("adresse", "adresse invalide");
         }else {
-            if (!cpRegex.matches(form.getCodePostal()))
+            if (!form.getCodePostal().matches(cpRegex))
                 error.put("codepostal","Code postal invalide");
         }
 

@@ -2,6 +2,8 @@ package com.cocorette.genesis.coordination;
 
 import com.cocorette.genesis.configuration.Constantes;
 import com.cocorette.genesis.convert.EntrepriseConvert;
+import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.bo.EntrepriseBo;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
@@ -37,7 +39,12 @@ public class EntrepriseCoord {
     private final String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
 
     public void saveEntreprise(EntrepriseForm form){
-        EntrepriseEntity entity = EntrepriseConvert.entrepriseFormToEntity(form);
+        EntrepriseBo bo = EntrepriseConvert.entrepriseFormToBo(form);
+        AdresseBo adresseBo = adresseService.getAdresseBo(form);
+        ContactBo contactBo = contactService.getContactFromEntreprise(form);
+        bo.setAdresseBo(adresseBo);
+        bo.setContactBo(contactBo);
+        EntrepriseEntity entity = EntrepriseConvert.entrepriseBoToEntity(bo);
         entity.setActif(true);
         entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());

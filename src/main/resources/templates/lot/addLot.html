@@ -10,9 +10,9 @@
 <section class="main_section">
     <a th:href="@{/lots}">Retour à la liste</a>
     <h1>Créer un nouveau lot</h1>
-    <form th:action="@{/addLot}" th:object="${form}" method="post">
+    <form name="form" th:action="@{/addLot}" th:object="${form}" method="post">
         <fieldset>
-            <input type="hidden" name="lotId" th:value="${form.batimentId}">
+            <input type="hidden" name="batimentId" th:value="${form.batimentId}">
             <legend>Informations</legend>
             <label>Code Oeufs*</label>
             <input type="text" th:field="*{codeOeuf}" required>

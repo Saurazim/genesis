@@ -4,6 +4,8 @@ import com.cocorette.genesis.convert.AdresseConvert;
 import com.cocorette.genesis.dao.AdresseDao;
 import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.entity.AdresseEntity;
+import com.cocorette.genesis.model.form.BatimentForm;
+import com.cocorette.genesis.model.form.EntrepriseForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,25 @@ public class AdresseService {
 
     public void saveAdresse(AdresseEntity entity){
         adresseDao.save(entity);
+    }
+
+    public AdresseBo getAdresseBo(EntrepriseForm entreprise){
+        AdresseBo adresse = new AdresseBo();
+        adresse.setRue(entreprise.getRue());
+        adresse.setCodePostal(entreprise.getCodePostal());
+        adresse.setVille(entreprise.getVille());
+        adresse.setPays(entreprise.getPays());
+
+        return adresse;
+    }
+
+    public AdresseBo getAdresseBo(BatimentForm batiment){
+        AdresseBo adresse = new AdresseBo();
+        adresse.setRue(batiment.getRue());
+        adresse.setCodePostal(batiment.getCodePostal());
+        adresse.setVille(batiment.getVille());
+        adresse.setPays(batiment.getPays());
+
+        return adresse;
     }
 }

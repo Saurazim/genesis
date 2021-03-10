@@ -42,7 +42,8 @@ public class BatimentConvert {
         entity.setEau(bo.getEau());
         entity.setDistCentre(bo.getDistCentre());
         entity.setAnneeDebut(bo.getAnneeDebut());
-        entity.setGps(GpsConvert.gpsBoToEntity(bo.getGps()));
+        if(bo.getGps()!=null)
+            entity.setGps(GpsConvert.gpsBoToEntity(bo.getGps()));
         entity.setTypeBatiment(bo.getTypeBatiment());
         entity.setNbArbres(bo.getNbArbres());
         entity.setTypeArbres(bo.getTypeArbres());
