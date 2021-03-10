@@ -1,16 +1,16 @@
 package com.cocorette.genesis.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name = "centre")
+@Entity(name = "centres")
 public class CentreEntity {
     @Id
     @GeneratedValue
     private int id;
     private String nom;
+    @ManyToOne
+    @JoinColumn(name = "gpsId")
     private GpsEntity gpsEntity;
     private String commentaire;
     private boolean active;

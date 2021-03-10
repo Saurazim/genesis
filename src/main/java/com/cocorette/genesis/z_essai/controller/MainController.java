@@ -22,10 +22,10 @@ public class MainController {
     }
 
     //injection via application.properties
-    @Value("${welcome.message}")
+    //@Value("${welcome.message}")
     private String message;
 
-    @Value("${error.message}")
+    //@Value("${error.message}")
     private String errorMessage;
 
     //@GetMapping(value = {"/","/index"})

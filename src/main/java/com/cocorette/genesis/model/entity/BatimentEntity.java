@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 import java.util.List;
 
-@Entity(name = "batiment")
+@Entity(name = "batiments")
 public class BatimentEntity {
     @Id
     @GeneratedValue

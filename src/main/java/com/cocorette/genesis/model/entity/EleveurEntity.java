@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity(name = "eleveur")
+@Entity(name = "eleveurs")
 public class EleveurEntity {
     @Id
     @GeneratedValue

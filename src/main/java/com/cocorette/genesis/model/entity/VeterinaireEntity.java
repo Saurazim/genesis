@@ -3,7 +3,7 @@ package com.cocorette.genesis.model.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name = "veterinaire")
+@Entity(name = "veterinaires")
 public class VeterinaireEntity {
     @Id
     @GeneratedValue

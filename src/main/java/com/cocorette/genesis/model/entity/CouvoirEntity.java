@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity(name = "couvoir")
+@Entity(name = "couvoirs")
 public class CouvoirEntity {
     @Id
     @GeneratedValue

@@ -44,6 +44,7 @@ public class BatimentCoord {
      * @param file
      * @throws IOException
      */
+    @Deprecated
     public void saveBatiment(BatimentForm form, MultipartFile file) throws IOException {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
 

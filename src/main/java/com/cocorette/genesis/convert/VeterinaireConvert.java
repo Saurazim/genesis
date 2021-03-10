@@ -39,7 +39,6 @@ public class VeterinaireConvert {
     public static VeterinaireBo veterinaireFormToBo(VeterinaireForm form){
         VeterinaireBo bo = new VeterinaireBo();
 
-        bo.setId(form.getId());
         bo.setNom(form.getNom());
         bo.setGpsBo(new GpsBo(form.getLatitude(), form.getLongitude()));
         bo.setCommentaire(form.getCommentaire());

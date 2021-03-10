@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity(name = "entreprise")
+@Entity(name = "entreprises")
 public class EntrepriseEntity {
     @Id
     private int id;
