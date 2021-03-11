@@ -17,8 +17,8 @@
                 <th>Commentaire</th>
                 <th>Dernière Modification</th>
             </tr>
-            <tr th:each="aliment : ${souches}">
-                <td><a th:href="@{/souche/{id}(id=${souche.id})}">...</a></td>
+            <tr th:each="souche : ${souches}">
+                <td><a th:href="@{/souche/{id}(id=${souche.id})}" th:utext="${souche.nom}">...</a></td>
                 <td th:utext="${souche.commentaire}">...</td>
                 <td th:utext="${souche.modified}">...</td>
             </tr>

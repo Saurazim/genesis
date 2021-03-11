@@ -80,6 +80,7 @@ public class EntrepriseConvert {
         table.setId(bo.getId());
         table.setNom(bo.getNom());
         table.setEde(bo.getEde());
+        if (bo.getAdresseBo()!=null)
         table.setAdresse(bo.getAdresseBo().toString());
         if (bo.getContactBo()!=null){
             table.setMail(bo.getContactBo().getMail());
@@ -89,7 +90,9 @@ public class EntrepriseConvert {
         }
         if (bo.getCentreBo()!=null)
             table.setCentre(bo.getCentreBo().getNom());
-        table.setEleveurNom(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
+        //FIXME if condition must not stay there
+        if(bo.getEleveurPo()!=null)
+            table.setEleveurNom(bo.getEleveurPo().getNom()+" "+bo.getEleveurPo().getPrenom());
         if (bo.getVeterinaireBo()!=null)
             table.setVeterinaire(bo.getVeterinaireBo().getNom());
         table.setActif(bo.isActif());

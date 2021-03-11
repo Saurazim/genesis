@@ -9,7 +9,7 @@
 <div th:replace="fragment/fragment :: topbar"></div>
 <section class="main_section">
     <h1>Liste des Fournisseurs de poulettes</h1>
-    <a th:href="@{/addCategorie}">Ajouter un Fournisseur de poulettes</a>
+    <a th:href="@{/addCouvoir}">Ajouter un Fournisseur de poulettes</a>
     <div>
         <table border="1">
             <tr>
@@ -19,10 +19,10 @@
                 <th>Dernière Modification</th>
             </tr>
             <tr th:each="couvoir : ${couvoirs}">
-                <td><a th:href="@{/couvoir/{id}(id=${couvoir.id})}">...</a></td>
-                <td th:utext="${couvoir.commentaire}">...</td>
-                <td th:utext="${couvoir.created}">...</td>
-                <td th:utext="${couvoir.modified}">...</td>
+                <td><a th:href="@{/couvoir/{id}(id=${couvoir.id})}" th:utext="${couvoir.nom}">...</a></td>
+                <td th:utext="${couvoir?.commentaire}">...</td>
+                <td th:utext="${couvoir?.created}">...</td>
+                <td th:utext="${couvoir?.modified}">...</td>
             </tr>
         </table>
     </div>
