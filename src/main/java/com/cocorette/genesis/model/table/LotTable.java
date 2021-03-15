@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class LotTable {
     private int id;
     private String codeOeuf;
-    private String inuav;
+    private String batiment;
     private String categorie;
     private String couvoir;
     private String souche;
@@ -37,12 +37,12 @@ public class LotTable {
         this.codeOeuf = codeOeuf;
     }
 
-    public String getInuav() {
-        return inuav;
+    public String getBatiment() {
+        return batiment;
     }
 
-    public void setInuav(String inuav) {
-        this.inuav = inuav;
+    public void setBatiment(String batiment) {
+        this.batiment = batiment;
     }
 
     public String getCategorie() {

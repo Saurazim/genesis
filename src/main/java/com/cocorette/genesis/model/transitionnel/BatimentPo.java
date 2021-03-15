@@ -2,7 +2,7 @@ package com.cocorette.genesis.model.transitionnel;
 
 public class BatimentPo {
     private int id;
-    private String inuav;
+    private String codeInterne;
 
     public BatimentPo(){}
 
@@ -10,9 +10,9 @@ public class BatimentPo {
         this.id = id;
     }
 
-    public BatimentPo(int id, String inuav) {
+    public BatimentPo(int id, String codeInterne) {
         this.id = id;
-        this.inuav = inuav;
+        this.codeInterne = codeInterne;
     }
 
     public int getId() {
@@ -23,11 +23,11 @@ public class BatimentPo {
         this.id = id;
     }
 
-    public String getInuav() {
-        return inuav;
+    public String getCodeInterne() {
+        return codeInterne;
     }
 
-    public void setInuav(String inuav) {
-        this.inuav = inuav;
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 }

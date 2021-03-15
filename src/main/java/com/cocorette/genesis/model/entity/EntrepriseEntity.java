@@ -9,9 +9,12 @@ import java.util.List;
 @Entity(name = "entreprises")
 public class EntrepriseEntity {
     @Id
+    @GeneratedValue
     private int id;
     private String ede;
     private String nom;
+    private String tva;
+    private String siret;
     @ManyToOne
     @JoinColumn(name = "veterinaireId")
     private VeterinaireEntity veterinaire;
@@ -66,6 +69,22 @@ public class EntrepriseEntity {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getTva() {
+        return tva;
+    }
+
+    public void setTva(String tva) {
+        this.tva = tva;
+    }
+
+    public String getSiret() {
+        return siret;
+    }
+
+    public void setSiret(String siret) {
+        this.siret = siret;
     }
 
     public VeterinaireEntity getVeterinaire() {

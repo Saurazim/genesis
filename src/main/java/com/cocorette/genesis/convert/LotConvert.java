@@ -83,7 +83,7 @@ public class LotConvert {
     public static LotView lotBoToView(LotBo bo){
         LotView view = new LotView();
         view.setCodeOeuf(bo.getCodeOeuf());
-        view.setBatiment(bo.getBatimentPo().getInuav());
+        view.setBatiment(bo.getBatimentPo().getCodeInterne());
         view.setBatimentId(bo.getBatimentPo().getId());
         view.setCategorie(bo.getCategorieBo().getNom());
         view.setCouvoir(bo.getCouvoirBo().getNom());
@@ -114,7 +114,7 @@ public class LotConvert {
         LotTable table = new LotTable();
         table.setId(bo.getId());
         table.setCodeOeuf(bo.getCodeOeuf());
-        table.setInuav(bo.getBatimentPo().getInuav());
+        table.setBatiment(bo.getBatimentPo().getCodeInterne());
         table.setCategorie(bo.getCategorieBo().getNom());
         table.setCouvoir(bo.getCouvoirBo().getNom());
         table.setSouche(bo.getSoucheBo().getNom());

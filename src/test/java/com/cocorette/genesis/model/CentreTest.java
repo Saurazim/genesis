@@ -53,6 +53,8 @@ public class CentreTest {
 
         form.setNom(NOM);
         form.setCommentaire(COMM);
+        form.setLatitude(LATITUDE);
+        form.setLongitude(LONGITUDE);
 
         return form;
     }

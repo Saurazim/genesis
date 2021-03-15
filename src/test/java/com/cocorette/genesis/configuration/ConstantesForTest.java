@@ -19,6 +19,7 @@ public interface ConstantesForTest {
     //Aliment
     String NOM_ALIMENT = "Trucmuche";
     //Batiment
+    String INTERNE = "interne00XX";
     String INUAV = "code00xxx";
     String EAU = "arrosage";
     int DIST_CENTRE = 456;

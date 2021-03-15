@@ -13,8 +13,8 @@
     <div>
         <table border="1">
             <tr>
-                <th>Ede</th>
                 <th>Nom</th>
+                <th>Ede</th>
                 <th>Eleveur</th>
                 <th>Adresse</th>
                 <th>Mail</th>
@@ -22,12 +22,12 @@
                 <th>Téléphone Portable</th>
                 <th>Fax</th>
                 <th>Vétérinaire</th>
-                <th>Centre</th>
+                <th>Centre en contrat</th>
                 <th>Création</th>
             </tr>
             <tr th:each="entreprise : ${entreprises}">
-                <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
-                <td th:utext="${entreprise.nom}">...</td>
+                <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.nom}">...</a></td>
+                <td th:utext="${entreprise.ede}">...</td>
                 <td th:utext="${entreprise.eleveurNom}">...</td>
                 <td th:utext="${entreprise.adresse}">...</td>
                 <td th:utext="${entreprise.mail}">...</td>

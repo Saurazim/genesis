@@ -6,6 +6,8 @@ public class EntrepriseForm {
     private int id;
     private String ede;
     private String nom;
+    private String tva;
+    private String siret;
     private String rue;
     private String codePostal;
     private String ville;
@@ -48,6 +50,22 @@ public class EntrepriseForm {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getTva() {
+        return tva;
+    }
+
+    public void setTva(String tva) {
+        this.tva = tva;
+    }
+
+    public String getSiret() {
+        return siret;
+    }
+
+    public void setSiret(String siret) {
+        this.siret = siret;
     }
 
     public String getRue() {

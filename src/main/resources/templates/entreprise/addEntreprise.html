@@ -16,44 +16,50 @@
 
             <label>Nom</label>
             <input type="text" th:field="*{nom}" required>
-            <span class="error" th:text="${nom}"></span>
+            <span class="error" th:text="${error.nom}"></span>
             <label>EDE</label>
             <input type="text" th:field="*{ede}" required>
-            <span class="error" th:text="${ede}"></span>
+            <span class="error" th:text="${error.ede}"></span>
+            <label>TVA</label>
+            <input type="text" th:field="*{tva}">
+            <span class="error" th:text="${error.tva}"></span>
+            <label>Siret</label>
+            <input type="text" th:field="*{siret}">
+            <span class="error" th:text="${error.siret}"></span>
             <input type="hidden" th:value="${form.eleveurId}" name="eleveurId">
         </fieldset>
         <fieldset>
             <legend>Contact</legend>
             <h3>Un champ minimum est requis</h3>
-            <span class="error" th:text="${contact}"></span>
+            <span class="error" th:text="${error.contact}"></span>
             <label>Email</label>
             <input type="email" th:field="*{mail}">
-            <span class="error" th:text="${mail}"></span>
+            <span class="error" th:text="${error.mail}"></span>
             <label>Téléphone Fixe</label>
             <input type="text" th:field="*{telFixe}">
-            <span class="error" th:text="${telfixe}"></span>
+            <span class="error" th:text="${error.telfixe}"></span>
             <label>Téléphone Portable</label>
             <input type="text" th:field="*{telPort}">
-            <span class="error" th:text="${telport}"></span>
+            <span class="error" th:text="${error.telport}"></span>
             <label>Fax</label>
             <input type="text" th:field="*{fax}">
-            <span class="error" th:text="${fax}"></span>
+            <span class="error" th:text="${error.fax}"></span>
         </fieldset>
         <fieldset>
             <legend>Adresse</legend>
-            <span class="error" th:text="${adresse}"></span>
+            <span class="error" th:text="${error.adresse}"></span>
             <label>Rue</label>
             <input type="text" th:field="*{rue}">
-            <span class="error" th:text="${rue}"></span>
+            <span class="error" th:text="${error.rue}"></span>
             <label>Code Postal</label>
             <input type="number" th:field="*{codePostal}">
-            <span class="error" th:text="${codepostal}"></span>
+            <span class="error" th:text="${error.codepostal}"></span>
             <label>Ville</label>
             <input type="text" th:field="*{ville}">
-            <span class="error" th:text="${ville}"></span>
+            <span class="error" th:text="${error.ville}"></span>
             <label>Pays</label>
             <input type="text" th:field="*{pays}">
-            <span class="error" th:text="${pays}"></span>
+            <span class="error" th:text="${error.pays}"></span>
         </fieldset>
         <fieldset>
             <legend>Autres</legend>

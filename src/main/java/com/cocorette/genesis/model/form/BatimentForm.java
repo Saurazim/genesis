@@ -3,6 +3,7 @@ package com.cocorette.genesis.model.form;
 import java.time.LocalDateTime;
 
 public class BatimentForm {
+    private String codeInterne;
     private String inuav;
     private String rue;
     private String codePostal;
@@ -18,8 +19,6 @@ public class BatimentForm {
     private int nbArbres;
     private String typeArbres;
     private String commentaire;
-    private boolean active;
-    private boolean archive;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -27,6 +26,14 @@ public class BatimentForm {
 
     public BatimentForm(int entrepriseId) {
         this.entrepriseId = entrepriseId;
+    }
+
+    public String getCodeInterne() {
+        return codeInterne;
+    }
+
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 
     public String getInuav() {

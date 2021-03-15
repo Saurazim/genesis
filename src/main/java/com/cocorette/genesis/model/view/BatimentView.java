@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public class BatimentView {
     private int id;
+    private String codeInterne;
     private String inuav;
     private String entreprise;
     private int entrepriseId;
@@ -32,6 +33,14 @@ public class BatimentView {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCodeInterne() {
+        return codeInterne;
+    }
+
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 
     public String getInuav() {

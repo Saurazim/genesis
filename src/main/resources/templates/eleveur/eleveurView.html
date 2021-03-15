@@ -120,10 +120,10 @@
               <th>Téléphone Portable</th>
               <th>Fax</th>
               <th>Vétérinaire</th>
-              <th>Centre</th>
+              <th>Centre en contrat</th>
             </tr>
             <tr th:each="entreprise : ${entreprises}">
-              <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.ede}">...</a></td>
+              <td><a th:href="@{/entreprise/{id}(id=${entreprise.id})}" th:utext="${entreprise.nom}">...</a></td>
               <td th:utext="${entreprise.nom}">...</td>
               <td th:utext="${entreprise.eleveurNom}">...</td>
               <td th:utext="${entreprise.adresse}">...</td>

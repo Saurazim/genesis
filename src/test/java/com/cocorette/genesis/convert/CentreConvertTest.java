@@ -91,7 +91,7 @@ public class CentreConvertTest {
         assertEquals(expected.getNom(), result.getNom());
         assertEquals(expected.getCommentaire(), result.getCommentaire());
         assertEquals(gpsBo.getLatitude(), result.getGpsBo().getLatitude());
-        assertEquals(gpsBo.getLongitude(), result.getGpsBo().getLatitude());
+        assertEquals(gpsBo.getLongitude(), result.getGpsBo().getLongitude());
     }
 
     @Test

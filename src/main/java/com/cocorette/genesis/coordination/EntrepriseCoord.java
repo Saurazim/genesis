@@ -49,11 +49,15 @@ public class EntrepriseCoord {
         entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());
         entity.setModified(LocalDateTime.now());
-        contactService.saveContact(entity.getContact());
-        adresseService.saveAdresse(entity.getAdresse());
         EleveurEntity eleveur = eleveurService.findEleveur(form.getEleveurId()).orElseThrow();
         entity.setEleveur(eleveur);
-        entrepriseService.saveEntreprise(entity);
+        try {
+            contactService.saveContact(entity.getContact());
+            adresseService.saveAdresse(entity.getAdresse());
+            entrepriseService.saveEntreprise(entity);
+        }catch (Exception e){
+            throw e;
+        }
     }
 
     public Map<String,String> validEntreprise(EntrepriseForm form){
@@ -63,6 +67,8 @@ public class EntrepriseCoord {
             error.put("nom","Le nom est obligatoire");
         if (form.getEde().isBlank())
             error.put("ede","EDE obligatoire");
+        if (!form.getEde().matches("\\d+}"))
+            error.put("ede","EDE invalide ; ne doit contenir que des numéros");
         if (form.getMail().isBlank() && form.getTelFixe().isBlank()
                 && form.getTelPort().isBlank() && form.getFax().isBlank()){
             error.put("contact","au moins un contact doit etre rempli");

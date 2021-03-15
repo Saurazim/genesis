@@ -1,9 +1,7 @@
 package com.cocorette.genesis.convert;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import com.cocorette.genesis.model.AdresseTest;
 import com.cocorette.genesis.model.BatimentTest;
@@ -112,7 +110,8 @@ public class BatimentConvertTest {
         input.setEntreprisePo(entreprisePo);
         BatimentEntity expected = batimentTest.creerEntity();
 
-        when(adresseConvert.adresseBoToEntity(input.getAdresseBo())).thenReturn(adresseEntity);
+        //when(adresseConvert.adresseBoToEntity(input.getAdresseBo())).thenReturn(adresseEntity);
+        doReturn(adresseEntity).when(adresseConvert).adresseBoToEntity(input.getAdresseBo());
         when(entrepriseConvert.entreprisePoToEntity(input.getEntreprisePo())).thenReturn(entrepriseEntity);
         when(gpsConvert.gpsBoToEntity(input.getGps())).thenReturn(gpsEntity);
 
@@ -214,7 +213,7 @@ public class BatimentConvertTest {
 
         assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
-        assertEquals(expected.getInuav(), result.getInuav());
+        assertEquals(expected.getCodeInterne(), result.getCodeInterne());
         assertEquals(expected.getEntrepriseId(), result.getEntrepriseId());
         assertEquals(expected.getEntrepriseNom(), result.getEntrepriseNom());
         assertEquals(expected.isActif(), result.isActif());
@@ -232,6 +231,6 @@ public class BatimentConvertTest {
 
         assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
-        assertEquals(expected.getInuav(), result.getInuav());
+        assertEquals(expected.getCodeInterne(), result.getCodeInterne());
     }
 }

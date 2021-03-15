@@ -87,8 +87,8 @@ public class BatimentCoord {
     public Map<String, String> validBatiment(BatimentForm form){
         Map<String, String> error = new HashMap<>();
 
-        if (form.getInuav().isBlank())
-            error.put("inuav","Le code INUAV est obligatoire");
+        if (form.getCodeInterne().isBlank())
+            error.put("codeInterne","Le code interne est obligatoire");
 
         if (form.getEau().isBlank())
             error.put("eau","Le type d'arrivée d'eau est obligatoire");

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class BatimentTable {
     private int id;
-    private String inuav;
+    private String codeInterne;
     private String adresse;
     private String entrepriseNom;
     private int entrepriseId;
@@ -23,12 +23,12 @@ public class BatimentTable {
         this.id = id;
     }
 
-    public String getInuav() {
-        return inuav;
+    public String getCodeInterne() {
+        return codeInterne;
     }
 
-    public void setInuav(String inuav) {
-        this.inuav = inuav;
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 
     public String getAdresse() {

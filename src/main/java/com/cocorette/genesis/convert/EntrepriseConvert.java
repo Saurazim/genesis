@@ -15,6 +15,8 @@ public class EntrepriseConvert {
         entity.setId(bo.getId());
         entity.setNom(bo.getNom());
         entity.setEde(bo.getEde());
+        entity.setTva(bo.getTva());
+        entity.setSiret(bo.getSiret());
         if(bo.getAdresseBo()!=null)
             entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
         if (bo.getContactBo()!=null)
@@ -36,6 +38,8 @@ public class EntrepriseConvert {
         bo.setId(entity.getId());
         bo.setNom(entity.getNom());
         bo.setEde(entity.getEde());
+        bo.setTva(entity.getTva());
+        bo.setSiret(entity.getSiret());
         bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
         if (entity.getContact()!=null)
         bo.setContactBo(ContactConvert.contactEntityToBo(entity.getContact()));
@@ -62,6 +66,8 @@ public class EntrepriseConvert {
         contact.setFax(form.getFax());
         bo.setNom(form.getNom());
         bo.setEde(form.getEde());
+        bo.setTva(form.getTva());
+        bo.setSiret(form.getSiret());
         bo.setContactBo(contact);
         bo.setEleveurPo(new EleveurPo(form.getEleveurId()));
         bo.setCommentaire(form.getCommentaire());
@@ -114,6 +120,8 @@ public class EntrepriseConvert {
         view.setId(bo.getId());
         view.setNom(bo.getNom());
         view.setEde(bo.getEde());
+        view.setTva(bo.getTva());
+        view.setSiret(bo.getSiret());
         view.setRue(bo.getAdresseBo().getRue());
         view.setCodePostal(bo.getAdresseBo().getCodePostal());
         view.setVille(bo.getAdresseBo().getVille());

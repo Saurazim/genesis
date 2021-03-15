@@ -9,13 +9,21 @@
 <div th:replace="fragment/fragment :: topbar"></div>
 <section class="row fondblanc main_section">
     <a th:href="@{/batiments}">Retour à la liste des bâtiments</a>
-    <h3 th:utext="${batiment.inuav}">..!..</h3>
+    <h3 th:utext="${batiment.codeInterne}">..!..</h3>
     <div class="section-container tabs">
         <section>
             <fieldset class="content">
                 <legend class="title">
                     <a href="#">Informations</a>
                 </legend>
+                <div class="row collapse">
+                    <div class="large-6 columns">
+                        <label class="inline bold">Code INUAV</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${batiment.inuav}">...</label>
+                </div>
                 <div class="row collapse">
                     <div class="large-6 columns">
                         <label class="inline bold">Raison Sociale</label>

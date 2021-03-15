@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 
 public class BatimentTest {
     private static final int ID = ConstantesForTest.ID;
+    private static final String INTERNE = ConstantesForTest.INTERNE;
     private static final String INUAV = ConstantesForTest.INUAV;
     private static final String EAU = ConstantesForTest.EAU;
     private static final int DIST_CENTRE = ConstantesForTest.DIST_CENTRE;
@@ -121,7 +122,7 @@ public class BatimentTest {
         BatimentTable table = new BatimentTable();
 
         table.setId(ID);
-        table.setInuav(INUAV);
+        table.setCodeInterne(INTERNE);
         table.setAdresse(RUE+" "+CP+" "+VILLE+" "+PAYS);
         table.setEntrepriseId(ID);
         table.setEntrepriseNom(NOM_ENTERPRISE);
@@ -163,7 +164,7 @@ public class BatimentTest {
         BatimentPo po = new BatimentPo();
 
         po.setId(ID);
-        po.setInuav(INUAV);
+        po.setCodeInterne(INTERNE);
 
         return po;
     }

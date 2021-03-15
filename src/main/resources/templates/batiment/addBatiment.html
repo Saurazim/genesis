@@ -14,8 +14,11 @@
         <fieldset>
             <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
             <legend>Informations</legend>
+            <label>Code Interne</label>
+            <input type="text" th:field="*{codeInterne}" required>
+            <span class="error" th:text="${codeInterne}"></span>
             <label>INUAV*</label>
-            <input type="text" th:field="*{inuav}" required>
+            <input type="text" th:field="*{inuav}">
             <span class="error" th:text="${inuav}"></span>
             <!--<label>Charte sanitaire</label>
             <input type="file" name="docCharte" th:field="*{docCharte}" accept="image/jpeg, image/png, application/pdf">

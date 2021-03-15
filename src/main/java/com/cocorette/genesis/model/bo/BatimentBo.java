@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 public class BatimentBo {
     private int id;
+    private String codeInterne;
     private String inuav;
     private AdresseBo adresseBo;
     private EntreprisePo entreprisePo;
@@ -40,6 +41,14 @@ public class BatimentBo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCodeInterne() {
+        return codeInterne;
+    }
+
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 
     public String getInuav() {

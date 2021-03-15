@@ -20,7 +20,7 @@
                 <th>Dernière Modification</th>
             </tr>
             <tr th:each="batiment : ${batiments}">
-                <td><a th:href="@{/batiment/{id}(id=${batiment.id})}" th:utext="${batiment.inuav}">...</a></td>
+                <td><a th:href="@{/batiment/{id}(id=${batiment.id})}" th:utext="${batiment.codeInterne}">...</a></td>
                 <td th:utext="${batiment.adresse}">...</td>
                 <td th:utext="${batiment.entrepriseNom}">...</td>
                 <td th:utext="${batiment.actif}">...</td>

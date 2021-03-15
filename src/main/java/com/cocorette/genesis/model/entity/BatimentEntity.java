@@ -12,6 +12,7 @@ public class BatimentEntity {
     @Id
     @GeneratedValue
     private int id;
+    private String codeInterne;
     private String inuav;
     @ManyToOne
     @JoinColumn(name = "adresseId")
@@ -47,6 +48,14 @@ public class BatimentEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCodeInterne() {
+        return codeInterne;
+    }
+
+    public void setCodeInterne(String codeInterne) {
+        this.codeInterne = codeInterne;
     }
 
     public String getInuav() {

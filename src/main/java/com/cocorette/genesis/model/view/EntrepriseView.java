@@ -6,6 +6,8 @@ public class EntrepriseView {
     private int id;
     private String nom;
     private String ede;
+    private String tva;
+    private String siret;
     private String mail;
     private String telFixe;
     private String telPort;
@@ -48,6 +50,22 @@ public class EntrepriseView {
 
     public void setEde(String ede) {
         this.ede = ede;
+    }
+
+    public String getTva() {
+        return tva;
+    }
+
+    public void setTva(String tva) {
+        this.tva = tva;
+    }
+
+    public String getSiret() {
+        return siret;
+    }
+
+    public void setSiret(String siret) {
+        this.siret = siret;
     }
 
     public String getMail() {

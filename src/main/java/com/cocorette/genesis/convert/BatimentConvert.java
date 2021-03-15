@@ -14,6 +14,7 @@ public class BatimentConvert {
     public static BatimentBo batimentEntityToBo(BatimentEntity entity){
         BatimentBo bo = new BatimentBo();
         bo.setId(entity.getId());
+        bo.setCodeInterne(entity.getCodeInterne());
         bo.setInuav(entity.getInuav());
         bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
         bo.setEntreprisePo(EntrepriseConvert.entrepriseEntityToPo(entity.getEntreprise()));
@@ -36,6 +37,7 @@ public class BatimentConvert {
     public static BatimentEntity batimentBoToEntity(BatimentBo bo){
         BatimentEntity entity = new BatimentEntity();
         entity.setId(bo.getId());
+        entity.setCodeInterne(bo.getCodeInterne());
         entity.setInuav(bo.getInuav());
         entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
         entity.setEntreprise(EntrepriseConvert.entreprisePoToEntity(bo.getEntreprisePo()));
@@ -58,6 +60,7 @@ public class BatimentConvert {
 
     public static BatimentBo batimentFormToBo(BatimentForm form){
         BatimentBo bo = new BatimentBo();
+        bo.setCodeInterne(form.getCodeInterne());
         bo.setInuav(form.getInuav());
         bo.setEntreprisePo(new EntreprisePo(form.getEntrepriseId()));
         bo.setEau(form.getEau());
@@ -77,6 +80,7 @@ public class BatimentConvert {
     public static BatimentView batimentBoToView(BatimentBo bo){
         BatimentView view = new BatimentView();
         view.setId(bo.getId());
+        view.setCodeInterne(bo.getCodeInterne());
         view.setInuav(bo.getInuav());
         view.setEntreprise(bo.getEntreprisePo().getNom());
         view.setEntrepriseId(bo.getEntreprisePo().getId());
@@ -114,7 +118,7 @@ public class BatimentConvert {
     public static BatimentTable batimentBoToTable(BatimentBo bo){
         BatimentTable table = new BatimentTable();
         table.setId(bo.getId());
-        table.setInuav(bo.getInuav());
+        table.setCodeInterne(bo.getCodeInterne());
         table.setAdresse(bo.getAdresseBo().toString());
         table.setEntrepriseId(bo.getEntreprisePo().getId());
         table.setEntrepriseNom(bo.getEntreprisePo().getNom());
@@ -139,7 +143,7 @@ public class BatimentConvert {
     public static BatimentEntity batimentPoToEntity(BatimentPo po){
         BatimentEntity entity = new BatimentEntity();
         entity.setId(po.getId());
-        entity.setInuav(po.getInuav());
+        entity.setCodeInterne(po.getCodeInterne());
 
         return entity;
     }
