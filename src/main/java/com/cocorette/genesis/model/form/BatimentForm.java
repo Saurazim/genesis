@@ -10,7 +10,8 @@ public class BatimentForm {
     private String ville;
     private String pays;
     private int entrepriseId;
-    private String eau;
+    private Integer eauId;
+    private String eauNom;
     private int distCentre;
     private int anneeDebut;
     private float latitude;
@@ -92,12 +93,13 @@ public class BatimentForm {
 //        this.docCharte = docCharte;
 //    }
 
-    public String getEau() {
-        return eau;
+
+    public Integer getEauId() {
+        return eauId;
     }
 
-    public void setEau(String eau) {
-        this.eau = eau;
+    public void setEauId(Integer eauId) {
+        this.eauId = eauId;
     }
 
     public int getDistCentre() {

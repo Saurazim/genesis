@@ -110,7 +110,7 @@ public class LotTest {
 
         table.setId(ID);
         table.setCodeOeuf(CODE_OEUF);
-        table.setInuav(NOM_BATIMENT);
+        table.setBatiment(NOM_BATIMENT);
         table.setCategorie(NOM_CATEGORIE);
         table.setCouvoir(NOM_COUVOIR);
         table.setSouche(NOM_SOUCHE);

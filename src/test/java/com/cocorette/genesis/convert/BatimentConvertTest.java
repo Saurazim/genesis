@@ -77,7 +77,7 @@ public class BatimentConvertTest {
         assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(),result.getId());
         assertEquals(expected.getInuav(),result.getInuav());
-        assertEquals(expected.getEau(),result.getEau());
+        assertEquals(expected.getEauId(),result.getEauId());
         assertEquals(expected.getDistCentre(),result.getDistCentre());
         assertEquals(expected.getAnneeDebut(),result.getAnneeDebut());
         assertEquals(expected.getTypeBatiment(),result.getTypeBatiment());
@@ -120,7 +120,7 @@ public class BatimentConvertTest {
         assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getInuav(), result.getInuav());
-        assertEquals(expected.getEau(), result.getEau());
+        assertEquals(expected.getEauId(), result.getEauId());
         assertEquals(expected.getDistCentre(), result.getDistCentre());
         assertEquals(expected.getAnneeDebut(), result.getAnneeDebut());
         assertEquals(expected.getTypeBatiment(), result.getTypeBatiment());
@@ -148,7 +148,7 @@ public class BatimentConvertTest {
 
         assertEquals(expected.getClass(),result.getClass());
         assertEquals(expected.getInuav(), result.getInuav());
-        assertEquals(expected.getEau(), result.getEau());
+        assertEquals(expected.getEauId(), result.getEauId());
         assertEquals(expected.getDistCentre(), result.getDistCentre());
         assertEquals(expected.getAnneeDebut(), result.getAnneeDebut());
         assertEquals(expected.getTypeBatiment(), result.getTypeBatiment());

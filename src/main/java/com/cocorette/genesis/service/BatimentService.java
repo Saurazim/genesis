@@ -21,11 +21,11 @@ public class BatimentService {
     public BatimentView findBatimentView(int id){
         Optional<BatimentEntity> batiment = batimentDao.findById(id);
 
-        return BatimentConvert.batimentEntityToView(batiment.orElse(new BatimentEntity()));
+        return BatimentConvert.batimentEntityToView(batiment.orElseThrow());
     }
 
-    public Optional<BatimentEntity> findBatiment(int id){
-        return batimentDao.findById(id);
+    public BatimentEntity findBatiment(int id){
+        return batimentDao.findById(id).orElseThrow();
     }
 
     public List<BatimentTable> findAll(){

@@ -46,7 +46,7 @@ public class LotCoord {
         entity.setArchive(false);
         entity.setCreated(LocalDateTime.now());
         entity.setModified(LocalDateTime.now());
-        BatimentEntity batiment = batimentService.findBatiment(form.getBatimentId()).orElseThrow();
+        BatimentEntity batiment = batimentService.findBatiment(form.getBatimentId());
         entity.setBatimentEntity(batiment);
         lotService.saveLot(entity);
     }
@@ -82,7 +82,7 @@ public class LotCoord {
     }
 
     public List<LotTable> findLotByBatimentId(int batimentId){
-        BatimentEntity batiment = batimentService.findBatiment(batimentId).orElseThrow();
+        BatimentEntity batiment = batimentService.findBatiment(batimentId);
         return lotService.findLotByBatiment(batiment);
     }
 }

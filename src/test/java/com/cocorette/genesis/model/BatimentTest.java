@@ -1,10 +1,8 @@
 package com.cocorette.genesis.model;
 
 import com.cocorette.genesis.configuration.ConstantesForTest;
-import com.cocorette.genesis.model.bo.AdresseBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.bo.GpsBo;
-import com.cocorette.genesis.model.entity.AdresseEntity;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.entity.GpsEntity;
@@ -20,7 +18,8 @@ public class BatimentTest {
     private static final int ID = ConstantesForTest.ID;
     private static final String INTERNE = ConstantesForTest.INTERNE;
     private static final String INUAV = ConstantesForTest.INUAV;
-    private static final String EAU = ConstantesForTest.EAU;
+    private static final String EAU_NOM = ConstantesForTest.EAU_NOM;
+    private static final Integer EAU_ID = ConstantesForTest.EAU_ID;
     private static final int DIST_CENTRE = ConstantesForTest.DIST_CENTRE;
     private static final int ANNEE_DEBUT = ConstantesForTest.ANNEE_DEBUT;
     private static final String T_BATIMENT = ConstantesForTest.T_BATIMENT;
@@ -51,7 +50,7 @@ public class BatimentTest {
         entity.setId(ID);
         entity.setInuav(INUAV);
         entity.setEntreprise(entreprise);
-        entity.setEau(EAU);
+        entity.setEauId(EAU_ID);
         entity.setDistCentre(DIST_CENTRE);
         entity.setAnneeDebut(ANNEE_DEBUT);
         entity.setGps(gps);
@@ -78,7 +77,7 @@ public class BatimentTest {
         bo.setId(ID);
         bo.setInuav(INUAV);
         bo.setEntreprisePo(entreprise);
-        bo.setEau(EAU);
+        bo.setEauId(EAU_ID);
         bo.setDistCentre(DIST_CENTRE);
         bo.setAnneeDebut(ANNEE_DEBUT);
         bo.setGps(gps);
@@ -103,7 +102,7 @@ public class BatimentTest {
         form.setVille(VILLE);
         form.setPays(PAYS);
         form.setEntrepriseId(ID);
-        form.setEau(EAU);
+        form.setEauId(EAU_ID);
         form.setDistCentre(DIST_CENTRE);
         form.setAnneeDebut(ANNEE_DEBUT);
         form.setLatitude(LATITUDE);
@@ -145,7 +144,7 @@ public class BatimentTest {
         view.setCodePostal(CP);
         view.setVille(VILLE);
         view.setPays(PAYS);
-        view.setEau(EAU);
+        view.setEau(EAU_NOM);
         view.setDistCentre(DIST_CENTRE);
         view.setAnneeDebut(ANNEE_DEBUT);
         view.setTypeBatiment(T_BATIMENT);

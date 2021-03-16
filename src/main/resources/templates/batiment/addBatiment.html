@@ -14,10 +14,10 @@
         <fieldset>
             <input type="hidden" th:value="${form.entrepriseId}" name="entrepriseId">
             <legend>Informations</legend>
-            <label>Code Interne</label>
+            <label>Code Interne*</label>
             <input type="text" th:field="*{codeInterne}" required>
             <span class="error" th:text="${codeInterne}"></span>
-            <label>INUAV*</label>
+            <label>INUAV</label>
             <input type="text" th:field="*{inuav}">
             <span class="error" th:text="${inuav}"></span>
             <!--<label>Charte sanitaire</label>
@@ -34,7 +34,9 @@
             <input type="text" th:field="*{typeArbres}">
             <span class="error" th:text="${typearbres}"></span>
             <label>Arrivée d'eau*</label>
-            <input type="text" th:field="*{eau}" required>
+            <select th:field="*{eauId}">
+                <option th:each="arriveeEau : ${listEau}" th:value="${arriveeEau.id}" th:text="${arriveeEau.nom}"></option>
+            </select>
             <span class="error" th:text="${eau}"></span>
         </fieldset>
         <fieldset>

@@ -10,7 +10,7 @@ public class BatimentBo {
     private String inuav;
     private AdresseBo adresseBo;
     private EntreprisePo entreprisePo;
-    private String eau;
+    private Integer eauId;
     private int distCentre;
     private int anneeDebut;
     private GpsBo gps;
@@ -75,12 +75,12 @@ public class BatimentBo {
         this.entreprisePo = entreprisePo;
     }
 
-    public String getEau() {
-        return eau;
+    public Integer getEauId() {
+        return eauId;
     }
 
-    public void setEau(String eau) {
-        this.eau = eau;
+    public void setEauId(Integer eauId) {
+        this.eauId = eauId;
     }
 
     public int getDistCentre() {

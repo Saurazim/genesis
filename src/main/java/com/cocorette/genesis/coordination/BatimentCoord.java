@@ -3,16 +3,14 @@ package com.cocorette.genesis.coordination;
 import com.cocorette.genesis.configuration.Constantes;
 import com.cocorette.genesis.convert.BatimentConvert;
 import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.bo.ArriveeEauBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.view.BatimentView;
-import com.cocorette.genesis.service.AdresseService;
-import com.cocorette.genesis.service.BatimentService;
-import com.cocorette.genesis.service.EntrepriseService;
-import com.cocorette.genesis.service.GpsService;
+import com.cocorette.genesis.service.*;
 import com.cocorette.genesis.util.ConstantesUtil;
 import com.cocorette.genesis.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +34,8 @@ public class BatimentCoord {
     EntrepriseService entrepriseService;
     @Autowired
     GpsService gpsService;
+    @Autowired
+    ArriveeEauService arriveeEauService;
 
     private String cpRegex = ConstantesUtil.getProperty(Constantes.REGEX_CP);
 
@@ -90,7 +90,7 @@ public class BatimentCoord {
         if (form.getCodeInterne().isBlank())
             error.put("codeInterne","Le code interne est obligatoire");
 
-        if (form.getEau().isBlank())
+        if (form.getEauId()==null)
             error.put("eau","Le type d'arrivée d'eau est obligatoire");
 
         //verifs adresse
@@ -110,11 +110,21 @@ public class BatimentCoord {
     }
 
     public BatimentView findBatimentView(int id){
-        return batimentService.findBatimentView(id);
+        BatimentEntity entity = batimentService.findBatiment(id);
+        ArriveeEauBo aeb = arriveeEauService.findByIdBo(entity.getEauId());
+
+        BatimentView view = BatimentConvert.batimentEntityToView(entity);
+        view.setEau(aeb.getNom());
+
+        return view;
     }
 
     public List<BatimentTable> findBatimentByEntrepriseId(int entrepriseId){
         EntrepriseEntity entreprise = entrepriseService.findEntreprise(entrepriseId).orElseThrow();
         return batimentService.findBatimentByEntreprise(entreprise);
+    }
+
+    public List<ArriveeEauBo> findAllEau(){
+        return arriveeEauService.findAllBo();
     }
 }

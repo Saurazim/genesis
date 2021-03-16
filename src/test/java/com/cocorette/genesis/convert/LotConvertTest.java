@@ -181,7 +181,7 @@ public class LotConvertTest {
         assertEquals(expected.getCreated(), result.getCreated());
         assertEquals(expected.getModified(), result.getModified());
         assertEquals(batimentPo.getId(), result.getBatimentPo().getId());
-        assertEquals(batimentPo.getInuav(), result.getBatimentPo().getInuav());
+        assertEquals(batimentPo.getCodeInterne(), result.getBatimentPo().getCodeInterne());
         assertEquals(categorieBo.getId(), result.getCategorieBo().getId());
         assertEquals(categorieBo.getNom(), result.getCategorieBo().getNom());
         assertEquals(couvoirBo.getId(), result.getCouvoirBo().getId());
@@ -214,7 +214,7 @@ public class LotConvertTest {
         assertEquals(expected.getClass(), result.getClass());
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getCodeOeuf(), result.getCodeOeuf());
-        assertEquals(expected.getInuav(), result.getInuav());
+        assertEquals(expected.getBatiment(), result.getBatiment());
         assertEquals(expected.getCategorie(), result.getCategorie());
         assertEquals(expected.getCouvoir(), result.getCouvoir());
         assertEquals(expected.getSouche(), result.getSouche());

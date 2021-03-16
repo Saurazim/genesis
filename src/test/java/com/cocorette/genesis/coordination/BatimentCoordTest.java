@@ -91,7 +91,7 @@ public class BatimentCoordTest {
         expected.put("eau","Le type d'arrivée d'eau est obligatoire");
 
         BatimentForm form = batimentTest.creerForm();
-        form.setEau(null);
+        form.setEauId(null);
 
         Map<String, String> result = batimentCoord.validBatiment(form);
 

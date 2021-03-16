@@ -20,7 +20,7 @@ public class BatimentEntity {
     @ManyToOne
     @JoinColumn(name = "entrepriseId")
     private EntrepriseEntity entreprise;
-    private String eau;
+    private Integer eauId;
     private int distCentre;
     private int anneeDebut;
     @ManyToOne
@@ -82,12 +82,12 @@ public class BatimentEntity {
         this.entreprise = entreprise;
     }
 
-    public String getEau() {
-        return eau;
+    public Integer getEauId() {
+        return eauId;
     }
 
-    public void setEau(String eau) {
-        this.eau = eau;
+    public void setEauId(Integer eauId) {
+        this.eauId = eauId;
     }
 
     public int getDistCentre() {

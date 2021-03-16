@@ -21,7 +21,8 @@ public interface ConstantesForTest {
     //Batiment
     String INTERNE = "interne00XX";
     String INUAV = "code00xxx";
-    String EAU = "arrosage";
+    Integer EAU_ID = 789;
+    String EAU_NOM = "arrosage";
     int DIST_CENTRE = 456;
     int ANNEE_DEBUT = 2020;
     String T_BATIMENT = "Poulailler";

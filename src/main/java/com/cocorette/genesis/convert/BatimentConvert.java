@@ -1,6 +1,6 @@
 package com.cocorette.genesis.convert;
 
-import com.cocorette.genesis.model.bo.AdresseBo;
+import com.cocorette.genesis.model.bo.ArriveeEauBo;
 import com.cocorette.genesis.model.bo.BatimentBo;
 import com.cocorette.genesis.model.bo.GpsBo;
 import com.cocorette.genesis.model.entity.BatimentEntity;
@@ -18,7 +18,7 @@ public class BatimentConvert {
         bo.setInuav(entity.getInuav());
         bo.setAdresseBo(AdresseConvert.adresseEntityToBo(entity.getAdresse()));
         bo.setEntreprisePo(EntrepriseConvert.entrepriseEntityToPo(entity.getEntreprise()));
-        bo.setEau(entity.getEau());
+        bo.setEauId(entity.getEauId());
         bo.setDistCentre(entity.getDistCentre());
         bo.setAnneeDebut(entity.getAnneeDebut());
         bo.setGps(GpsConvert.gpsEntityToBo(entity.getGps()));
@@ -41,7 +41,7 @@ public class BatimentConvert {
         entity.setInuav(bo.getInuav());
         entity.setAdresse(AdresseConvert.adresseBoToEntity(bo.getAdresseBo()));
         entity.setEntreprise(EntrepriseConvert.entreprisePoToEntity(bo.getEntreprisePo()));
-        entity.setEau(bo.getEau());
+        entity.setEauId(bo.getEauId());
         entity.setDistCentre(bo.getDistCentre());
         entity.setAnneeDebut(bo.getAnneeDebut());
         if(bo.getGps()!=null)
@@ -63,7 +63,7 @@ public class BatimentConvert {
         bo.setCodeInterne(form.getCodeInterne());
         bo.setInuav(form.getInuav());
         bo.setEntreprisePo(new EntreprisePo(form.getEntrepriseId()));
-        bo.setEau(form.getEau());
+        bo.setEauId(form.getEauId());
         bo.setDistCentre(form.getDistCentre());
         bo.setAnneeDebut(form.getAnneeDebut());
         bo.setGps(new GpsBo(form.getLatitude(), form.getLongitude()));
@@ -88,7 +88,6 @@ public class BatimentConvert {
         view.setCodePostal(bo.getAdresseBo().getCodePostal());
         view.setVille(bo.getAdresseBo().getVille());
         view.setPays(bo.getAdresseBo().getPays());
-        view.setEau(bo.getEau());
         view.setDistCentre(bo.getDistCentre());
         view.setAnneeDebut(bo.getAnneeDebut());
         view.setTypeBatiment(bo.getTypeBatiment());

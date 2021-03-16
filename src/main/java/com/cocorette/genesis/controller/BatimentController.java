@@ -2,6 +2,7 @@ package com.cocorette.genesis.controller;
 
 import com.cocorette.genesis.coordination.BatimentCoord;
 import com.cocorette.genesis.coordination.LotCoord;
+import com.cocorette.genesis.model.bo.ArriveeEauBo;
 import com.cocorette.genesis.model.form.BatimentForm;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.table.LotTable;
@@ -36,7 +37,9 @@ public class BatimentController {
     @GetMapping("/addBatiment/{entrepriseId}")
     public String showAddBatiment(Model model, @PathVariable int entrepriseId){
         BatimentForm form = new BatimentForm(entrepriseId);
+        List<ArriveeEauBo> listEau = batimentCoord.findAllEau();
         model.addAttribute("form", form);
+        model.addAttribute("listEau", listEau);
 
         return "batiment/addBatiment";
     }
@@ -53,8 +56,10 @@ public class BatimentController {
 
         model.addAllAttributes(erreurs);
         model.addAttribute("submit","Formulaire invalide");
+        List<ArriveeEauBo> listEau = batimentCoord.findAllEau();
+        model.addAttribute("listEau", listEau);
 
-        return "batiment/addBatiment";
+        return "batiment/addBatiment/{form.getEntrepriseId}";
     }
 
     @GetMapping("/batiment/{id}")
