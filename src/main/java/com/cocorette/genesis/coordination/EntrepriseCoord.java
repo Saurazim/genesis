@@ -8,6 +8,7 @@ import com.cocorette.genesis.model.bo.EntrepriseBo;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
 import com.cocorette.genesis.model.form.EntrepriseForm;
+import com.cocorette.genesis.model.modif.EntrepriseModif;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EntrepriseView;
 import com.cocorette.genesis.service.AdresseService;
@@ -41,7 +42,7 @@ public class EntrepriseCoord {
     public void saveEntreprise(EntrepriseForm form){
         EntrepriseBo bo = EntrepriseConvert.entrepriseFormToBo(form);
         AdresseBo adresseBo = adresseService.getAdresseBo(form);
-        ContactBo contactBo = contactService.getContactFromEntreprise(form);
+        ContactBo contactBo = contactService.getContactBo(form);
         bo.setAdresseBo(adresseBo);
         bo.setContactBo(contactBo);
         EntrepriseEntity entity = EntrepriseConvert.entrepriseBoToEntity(bo);
@@ -60,7 +61,54 @@ public class EntrepriseCoord {
         }
     }
 
+    public void updateEntreprise(EntrepriseModif modif){
+        EntrepriseBo bo = EntrepriseConvert.entrepriseModifToBo(modif);
+        AdresseBo adresseBo = adresseService.getAdresseBo(modif);
+        ContactBo contactBo = contactService.getContactBo(modif);
+        bo.setAdresseBo(adresseBo);
+        bo.setContactBo(contactBo);
+    }
+
     public Map<String,String> validEntreprise(EntrepriseForm form){
+        Map<String,String> error = new HashMap<>();
+        //verif obligatoires
+        if (form.getNom().isBlank())
+            error.put("nom","Le nom est obligatoire");
+        if (form.getEde().isBlank())
+            error.put("ede","EDE obligatoire");
+        if (!form.getEde().matches("\\d+}"))
+            error.put("ede","EDE invalide ; ne doit contenir que des numéros");
+        if (form.getMail().isBlank() && form.getTelFixe().isBlank()
+                && form.getTelPort().isBlank() && form.getFax().isBlank()){
+            error.put("contact","au moins un contact doit etre rempli");
+        }else{
+            //verif contacts
+            if (!form.getFax().isBlank() && !form.getFax().matches(telRegex)){
+                error.put("fax", "numéro invalide");
+            }
+            if (!form.getTelFixe().isBlank() && !form.getTelFixe().matches(telRegex)){
+                error.put("telfixe", "numéro invalide");
+            }
+            if (!form.getTelPort().isBlank() && !form.getTelPort().matches(telRegex)){
+                error.put("telport", "numéro invalide");
+            }
+            if (!form.getMail().isBlank() && !form.getMail().matches(mailRegex)){
+                error.put("mail", "mail invalide");
+            }
+        }
+        //verifs adresse
+        if (form.getRue().isBlank()||form.getCodePostal().isBlank()
+                ||form.getVille().isBlank()||form.getPays().isBlank()){
+            error.put("adresse", "adresse invalide");
+        }else {
+            if (!form.getCodePostal().matches(cpRegex))
+                error.put("codepostal","Code postal invalide");
+        }
+
+        return error;
+    }
+
+    public Map<String,String> validEntreprise(EntrepriseModif form){
         Map<String,String> error = new HashMap<>();
         //verif obligatoires
         if (form.getNom().isBlank())
@@ -105,6 +153,13 @@ public class EntrepriseCoord {
 
     public EntrepriseView findEntrepriseView(int id){
         return entrepriseService.findEntrepriseView(id);
+    }
+
+    public EntrepriseModif findEntrepriseModif(int id){
+        EntrepriseBo bo = entrepriseService.findEntrepriseBo(id);
+        EntrepriseModif modif = EntrepriseConvert.entrepriseBoToModif(bo);
+
+        return modif;
     }
 
     public List<EntrepriseTable> findEntrepriseByEleveurId(int eleveurId){

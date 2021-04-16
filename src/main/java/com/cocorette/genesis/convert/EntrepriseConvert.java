@@ -4,6 +4,7 @@ import com.cocorette.genesis.model.bo.*;
 import com.cocorette.genesis.model.entity.EleveurEntity;
 import com.cocorette.genesis.model.form.EntrepriseForm;
 import com.cocorette.genesis.model.entity.EntrepriseEntity;
+import com.cocorette.genesis.model.modif.EntrepriseModif;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.transitionnel.EleveurPo;
 import com.cocorette.genesis.model.transitionnel.EntreprisePo;
@@ -168,5 +169,40 @@ public class EntrepriseConvert {
 
     public static EntrepriseEntity entreprisePoToEntity(EntreprisePo po){
         return new EntrepriseEntity(po.getId());
+    }
+
+    public static EntrepriseModif entrepriseBoToModif(EntrepriseBo bo){
+        EntrepriseModif modif = new EntrepriseModif();
+        modif.setId(bo.getId());
+        modif.setEde(bo.getEde());
+        modif.setNom(bo.getNom());
+        modif.setTva(bo.getTva());
+        modif.setSiret(bo.getSiret());
+        modif.setRue(bo.getAdresseBo().getRue());
+        modif.setCodePostal(bo.getAdresseBo().getCodePostal());
+        modif.setVille(bo.getAdresseBo().getVille());
+        modif.setPays(bo.getAdresseBo().getPays());
+        modif.setMail(bo.getContactBo().getMail());
+        modif.setTelFixe(bo.getContactBo().getTelFixe());
+        modif.setTelPort(bo.getContactBo().getTelPort());
+        modif.setFax(bo.getContactBo().getFax());
+        modif.setEleveurId(bo.getEleveurPo().getId());
+        modif.setCommentaire(bo.getCommentaire());
+
+        return modif;
+    }
+
+    public static EntrepriseBo entrepriseModifToBo(EntrepriseModif modif){
+        EntrepriseBo bo = new EntrepriseBo();
+        // adresse, contact, eleveurPo
+
+        bo.setId(modif.getId());
+        bo.setNom(modif.getNom());
+        bo.setEde(modif.getEde());
+        bo.setTva(modif.getTva());
+        bo.setSiret(modif.getSiret());
+        bo.setCommentaire(modif.getCommentaire());
+
+        return bo;
     }
 }

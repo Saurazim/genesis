@@ -30,6 +30,12 @@ public class EntrepriseService {
         return entrepriseDao.findById(id);
     }
 
+    public EntrepriseBo findEntrepriseBo(int id){
+        Optional<EntrepriseEntity> entity = entrepriseDao.findById(id);
+
+        return EntrepriseConvert.entrepriseEntityToBo(entity.orElseThrow());
+    }
+
     public List<EntrepriseTable> findAll(){
         List<EntrepriseEntity> entities = entrepriseDao.findAll();
         List<EntrepriseTable> tables = new ArrayList<>();

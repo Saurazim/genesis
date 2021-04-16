@@ -4,6 +4,7 @@ import com.cocorette.genesis.model.bo.ContactBo;
 import com.cocorette.genesis.model.bo.EleveurBo;
 import com.cocorette.genesis.model.form.EleveurForm;
 import com.cocorette.genesis.model.entity.EleveurEntity;
+import com.cocorette.genesis.model.modif.EleveurModif;
 import com.cocorette.genesis.model.table.EleveurTable;
 import com.cocorette.genesis.model.transitionnel.EleveurPo;
 import com.cocorette.genesis.model.view.EleveurView;
@@ -120,5 +121,42 @@ public class EleveurConvert {
         po.setPrenom(entity.getPrenom());
 
         return po;
+    }
+
+    public static EleveurModif eleveurBoToModif(EleveurBo bo){
+        EleveurModif modif = new EleveurModif();
+        modif.setId(bo.getId());
+        modif.setPrenom(bo.getPrenom());
+        modif.setNom(bo.getNom());
+        modif.setMail(bo.getContactBo().getMail());
+        modif.setTelFixe(bo.getContactBo().getTelFixe());
+        modif.setTelPort(bo.getContactBo().getTelPort());
+        modif.setFax(bo.getContactBo().getFax());
+        modif.setCommentaire(bo.getCommentaire());
+
+        return modif;
+    }
+
+    public static EleveurBo eleveurModifToBo(EleveurModif modif){
+        EleveurBo bo = new EleveurBo();
+        ContactBo contactBo = new ContactBo();
+
+        bo.setId(modif.getId());
+        bo.setPrenom(modif.getPrenom());
+        bo.setNom(modif.getNom());
+        bo.setContactBo(contactBo);
+        bo.getContactBo().setMail(modif.getMail());
+        bo.getContactBo().setTelFixe(modif.getTelFixe());
+        bo.getContactBo().setTelPort(modif.getTelPort());
+        bo.getContactBo().setFax(modif.getFax());
+        bo.setCommentaire(modif.getCommentaire());
+
+        return bo;
+    }
+
+    public static EleveurEntity eleveurModifToEntity(EleveurModif modif){
+        EleveurBo bo = eleveurModifToBo(modif);
+
+        return eleveurBoToEntity(bo);
     }
 }

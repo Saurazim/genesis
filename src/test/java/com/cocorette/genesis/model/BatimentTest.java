@@ -36,7 +36,7 @@ public class BatimentTest {
     private static final String PAYS = ConstantesForTest.PAYS;
     private static final float LATITUDE = ConstantesForTest.LATITUDE;
     private static final float LONGITUDE = ConstantesForTest.LONGITUDE;
-    private static final String NOM_ENTERPRISE = ConstantesForTest.NOM_ENTERPRISE;
+    private static final String NOM_ENTREPRISE = ConstantesForTest.NOM_ENTERPRISE;
 
     public BatimentEntity creerEntity(){
         BatimentEntity entity = new BatimentEntity();
@@ -124,7 +124,7 @@ public class BatimentTest {
         table.setCodeInterne(INTERNE);
         table.setAdresse(RUE+" "+CP+" "+VILLE+" "+PAYS);
         table.setEntrepriseId(ID);
-        table.setEntrepriseNom(NOM_ENTERPRISE);
+        table.setEntrepriseNom(NOM_ENTREPRISE);
         table.setActif(ACTIF);
         table.setArchive(ARCHIVE);
         table.setCreated(CREATION);
@@ -138,7 +138,7 @@ public class BatimentTest {
 
         view.setId(ID);
         view.setInuav(INUAV);
-        view.setEntreprise(NOM_ENTERPRISE);
+        view.setEntreprise(NOM_ENTREPRISE);
         view.setEntrepriseId(ID);
         view.setRue(RUE);
         view.setCodePostal(CP);

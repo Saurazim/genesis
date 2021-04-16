@@ -14,9 +14,6 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-    @Autowired
-    AlimentCoord alimentCoord;
-
     @GetMapping("/administration")
     public String administration(Model model){
         return "admin/admin";

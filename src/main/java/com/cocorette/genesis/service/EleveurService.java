@@ -22,11 +22,17 @@ public class EleveurService {
     public EleveurView findEleveurView(int id){
         Optional<EleveurEntity> eleveur = eleveurDao.findById(id);
 
-        return EleveurConvert.eleveurEntityToView(eleveur.orElse(new EleveurEntity("Erreur","erreur")));
+        return EleveurConvert.eleveurEntityToView(eleveur.orElseThrow());
     }
 
     public Optional<EleveurEntity> findEleveur(int id){
         return eleveurDao.findById(id);
+    }
+
+    public EleveurBo findEleveurBo(int id){
+        Optional<EleveurEntity> entity = eleveurDao.findById(id);
+
+        return EleveurConvert.eleveurEntityToBo(entity.orElseThrow());
     }
 
     public List<EleveurTable> findAll(){
@@ -55,4 +61,16 @@ public class EleveurService {
         eleveurDao.saveAll(eleveurEntities);
     }
 
+    public List<String> checkDiff(EleveurEntity ce1, EleveurEntity ce2){
+        List<String> listDiff = new ArrayList<>();
+
+        if (!ce1.getPrenom().contentEquals(ce2.getPrenom()))
+            listDiff.add("prenom");
+        if (!ce1.getNom().contentEquals(ce2.getNom()))
+            listDiff.add("nom");
+        if (!ce1.getCommentaire().contentEquals(ce2.getCommentaire()))
+            listDiff.add("commentaire");
+
+        return listDiff;
+    }
 }

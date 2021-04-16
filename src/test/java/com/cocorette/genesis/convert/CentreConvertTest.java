@@ -15,9 +15,12 @@ import com.cocorette.genesis.model.table.CentreTable;
 import com.cocorette.genesis.model.view.CentreView;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.reactivestreams.Publisher;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+
+@ExtendWith(MockitoExtension.class)
 public class CentreConvertTest {
     @Mock
     GpsConvert gpsConvert;
@@ -41,6 +44,7 @@ public class CentreConvertTest {
         input.setGpsBo(gpsBo);
 
         when(gpsConvert.gpsBoToEntity(input.getGpsBo())).thenReturn(gpsEntity);
+
 
         CentreEntity result = CentreConvert.centreBoToEntity(input);
 
@@ -80,7 +84,7 @@ public class CentreConvertTest {
     }
 
     @Test
-    public void centreFormToBo(){
+    public void centreFormToBoTest(){
         GpsBo gpsBo = gpsTest.creerBo();
         CentreForm input = centreTest.creerForm();
         CentreBo expected = centreTest.creerBo();
@@ -95,7 +99,7 @@ public class CentreConvertTest {
     }
 
     @Test
-    public void centreBoToView(){
+    public void centreBoToViewTest(){
         GpsBo gpsBo = gpsTest.creerBo();
 
         CentreBo input = centreTest.creerBo();
@@ -118,7 +122,7 @@ public class CentreConvertTest {
     }
 
     @Test
-    public void centreBoToTable(){
+    public void centreBoToTableTest(){
         GpsBo gpsBo = gpsTest.creerBo();
 
         CentreBo input = centreTest.creerBo();

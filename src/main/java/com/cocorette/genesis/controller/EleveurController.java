@@ -3,6 +3,7 @@ package com.cocorette.genesis.controller;
 import com.cocorette.genesis.coordination.EleveurCoord;
 import com.cocorette.genesis.coordination.EntrepriseCoord;
 import com.cocorette.genesis.model.form.EleveurForm;
+import com.cocorette.genesis.model.modif.EleveurModif;
 import com.cocorette.genesis.model.table.EleveurTable;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EleveurView;
@@ -10,10 +11,7 @@ import com.cocorette.genesis.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,4 +65,30 @@ public class EleveurController {
         model.addAttribute("entreprises", tables);
         return "eleveur/eleveurView";
     }
+
+    @GetMapping("/eleveur/{id}/modif")
+    public String modifEleveur(Model model, @PathVariable int id){
+        EleveurModif modif = eleveurCoord.findEleveurModif(id);
+
+        model.addAttribute("modif", modif);
+        return "eleveur/updateEleveur";
+    }
+
+    @PutMapping("/updateEleveur")
+    public String updateEleveur(Model model, @ModelAttribute("modif") EleveurModif modif){
+        Map<String,String> erreurs = eleveurCoord.validEleveur(modif);
+        boolean change = false;
+
+        if(erreurs.isEmpty()){
+            change = eleveurCoord.updateEleveur(modif);
+        }
+
+        if (change)
+            return "redirect:/eleveurs";
+
+        model.addAttribute("change", change);
+        model.addAttribute("erreurs",erreurs);
+        return "eleveur/updateEleveur";
+    }
+
 }

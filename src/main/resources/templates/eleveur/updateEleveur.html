@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--/*/ <th:block th:insert="fragment/fragment :: header"></th:block> /*/-->
+    <meta charset="UTF-8">
+    <title>Mise à jour Eleveur</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}"/>
+</head>
+<body>
+<div th:replace="fragment/fragment :: topbar"></div>
+<section class="main_section">
+    <h1>Modifier l'éleveur</h1>
+    <form name="modif" th:action="@{/updateEleveur}" th:object="${modif}" method="PUT">
+        <fieldset>
+            <legend>Informations</legend>
+            <label>Nom*</label>
+            <input type="text" class="name" th:field="*{nom}" th:text="${modif.nom}" required>
+            <span class="error" th:text="${error.nom}"></span>
+            <label>Prénom*</label>
+            <input type="text" class="first_name" th:field="*{prenom}" th:text="${modif.prenom}" required>
+            <span class="error" th:text="${error.prenom}"></span>
+        </fieldset>
+        <fieldset>
+            <legend>Contact</legend>
+            <h3>Un champ minimum est requis</h3>
+            <span class="error" th:text="${error.contact}"></span>
+            <label>Email</label>
+            <input type="email" class="email" th:field="*{mail}" th:text="${modif.mail}">
+            <span class="error" th:text="${error.mail}"></span>
+            <label>Téléphone fixe</label>
+            <input type="tel" class="tel_fixe" th:field="*{telFixe}" th:text="${modif.telFixe}">
+            <span class="error" th:text="${error.telfixe}"></span>
+            <label>Téléphone Portable</label>
+            <input type="tel" class="tel_port" th:field="*{telPort}" th:text="${modif.telPort}">
+            <span class="error" th:text="${error.fax}"></span>
+            <label>Fax</label>
+            <input type="tel" class="fax" th:field="*{fax}" th:text="${modif.fax}">
+        </fieldset>
+        <fieldset>
+            <legend>Autres</legend>
+            <label>Commentaires</label>
+            <input class="commentaire" th:field="*{commentaire}" th:text="${modif.commentaire}">
+            <span class="error" th:text="${error.commentaire}"></span>
+        </fieldset>
+        <input class="submit" type="submit" value="Modifier">
+        <span class="error" th:text="${error.submit}"></span>
+        <input class="submit" type="button" th:href="@{/eleveur/{id}(id=${modif.id})}" >
+    </form>
+</section>
+</body>
+</html>

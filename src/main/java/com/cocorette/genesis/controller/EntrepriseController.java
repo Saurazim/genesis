@@ -3,16 +3,14 @@ package com.cocorette.genesis.controller;
 import com.cocorette.genesis.coordination.BatimentCoord;
 import com.cocorette.genesis.coordination.EntrepriseCoord;
 import com.cocorette.genesis.model.form.EntrepriseForm;
+import com.cocorette.genesis.model.modif.EntrepriseModif;
 import com.cocorette.genesis.model.table.BatimentTable;
 import com.cocorette.genesis.model.table.EntrepriseTable;
 import com.cocorette.genesis.model.view.EntrepriseView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -64,5 +62,27 @@ public class EntrepriseController {
         model.addAttribute("entreprise", view);
         model.addAttribute("batiments", tables);
         return "entreprise/entrepriseView";
+    }
+
+    @GetMapping("/entreprise/{id}/modif")
+    public String modifEntreprise(Model model, @PathVariable int id){
+        EntrepriseModif modif = entrepriseCoord.findEntrepriseModif(id);
+
+        model.addAttribute("modif", modif);
+        return "entreprise/updateEntreprise";
+    }
+
+    @PutMapping("/updateEntreprise")
+    public String updateEntreprise(Model model, @ModelAttribute("modif") EntrepriseModif modif){
+        Map<String, String> erreurs = entrepriseCoord.validEntreprise(modif);
+        boolean change = false;
+
+        if (erreurs.isEmpty()){
+
+        }
+
+        model.addAttribute("change", change);
+        model.addAttribute("erreurs", erreurs);
+        return "entreprise/updateEntreprise";
     }
 }

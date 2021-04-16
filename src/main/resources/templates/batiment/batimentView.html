@@ -18,6 +18,14 @@
                 </legend>
                 <div class="row collapse">
                     <div class="large-6 columns">
+                        <label class="inline bold">Code interne</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="inline" th:utext="${batiment.codeInterne}">...</label>
+                </div>
+                <div class="row collapse">
+                    <div class="large-6 columns">
                         <label class="inline bold">Code INUAV</label>
                     </div>
                 </div>
@@ -108,7 +116,6 @@
                     <table border="1">
                         <tr>
                             <th>Code Oeufs</th>
-                            <th>Inuav</th>
                             <th>Catégorie</th>
                             <th>Couvoir</th>
                             <th>Souche</th>
@@ -119,7 +126,6 @@
                         </tr>
                         <tr th:each="lot : ${lots}">
                             <td><a th:href="@{/lot/{id}(id=${lot.id})}" th:utext="${lot.id}">...</a></td>
-                            <td th:utext="${lot.inuav}">...</td>
                             <td th:utext="${lot.categorie}">...</td>
                             <td th:utext="${lot.couvoir}">...</td>
                             <td th:utext="${lot.souche}">...</td>
